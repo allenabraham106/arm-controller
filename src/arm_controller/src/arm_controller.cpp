@@ -4,7 +4,7 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & ptr) : node_(node){
 
 }
 
-bool ArmController::Initialize(){
+bool ArmController::initialize(){
     move_group_ = std::make_shared<moveit:planning_interface::MoveGroupInterface>(
         node_ = "panada_arm"
     ); 

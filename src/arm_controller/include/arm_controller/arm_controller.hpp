@@ -7,7 +7,7 @@
 class ArmController{
     public: 
         explicit ArmContoller(const rclcpp::Node::SharedPtr & node);
-        bool initialized(); 
+        bool initialize(); 
         bool moveToPose(double x, double y, double z);
         bool stop();
     
