@@ -4,15 +4,15 @@
 #include <thread>
 #include "arm_controller/arm_controller.hpp"
 
-class ArmLifeCycleNode : public rclcpp_lifestyle::LifecycleNode{
+class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
     public:
-        ArmLifeCycleNode() : rclcpp_lifecycle::LifeCycleNode("arm_lifecycle_node"){
+        ArmLifeCycleNode() : rclcpp_lifecycle::LifecycleNode("arm_lifecycle_node"){
 
         }
     
     private:
         std::shared_ptr<ArmController> arm_; // smart pointer
-        rclcpp::Node::Sharedptr node_ptr_; // shared pointer
+        rclcpp::Node::SharedPtr node_ptr_; // shared pointer
 
         CallbackReturn on_configure(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Configuring...");
@@ -28,7 +28,7 @@ class ArmLifeCycleNode : public rclcpp_lifestyle::LifecycleNode{
             return CallbackReturn::SUCCESS;
         }
 
-        CallbackReturn on_deactive(const rclcpp_lifecycle::State &){
+        CallbackReturn on_deactivate(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Deactivating...");
             arm_->stop();
             return CallbackReturn::SUCCESS;
@@ -41,10 +41,10 @@ class ArmLifeCycleNode : public rclcpp_lifestyle::LifecycleNode{
         }
 };
 
-int main(int argv, char* argv[]){
+int main(int argc, char* argv[]){
     rclcpp::init(argc, argv);
     auto node = std::make_shared<ArmLifeCycleNode>();
-    rclcpp::executors::MultiThreadExecutor executor;
+    rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node->get_node_base_interface());
     executor.spin();
     rclcpp::shutdown();

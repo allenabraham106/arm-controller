@@ -1,12 +1,12 @@
 #include "arm_controller/arm_controller.hpp"
 
-ArmController::ArmController(const rclcpp::Node::SharedPtr & ptr) : node_(node){
+ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
 
 }
 
 bool ArmController::initialize(){
-    move_group_ = std::make_shared<moveit:planning_interface::MoveGroupInterface>(
-        node_ = "panada_arm"
+    move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
+        node_, "panda_arm"
     ); 
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
     return true; 
@@ -26,6 +26,6 @@ bool ArmController::moveToPose(double x, double y, double z){
 
 bool ArmController::stop(){
     move_group_->stop();
-    RCLCPP_INFO(node_->get_logger(), "ArmController Stopped")
+    RCLCPP_INFO(node_->get_logger(), "ArmController Stopped");
     return true;
 }
