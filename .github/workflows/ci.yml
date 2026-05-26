@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-22.04
+    container:
+      image: osrf/ros:humble-desktop
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: src/repo
+
+      - name: Move packages to workspace root
+        run: |
+          mkdir -p ros2_ws/src
+          mv src/repo/src/* ros2_ws/src/
+          ls ros2_ws/src
+
+      - name: Install build & lint dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            python3-colcon-common-extensions \
+            python3-rosdep \
+            build-essential \
+            python3-ament-cmake-test \
+            ros-humble-ament-cmake-gtest \
+            ros-humble-ament-lint-auto \
+            ros-humble-ament-lint-common \
+            ros-humble-ament-copyright \
+            ros-humble-ament-cppcheck \
+            ros-humble-ament-cpplint \
+            ros-humble-ament-flake8 \
+            ros-humble-ament-lint-cmake \
+            ros-humble-ament-pep257 \
+            ros-humble-ament-uncrustify \
+            ros-humble-ament-xmllint \
+            cppcheck \
+            uncrustify
+
+      - name: Install package dependencies (rosdep)
+        working-directory: ros2_ws
+        run: |
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y
+
+      - name: Build
+        working-directory: ros2_ws
+        run: |
+          source /opt/ros/humble/setup.bash
+          colcon build --event-handlers console_cohesion+
+
+      - name: Test
+        working-directory: ros2_ws
+        run: |
+          source /opt/ros/humble/setup.bash
+          source install/setup.bash
+          colcon test --event-handlers console_cohesion+ --return-code-on-test-failure
+
+      - name: Verbose test results
+        if: always()
+        working-directory: ros2_ws
+        run: |
+          colcon test-result --all --verbose
+
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: colcon-test-results
+          path: |
+            ros2_ws/build/**/test_results/**/*.xml
+            ros2_ws/log/latest_test/**

@@ -1,0 +1,26 @@
+services:
+  ros2-dev:
+    platform: ${DOCKER_PLATFORM:-linux/amd64}
+    build:
+      context: .
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+        USERNAME: ${USERNAME:-devuser}
+        ROS_BASE_IMAGE: ${ROS_BASE_IMAGE:-osrf/ros:humble-desktop}
+    container_name: ros2_humble_demo
+    volumes:
+      - ./src:/ros2_ws/src:rw
+      - ./build:/ros2_ws/build:rw
+      - ./install:/ros2_ws/install:rw
+      - ./log:/ros2_ws/log:rw
+      - ./scripts/build.sh:/ros2_ws/build.sh:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    network_mode: host
+    stdin_open: true
+    tty: true
+    privileged: true
+    working_dir: /ros2_ws

@@ -1,0 +1,64 @@
+ARG ROS_BASE_IMAGE=osrf/ros:humble-desktop
+FROM ${ROS_BASE_IMAGE}
+
+# Install additional tools and complete testing/linting packages
+RUN apt-get update && apt-get install -y \
+    python3-colcon-common-extensions \
+    python3-rosdep \
+    python3-vcstool \
+    build-essential \
+    git \
+    vim \
+    nano \
+    sudo \
+    python3-pip \
+    python3-ament-cmake-test \
+    ros-humble-ament-cmake-gtest \
+    ros-humble-ament-lint-auto \
+    ros-humble-ament-lint-common \
+    ros-humble-ament-copyright \
+    ros-humble-ament-cppcheck \
+    ros-humble-ament-cpplint \
+    ros-humble-ament-flake8 \
+    ros-humble-ament-lint-cmake \
+    ros-humble-ament-pep257 \
+    ros-humble-ament-uncrustify \
+    ros-humble-ament-xmllint \
+    cppcheck \
+    uncrustify \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create user with same UID/GID as host user (dynamic)
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+ARG USERNAME=devuser
+
+RUN groupadd -g $GROUP_ID $USERNAME && \
+    useradd -m -u $USER_ID -g $GROUP_ID -s /bin/bash $USERNAME && \
+    echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME && \
+    chmod 0440 /etc/sudoers.d/$USERNAME
+
+# Auto-source ROS env in interactive shells. `docker compose exec` does NOT
+# run the entrypoint, so without this, ament_* lint scripts fail with
+# "PackageNotFoundError: No package metadata was found for ament-*".
+RUN echo 'source /opt/ros/humble/setup.bash' >> /home/$USERNAME/.bashrc && \
+    echo '[ -f /ros2_ws/install/setup.bash ] && source /ros2_ws/install/setup.bash' >> /home/$USERNAME/.bashrc
+
+# Create workspace
+WORKDIR /ros2_ws
+RUN chown -R $USERNAME:$USERNAME /ros2_ws
+
+# Copy and setup entrypoint script as root
+COPY scripts/docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+
+# Initialize rosdep as root, then fix permissions for the user
+RUN rosdep update && \
+    rosdep fix-permissions
+
+# Switch to non-root user for runtime
+USER $USERNAME
+
+# Set the entrypoint
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["bash"]
