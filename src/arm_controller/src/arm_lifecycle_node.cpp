@@ -13,12 +13,16 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
     private:
         std::shared_ptr<ArmController> arm_; // smart pointer
         rclcpp::Node::SharedPtr node_ptr_; // shared pointer
+        std::thread spin_thread_;
 
         CallbackReturn on_configure(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Configuring...");
             node_ptr_ = std::make_shared<rclcpp::Node>("arm_inner");
             arm_=std::make_shared<ArmController>(node_ptr_);
             arm_->initialize();
+            spin_thread_ = std::thread([this](){
+                rclcpp::spin(node_ptr_);
+            });
             return CallbackReturn::SUCCESS;
         }
 
@@ -37,6 +41,10 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
         CallbackReturn on_shutdown(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Shuting down...");
             arm_.reset();
+            rclcpp::shutdown();
+            if(spin_thread_.joinable()){
+                spin_thread_.join();
+            }
             return CallbackReturn::SUCCESS;
         }
 };
