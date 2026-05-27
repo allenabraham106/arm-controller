@@ -14,6 +14,11 @@ bool ArmController::initialize(){
         10, 
         std::bind(&ArmController::onClickedPoint, this, std::placeholders::_1)
     );
+    target_pose_sub_ = node_->create_subscription<geometry_msgs::msg::PoseStamped>(
+        "/arm_target_pose", 
+        10, 
+        std::bind(&ArmController::onTargetPose, this, std::placeholders::_1)
+    );
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
     return true; 
@@ -46,5 +51,18 @@ void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::Share
     RCLCPP_INFO(node_->get_logger(), "Recieved Point: x=%.2f y=%.2f z=%.2f",
                     msg->point.x, msg->point.y, msg->point.z);
     moveToPose(msg->point.x, msg->point.y, msg->point.z);
+    is_moving_ = false;
+}
+
+void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
+{
+    if (is_moving_) {
+        RCLCPP_INFO(node_->get_logger(), "Already moving, ignoring");
+        return;
+    }
+    is_moving_ = true;
+    RCLCPP_INFO(node_->get_logger(), "GUI target: x=%.2f y=%.2f z=%.2f",
+        msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
+    moveToPose(msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
     is_moving_ = false;
 }

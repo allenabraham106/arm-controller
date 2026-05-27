@@ -41,6 +41,11 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
+install(PROGRAMS
+  scripts/arm_gui.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
 
 install(DIRECTORY launch
