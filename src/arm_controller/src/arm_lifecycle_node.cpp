@@ -40,7 +40,7 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
 
         CallbackReturn on_shutdown(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Shuting down...");
-            arm_.reset();
+            arm_.reset();i 
             rclcpp::shutdown();
             if(spin_thread_.joinable()){
                 spin_thread_.join();

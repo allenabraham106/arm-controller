@@ -38,7 +38,13 @@ bool ArmController::stop(){
 }
 
 void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
+    if(is_moving_){
+        RCLCPP_INFO(node_->get_logger(), "Already moving, ignoring click");
+        return;
+    }
+    is_moving_ = true; 
     RCLCPP_INFO(node_->get_logger(), "Recieved Point: x=%.2f y=%.2f z=%.2f",
                     msg->point.x, msg->point.y, msg->point.z);
     moveToPose(msg->point.x, msg->point.y, msg->point.z);
+    is_moving_ = false;
 }
