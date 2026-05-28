@@ -56,6 +56,9 @@ jobs:
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y
 
+      - name: Install Moveit
+        run: apt-get install -y ros-humble-moveit
+        
       - name: Build
         working-directory: ros2_ws
         run: |

@@ -15,36 +15,48 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
         rclcpp::Node::SharedPtr node_ptr_; // shared pointer
         std::thread spin_thread_;
 
+        // Configuring the arm. This prepares the arm to move not to actually move
         CallbackReturn on_configure(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Configuring...");
             node_ptr_ = std::make_shared<rclcpp::Node>("arm_inner");
             arm_=std::make_shared<ArmController>(node_ptr_);
-            arm_->initialize();
+            // checks if the arm is initialized and what to do if it so not
+            if(!arm_->initialize()){
+                RCLCPP_ERROR(get_logger(), "ArmController Failed to Initialize");
+                return CallbackReturn::FAILURE;
+            }
             spin_thread_ = std::thread([this](){
                 rclcpp::spin(node_ptr_);
             });
             return CallbackReturn::SUCCESS;
         }
 
+        // Activate the arm and move to position. We start with the first position
         CallbackReturn on_activate(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Activating...");
-            arm_->moveToPose(0.3, 0.0, 0.4);
+            // checks if the arm is at the initial pose we set
+            if(!arm_->moveToPose(0.3, 0.0, 0.4)){
+                RCLCPP_ERROR(get_logger(), "Failed the move to initial pose");
+                return CallbackReturn::FAILURE;
+            }
             return CallbackReturn::SUCCESS;
         }
 
+        // Deactivating the arm so it stops
         CallbackReturn on_deactivate(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Deactivating...");
             arm_->stop();
             return CallbackReturn::SUCCESS;
         }
 
+        // Shutting down the arm
         CallbackReturn on_shutdown(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Shuting down...");
-            arm_.reset();
             rclcpp::shutdown();
             if(spin_thread_.joinable()){
                 spin_thread_.join();
             }
+            arm_.reset();
             return CallbackReturn::SUCCESS;
         }
 };
