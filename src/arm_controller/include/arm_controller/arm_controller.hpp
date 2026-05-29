@@ -10,10 +10,27 @@
 class ArmController{
     public: 
         explicit ArmController(const rclcpp::Node::SharedPtr & node);
+        /**
+        * @brief Initializes the MoveIt planning interface and prepares the arm for movement
+        * @return true if initialization succeeded, false otherwise
+        */
         bool initialize(); 
+        /**
+        * @brief Moves the arm end-effector to the specified position
+        * @param x Target position in meters along the x-axis
+        * @param y Target position in meters along the y-axis
+        * @param z Target position in meters along the z-axis
+        * @return true if motion completed successfully, false otherwise
+        */
         bool moveToPose(double x, double y, double z);
+        /**
+        * @brief Stops all arm motion immediately
+        */
         void stop();
-        // Shared ptr so that we are able to access the Pose that we are currently on
+        /**
+        * @brief Determines if the arm is moving and deals with extra clicks 
+        * @param msg The target pose message containing the desired end effector position
+        */
         void onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
 
     

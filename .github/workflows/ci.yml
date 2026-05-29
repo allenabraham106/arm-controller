@@ -48,16 +48,14 @@ jobs:
             ros-humble-ament-uncrustify \
             ros-humble-ament-xmllint \
             cppcheck \
-            uncrustify
+            uncrustify \
+            ros-humble-moveit
 
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws
         run: |
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y
-
-      - name: Install Moveit
-        run: apt-get install -y ros-humble-moveit
         
       - name: Build
         working-directory: ros2_ws
