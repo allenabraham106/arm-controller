@@ -36,13 +36,13 @@ bool ArmController::moveToPose(double x, double y, double z){
     moveit::planning_interface::MoveGroupInterface::Plan plan;
     auto plan_result = move_group_->plan(plan);
     if(plan_result != moveit::core::MoveItErrorCode::SUCCESS){
-        RCLCPP_ERROR(get_logger(), "Planning with failed node: %d", plan_result.val);
+        RCLCPP_ERROR(node_->get_logger(), "Planning with failed node: %d", plan_result.val);
         return false;
     }
 
     auto exec_result = move_group_->execute(plan);
     if(exec_result != moveit::core::MoveItErrorCode::SUCCESS){
-        RCLCPP_ERROR(get_logger(), "Execution failed with node: %d", exec_result.val);
+        RCLCPP_ERROR(node_->get_logger(), "Execution failed with node: %d", exec_result.val);
         return false;
     }
     return true;
