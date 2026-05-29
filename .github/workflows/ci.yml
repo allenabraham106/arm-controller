@@ -52,6 +52,11 @@ jobs:
             cppcheck \
             uncrustify
 
+      - name: Debug MoveIt headers 
+        run: |
+          find /opt/ros/humble -name "move_group_interface.hpp" 2>/dev/null
+          dpkg -l | grep moveit
+
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws
         run: |
