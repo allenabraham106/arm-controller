@@ -1,9 +1,11 @@
 #pragma once 
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
-#include <geometry_msgs/msg/pose.hpp>
-#include <geometry_msgs/msg/point_stamped.hpp>
-#include <geometry_msgs/msg/pose_stamped.hpp>
+
+//ROS2 interface for target arm pose and input
+#include <geometry_msgs/msg/pose.hpp>           // target end effector pose
+#include <geometry_msgs/msg/point_stamped.hpp>  // clicked point in RViz
+#include <geometry_msgs/msg/pose_stamped.hpp>   // target pose from GUI
 #include <memory>
 #include <atomic>
 

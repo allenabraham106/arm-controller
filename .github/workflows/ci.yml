@@ -51,12 +51,7 @@ jobs:
             uncrustify \
             ros-humble-moveit-ros-planning-interface \
             ros-humble-moveit-core
-
-      - name: Debug MoveIt headers 
-        run: |
-          find /opt/ros/humble -name "move_group_interface.hpp" 2>/dev/null || true
-          dpkg -l | grep moveit || true
-          dpkg -L ros-humble-moveit-ros-planning-interface || true
+            
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws
         run: |
