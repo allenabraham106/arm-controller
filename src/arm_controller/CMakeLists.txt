@@ -10,6 +10,8 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 # ArmController library
 add_library(arm_controller_lib
@@ -23,6 +25,8 @@ ament_target_dependencies(arm_controller_lib
   rclcpp
   moveit_ros_planning_interface
   geometry_msgs
+  tf2
+  tf2_geometry_msgs
 )
 
 # Lifecycle node executable
@@ -33,7 +37,17 @@ ament_target_dependencies(arm_lifecycle_node
   rclcpp_lifecycle
 )
 
-install(TARGETS arm_controller_lib arm_lifecycle_node
+# Terminal Controller node executable
+add_executable(terminal_controller src/terminal_controller.cpp)
+target_link_libraries(terminal_controller arm_controller_lib)
+ament_target_dependencies(terminal_controller
+  rclcpp
+  geometry_msgs
+  tf2
+  tf2_geometry_msgs
+)
+
+install(TARGETS arm_controller_lib arm_lifecycle_node terminal_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
