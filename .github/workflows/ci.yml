@@ -47,10 +47,10 @@ jobs:
             ros-humble-ament-pep257 \
             ros-humble-ament-uncrustify \
             ros-humble-ament-xmllint \
-            cppcheck \
-            uncrustify \
             ros-humble-moveit-ros-planning-interface \
-            ros-humble-moveit-core
+            ros-humble-moveit-core \
+            cppcheck \
+            uncrustify 
             
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws

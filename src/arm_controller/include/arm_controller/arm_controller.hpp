@@ -1,13 +1,13 @@
 #pragma once 
 #include <rclcpp/rclcpp.hpp>
-#include <moveit/move_group_interface/move_group_interface.h>
-
-//ROS2 interface for target arm pose and input
+#include <moveit/move_group_interface/move_group_interface.hpp>
 #include <geometry_msgs/msg/pose.hpp>           // target end effector pose
 #include <geometry_msgs/msg/point_stamped.hpp>  // clicked point in RViz
 #include <geometry_msgs/msg/pose_stamped.hpp>   // target pose from GUI
+#include <std_msgs/msg/empty.hpp>
 #include <memory>
 #include <atomic>
+#include <vector>
 
 class ArmController{
     public: 
@@ -42,6 +42,12 @@ class ArmController{
         rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr target_pose_sub_;
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_; // shared pointer to the MoveGroupInterface
         std::atomic<bool> is_moving_{false}; // sets the declaration of the arm moving state to either true or false without being corrupted
-
+        std::vector<geometry_msgs::msg::Pose> waypoints_;
+        rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr execute_waypoints_sub_;
+        rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr clear_waypoints_sub_;
+        void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
+        void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
+        bool executeWaypoints(); 
+        void clearWaypoints();
 };
