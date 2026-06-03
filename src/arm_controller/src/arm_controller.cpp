@@ -119,6 +119,23 @@ bool ArmController::executeWaypoints(){
         true,
         &error_code
     );
+    RCLCPP_INFO(node_->get_logger(), "Cartesian Plan Summary");
+    RCLCPP_INFO(node_->get_logger(), "Path Coverage: %.0f", fraction * 100);
+    RCLCPP_INFO(node_->get_logger(), "Trajectory waypoints: %zu", trajectory.joint_trajectory.points.size());
+    RCLCPP_INFO(node_->get_logger(), "Joints: %zu", trajectory.joint_trajectory.joint_names.size());
+    for(const auto & name : trajectory.joint_trajectory.joint_names){
+        RCLCPP_INFO(node_->get_logger(), "  %s", name.c_str());
+    }
+    RCLCPP_INFO(node_->get_logger(), "--- Start State ---");
+    auto current_state = move_group_->getCurrentState();
+    std::vector<double> joint_values;
+    current_state->copyJointGroupPositions(
+    current_state->getJointModelGroup("panda_arm"), joint_values);
+    auto joint_names = move_group_->getJointNames();
+    for(size_t i = 0; i < joint_names.size(); i++){
+        RCLCPP_INFO(node_->get_logger(), "  %s: %.4f rad", 
+            joint_names[i].c_str(), joint_values[i]);
+    }
     if(fraction < 0.9){
         RCLCPP_WARN(node_->get_logger(), "Only %.0f%% of path planned", fraction * 100.0);
     }
