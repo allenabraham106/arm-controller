@@ -47,28 +47,9 @@ bool ArmController::initialize(){
 }
 
 bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){
-    is_moving_ = true;
-
-    // Set the target
-    move_group_->setPoseTarget(target_pose); 
-    
-    moveit::planning_interface::MoveGroupInterface::Plan plan;
-    // Plan is populated by reference to the setPoseTarget. Using plan() occupies plan with the trajectories
-    auto plan_result = move_group_->plan(plan);
-    if(plan_result != moveit::core::MoveItErrorCode::SUCCESS){
-        RCLCPP_ERROR(node_->get_logger(), "Planning with failed node: %d", plan_result.val);
-        is_moving_ = false;
-        return false;
-    }
-
-    auto exec_result = move_group_->execute(plan);
-    if(exec_result != moveit::core::MoveItErrorCode::SUCCESS){
-        RCLCPP_ERROR(node_->get_logger(), "Execution failed with node: %d", exec_result.val);
-        is_moving_ = false;
-        return false;
-    }
-    is_moving_ = false; 
-    return true;
+    waypoints_.clear();
+    waypoints_.push_back(target_pose);
+    return executeWaypoints();
 }
 
 void ArmController::stop(){
