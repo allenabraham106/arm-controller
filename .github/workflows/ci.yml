@@ -47,6 +47,8 @@ jobs:
             ros-humble-ament-pep257 \
             ros-humble-ament-uncrustify \
             ros-humble-ament-xmllint \
+            ros-humble-moveit-ros-planning-interface \
+            ros-humble-moveit-core \
             cppcheck \
             uncrustify
 
