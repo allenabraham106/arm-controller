@@ -102,6 +102,7 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     moveToPose(msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
 }
 
+// using humble cartesian planning (will not build successfully if on jazzy or newer)
 bool ArmController::executeWaypoints(){
     if(waypoints_.empty()){
         RCLCPP_WARN(node_->get_logger(), "No waypoints to execute");
@@ -109,7 +110,15 @@ bool ArmController::executeWaypoints(){
     }
     RCLCPP_INFO(node_->get_logger(), "Executing %zu waypoints", waypoints_.size());
     moveit_msgs::msg::RobotTrajectory trajectory;
-    double fraction = move_group_->computeCartesianPath(waypoints_, 0.01, trajectory);
+    moveit_msgs::msg::MoveItErrorCodes error_code;
+    double fraction = move_group_->computeCartesianPath(
+        waypoints_, //waypoints
+        0.01,
+        0.0,
+        trajectory,
+        true,
+        &error_code
+    );
     if(fraction < 0.9){
         RCLCPP_WARN(node_->get_logger(), "Only %.0f%% of path planned", fraction * 100.0);
     }
