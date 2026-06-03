@@ -1,6 +1,7 @@
 #pragma once 
 #include <rclcpp/rclcpp.hpp>
-#include <moveit/move_group_interface/move_group_interface.hpp>
+// only using .h rather than .hpp for CI compatibility. For jazzy and newer .hpp is fine
+#include <moveit/move_group_interface/move_group_interface.h> 
 #include <geometry_msgs/msg/pose.hpp>           // target end effector pose
 #include <geometry_msgs/msg/point_stamped.hpp>  // clicked point in RViz
 #include <geometry_msgs/msg/pose_stamped.hpp>   // target pose from GUI
