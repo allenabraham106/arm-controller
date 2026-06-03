@@ -50,8 +50,8 @@ jobs:
             ros-humble-moveit-ros-planning-interface \
             ros-humble-moveit-core \
             cppcheck \
-            uncrustify 
-            
+            uncrustify
+
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws
         run: |

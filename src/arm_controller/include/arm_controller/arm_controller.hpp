@@ -25,7 +25,7 @@ class ArmController{
         * @param z Target position in meters along the z-axis
         * @return true if motion completed successfully, false otherwise
         */
-        bool moveToPose(double x, double y, double z);
+        bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
         /**
         * @brief Stops all arm motion immediately
         */

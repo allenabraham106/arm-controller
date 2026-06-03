@@ -35,8 +35,13 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
         CallbackReturn on_activate(const rclcpp_lifecycle::State &){
             RCLCPP_INFO(get_logger(), "Activating...");
             // checks if the arm is at the initial pose we set
-            if(!arm_->moveToPose(0.3, 0.0, 0.4)){
-                RCLCPP_ERROR(get_logger(), "Failed the move to initial pose");
+            geometry_msgs::msg::Pose initial_pose;
+            initial_pose.position.x = 0.3;
+            initial_pose.position.y = 0.0;
+            initial_pose.position.z = 0.4;
+            initial_pose.orientation.w = 1.0;
+            if(!arm_->moveToPose(initial_pose)){
+                RCLCPP_ERROR(get_logger(), "Failed to move to initial pose");
                 return CallbackReturn::FAILURE;
             }
             return CallbackReturn::SUCCESS;

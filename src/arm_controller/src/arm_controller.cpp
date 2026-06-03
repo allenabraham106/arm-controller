@@ -1,5 +1,6 @@
 #include "arm_controller/arm_controller.hpp"
 #include <moveit_msgs/msg/robot_trajectory.hpp>
+#include <geometry_msgs/msg/pose.hpp>
 
 ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
 
@@ -45,13 +46,8 @@ bool ArmController::initialize(){
     return true; 
 }
 
-bool ArmController::moveToPose(double x, double y, double z){
+bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){
     is_moving_ = true;
-    geometry_msgs::msg::Pose target_pose; 
-    target_pose.position.x = x;
-    target_pose.position.y = y;
-    target_pose.position.z = z; 
-    target_pose.orientation.w = 1.0;
 
     // Set the target
     move_group_->setPoseTarget(target_pose); 
@@ -99,7 +95,7 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     }
     RCLCPP_INFO(node_->get_logger(), "GUI target: x=%.2f y=%.2f z=%.2f",
         msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
-    moveToPose(msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
+    moveToPose(msg->pose);
 }
 
 // using humble cartesian planning (will not build successfully if on jazzy or newer)
