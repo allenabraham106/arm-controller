@@ -10,6 +10,8 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 
 # ArmController library
 add_library(arm_controller_lib
@@ -23,6 +25,8 @@ ament_target_dependencies(arm_controller_lib
   rclcpp
   moveit_ros_planning_interface
   geometry_msgs
+  visualization_msgs
+  std_msgs
 )
 
 # Lifecycle node executable

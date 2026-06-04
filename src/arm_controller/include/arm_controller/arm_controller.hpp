@@ -6,6 +6,8 @@
 #include <geometry_msgs/msg/point_stamped.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/empty.hpp>
+#include <visualization_msgs/msg/marker_array.hpp>
+#include <std_msgs/msg/int32.hpp>
 #include <memory>
 #include <atomic>
 #include <vector>
@@ -46,9 +48,13 @@ class ArmController{
         std::vector<geometry_msgs::msg::Pose> waypoints_;
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr execute_waypoints_sub_;
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr clear_waypoints_sub_;
+        rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
+        rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr remove_waypoint_sub_;
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
         bool executeWaypoints(); 
         void clearWaypoints();
+        void publishWaypointMarkers();
+        void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
 };
