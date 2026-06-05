@@ -95,7 +95,7 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     }
     RCLCPP_INFO(node_->get_logger(), "GUI target: x=%.2f y=%.2f z=%.2f",
         msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
-    moveToPose(msg->pose);
+    safeMoveToPose(msg->pose);
 }
 
 // using humble cartesian planning (will not build successfully if on jazzy or newer)
@@ -189,7 +189,7 @@ void ArmController::publishWaypointMarkers(){
     marker_pub_->publish(marker_array);
 }
 
- void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
+void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
     int index = msg->data; 
     if(index < 0 || index >= (int)waypoints_.size()){
         RCLCPP_WARN(node_->get_logger(), "Invalid index %d, please select from valid index up to %zu", index, waypoints_.size());
@@ -198,4 +198,12 @@ void ArmController::publishWaypointMarkers(){
     waypoints_.erase(waypoints_.begin() + index);
     RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
     publishWaypointMarkers();
+}
+
+bool ArmController::safeMoveToPose(const geometry_msgs::msg::Pose & target_pose){
+    if(!waypoints_.empty()){
+        RCLCPP_ERROR(node_->get_logger(), "Cannot call moveToPose with %zu waypoints queued. Call clearWaypoints() first", waypoints_.size());
+        return false;
+    }
+    return moveToPose(target_pose);
 }

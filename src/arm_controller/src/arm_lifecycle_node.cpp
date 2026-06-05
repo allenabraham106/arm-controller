@@ -40,7 +40,7 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
             initial_pose.position.y = 0.0;
             initial_pose.position.z = 0.4;
             initial_pose.orientation.w = 1.0;
-            if(!arm_->moveToPose(initial_pose)){
+            if(!arm_->safeMoveToPose(initial_pose)){
                 RCLCPP_ERROR(get_logger(), "Failed to move to initial pose");
                 return CallbackReturn::FAILURE;
             }

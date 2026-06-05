@@ -37,6 +37,10 @@ class ArmController{
         * @param msg The target pose message containing the desired end effector position
         */
         void onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
+        /**
+        * @brief Move to pose safely by rejecting any extra moveToPose
+        */
+        bool safeMoveToPose(const geometry_msgs::msg::Pose & target_pose);
 
     
     private:
