@@ -1,4 +1,5 @@
 #pragma once 
+
 #include <rclcpp/rclcpp.hpp>
 // only using .h rather than .hpp for CI compatibility. For jazzy and newer .hpp is fine
 #include <moveit/move_group_interface/move_group_interface.h> 
@@ -12,40 +13,47 @@
 
 class ArmController{
     public: 
-        explicit ArmController(const rclcpp::Node::SharedPtr & node);
+        explicit ArmController(const rclcpp::Node::SharedPtr & node) {};
+
         /**
-        * @brief Initializes the MoveIt planning interface and prepares the arm for movement
-        * @return true if initialization succeeded, false otherwise
-        */
+         * @brief Initializes the MoveIt planning interface and prepares the arm for movement
+         * @return true if initialization succeeded, false otherwise
+         */
         bool initialize(); 
+
         /**
-        * @brief Moves the arm end-effector to the specified position
-        * @param x Target position in meters along the x-axis
-        * @param y Target position in meters along the y-axis
-        * @param z Target position in meters along the z-axis
-        * @return true if motion completed successfully, false otherwise
-        */
+         * @brief Moves the arm end-effector to the specified position
+         * @param x Target position in meters along the x-axis
+         * @param y Target position in meters along the y-axis
+         * @param z Target position in meters along the z-axis
+         * @return true if motion completed successfully, false otherwise
+         */
         bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
+
         /**
-        * @brief Stops all arm motion immediately
-        */
-        void stop();
-        /**
-        * @brief Determines if the arm is moving and deals with extra clicks 
-        * @param msg The target pose message containing the desired end effector position
-        */
+         * @brief Determines if the arm is moving and deals with extra clicks 
+         * @param msg The target pose message containing the desired end effector position
+         */
         void onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
 
+        /**
+         * @brief Stops all arm motion immediately
+         */
+        void stop();
     
     private:
-        rclcpp::Node::SharedPtr node_; // shared pointer for a ros2 node 
+        rclcpp::Node::SharedPtr node_;
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
+
         rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr clicked_point_sub_;
         rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr target_pose_sub_;
-        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_; // shared pointer to the MoveGroupInterface
-        std::atomic<bool> is_moving_{false}; // sets the declaration of the arm moving state to either true or false without being corrupted
-        std::vector<geometry_msgs::msg::Pose> waypoints_;
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr execute_waypoints_sub_;
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr clear_waypoints_sub_;
+        
+        // sets the declaration of the arm moving state to either true or false without being corrupted
+        std::atomic<bool> is_moving_{false};
+        std::vector<geometry_msgs::msg::Pose> waypoints_;
+
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
