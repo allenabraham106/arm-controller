@@ -50,26 +50,6 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-add_executable(cartesian_demo demo/cartesian_demo.cpp)
-ament_target_dependencies(cartesian_demo
-  rclcpp
-  moveit_ros_planning_interface
-  geometry_msgs
-)
-
-add_executable(ompl_demo demo/ompl_demo.cpp)
-ament_target_dependencies(ompl_demo
-  rclcpp
-  moveit_ros_planning_interface
-  geometry_msgs
-)
-
-install(TARGETS
-  cartesian_demo
-  ompl_demo
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 ament_package()
 
 install(DIRECTORY launch
