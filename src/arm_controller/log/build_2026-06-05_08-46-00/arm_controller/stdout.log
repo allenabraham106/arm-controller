@@ -1,0 +1,71 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_lifecycle: 28.1.18 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+-- Found moveit_ros_planning_interface: 2.12.4 (/opt/ros/jazzy/share/moveit_ros_planning_interface/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: date_time filesystem program_options system thread 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+-- Found parameter_traits: 0.7.1 (/opt/ros/jazzy/share/parameter_traits/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: filesystem 
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread chrono 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread system filesystem regex date_time program_options 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread 
+-- Configuring done (1.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller
+[ 25%] [32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o[0m
+[ 50%] [32m[1mLinking CXX static library libarm_controller_lib.a[0m
+[ 50%] Built target arm_controller_lib
+[ 75%] [32mBuilding CXX object CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable arm_lifecycle_node[0m
+[100%] Built target arm_lifecycle_node
+-- Install configuration: ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/libarm_controller_lib.a
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_gui.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.sh
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.bash
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.sh
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.zsh
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.xml
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch/cartesian_demo.launch.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch/ompl_demo.launch.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch/arm_lifecycle.launch.py

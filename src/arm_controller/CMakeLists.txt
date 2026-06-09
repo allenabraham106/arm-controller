@@ -47,11 +47,16 @@ install(DIRECTORY include/
 
 install(PROGRAMS
   scripts/arm_gui.py
+  scripts/fake_pointcloud.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
 
 install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
 )
