@@ -103,7 +103,7 @@ bool ArmController::executeWaypoints(){
     auto current_state = move_group_->getCurrentState();
     std::vector<double> joint_values;
     current_state->copyJointGroupPositions(
-        current_state->getJointModelGroup("panda_arm"), joint_values);
+    current_state->getJointModelGroup("panda_arm"), joint_values);
     auto joint_names = move_group_->getJointNames();
     for(size_t i = 0; i < joint_names.size(); i++){
         RCLCPP_INFO(node_->get_logger(), "  %s: %.4f rad", 
