@@ -2,51 +2,48 @@
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 
-ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
-
-}
-
 bool ArmController::initialize(){
     move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
         node_, "panda_arm"
     ); 
 
     // Subscribes to clicked points from RViz "publish point" tool 
-    // Use case: manual point selection in RViz
     clicked_point_sub_ = node_->create_subscription<geometry_msgs::msg::PointStamped>(
         "/clicked_point", 
         10, 
         std::bind(&ArmController::onClickedPoint, this, std::placeholders::_1)
     );
 
-    // Subscribers to slider inputs from the GUI inputs
-    // Use case: precise control of position and orientation from the GUI 
+    // Subscribers custom pose controller interface
+    // TODO: Test this interface
     target_pose_sub_ = node_->create_subscription<geometry_msgs::msg::PoseStamped>(
         "/arm_target_pose", 
         10, 
         std::bind(&ArmController::onTargetPose, this, std::placeholders::_1)
     );
+    
+    RCLCPP_INFO(node_->get_logger(), " Start listening for clicked points...");
 
-    // Subscriber that listen for the execute waypoint input
+    // Subscriber that listen for the execute waypoint signal 
     execute_waypoints_sub_ = node_->create_subscription<std_msgs::msg::Empty>(
         "/execute_waypoints",
         10,
         std::bind(&ArmController::onExecuteWaypoints, this, std::placeholders::_1)
     );
 
-    // Subscriber that listens for the clear waypoint input
+    // Subscriber that listens for the clear waypoint signal 
     clear_waypoints_sub_ = node_->create_subscription<std_msgs::msg::Empty>(
         "/clear_waypoints",
         10, 
         std::bind(&ArmController::onClearWaypoints, this, std::placeholders::_1)
     );
 
-    RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
     return true; 
 }
 
 bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){
+    // TODO: Potential Defect why clear the vector? 
     waypoints_.clear();
     waypoints_.push_back(target_pose);
     return executeWaypoints();
@@ -58,10 +55,8 @@ void ArmController::stop(){
 }
 
 void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    geometry_msgs::msg::Pose pose; 
-    pose.position.x = msg->point.x;
-    pose.position.y = msg->point.y; 
-    pose.position.z = msg->point.z;
+    geometry_msgs::msg::Pose pose;
+    pose.position = msg->point;
     pose.orientation.w = 1.0;
     waypoints_.push_back(pose);
     RCLCPP_INFO(node_->get_logger(), "Waypoint %zu added => x: %.2f, y: %.2f, z: %.2f",
@@ -88,6 +83,7 @@ bool ArmController::executeWaypoints(){
     RCLCPP_INFO(node_->get_logger(), "Executing %zu waypoints", waypoints_.size());
     moveit_msgs::msg::RobotTrajectory trajectory;
     moveit_msgs::msg::MoveItErrorCodes error_code;
+    // TODO: Move all planner to it's own interface
     double fraction = move_group_->computeCartesianPath(
         waypoints_, //waypoints
         0.01,
@@ -111,7 +107,7 @@ bool ArmController::executeWaypoints(){
     auto joint_names = move_group_->getJointNames();
     for(size_t i = 0; i < joint_names.size(); i++){
         RCLCPP_INFO(node_->get_logger(), "  %s: %.4f rad", 
-            joint_names[i].c_str(), joint_values[i]);
+        joint_names[i].c_str(), joint_values[i]);
     }
     if(fraction < 0.9){
         RCLCPP_WARN(node_->get_logger(), "Only %.0f%% of path planned", fraction * 100.0);
