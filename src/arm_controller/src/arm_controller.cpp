@@ -70,10 +70,8 @@ void ArmController::stop(){
 }
 
 void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    if(std::abs(msg->point.x) > 0.85 || 
-       std::abs(msg->point.y) > 0.85 ||
-       msg->point.z < 0.0 || msg->point.z > 1.2){
-        RCLCPP_WARN(node_->get_logger(), "Point out of workspace bounds, ignoring");
+    if(!isInWorkspace(msg)){
+        RCLCPP_WARN(node_->get_logger(), "Published point is out of the workspace");
         return;
     }
     geometry_msgs::msg::Pose pose; 
@@ -131,11 +129,12 @@ bool ArmController::executeWaypoints(){
     }
 
     move_group_->execute(trajectory);
-    clearWaypoints();
+    clearAllWaypoints();
     return true;
 }
 
-void ArmController::clearWaypoints(){
+void ArmController::clearAllWaypoints(){
+    // publish a DELETEALL marker to remove all markers from RViz before clearing the waypoint list
     visualization_msgs::msg::MarkerArray clear_markers;
     visualization_msgs::msg::Marker delete_marker;
     delete_marker.action = visualization_msgs::msg::Marker::DELETEALL;
@@ -149,7 +148,7 @@ void ArmController::onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr){
 }
 
 void ArmController::onClearWaypoints(const std_msgs::msg::Empty::SharedPtr){
-    clearWaypoints();
+    clearAllWaypoints();
 }
 
 void ArmController::publishWaypointMarkers(){
@@ -161,11 +160,11 @@ void ArmController::publishWaypointMarkers(){
     line.id = 0; 
     line.type = visualization_msgs::msg::Marker::LINE_STRIP;
     line.action = visualization_msgs::msg::Marker::ADD;
-    line.scale.x = 0.01;
-    line.color.r = 0.00;
-    line.color.g = 1.00;
-    line.color.b = 0.00;
-    line.color.a = 1.00;
+    line.scale.x = MARKER_LINE_WIDTH;
+    line.color.r = MARKER_LINE_R;
+    line.color.g = MARKER_LINE_G;
+    line.color.b = MARKER_LINE_B;
+    line.color.a = MARKER_ALPHA;
     for(size_t i = 0; i < waypoints_.size(); ++i){
         line.points.push_back(waypoints_[i].position);
         visualization_msgs::msg::Marker sphere;
@@ -176,13 +175,13 @@ void ArmController::publishWaypointMarkers(){
         sphere.type = visualization_msgs::msg::Marker::SPHERE;
         sphere.action = visualization_msgs::msg::Marker::ADD;
         sphere.pose = waypoints_[i];
-        sphere.scale.x = 0.05;
-        sphere.scale.y = 0.05;
-        sphere.scale.z = 0.05;
-        sphere.color.r = 1.0;
-        sphere.color.g = 0.0;
-        sphere.color.b = 0.0;
-        sphere.color.a = 1.0;
+        sphere.scale.x = MARKER_SPHERE_SIZE;
+        sphere.scale.y = MARKER_SPHERE_SIZE;
+        sphere.scale.z = MARKER_SPHERE_SIZE;
+        sphere.color.r = MARKER_SPHERE_R;
+        sphere.color.g = MARKER_SPHERE_G;
+        sphere.color.b = MARKER_SPHERE_B;
+        sphere.color.a = MARKER_ALPHA;
         marker_array.markers.push_back(sphere);
     }
     marker_array.markers.push_back(line);
@@ -202,8 +201,15 @@ void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
 
 bool ArmController::safeMoveToPose(const geometry_msgs::msg::Pose & target_pose){
     if(!waypoints_.empty()){
-        RCLCPP_ERROR(node_->get_logger(), "Cannot call moveToPose with %zu waypoints queued. Call clearWaypoints() first", waypoints_.size());
+        RCLCPP_ERROR(node_->get_logger(), "Cannot call moveToPose with %zu waypoints queued. Call clearAllWaypoints() first", waypoints_.size());
         return false;
     }
     return moveToPose(target_pose);
+}
+
+bool ArmController::isInWorkspace(const geometry_msgs::msg::PointStamped::SharedPtr msg){
+    return  std::abs(msg->point.x) <= WORKSPACE_LIMIT_XY &&
+            std::abs(msg->point.y) <= WORKSPACE_LIMIT_XY &&
+            msg->point.z >= WORKSPACE_LIMIT_Z_MIN &&
+            msg->point.z <= WORKSPACE_LIMIT_Z_MAX;
 }

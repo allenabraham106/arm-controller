@@ -12,6 +12,8 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 # ArmController library
 add_library(arm_controller_lib
@@ -27,6 +29,8 @@ ament_target_dependencies(arm_controller_lib
   geometry_msgs
   visualization_msgs
   std_msgs
+  tf2
+  tf2_geometry_msgs
 )
 
 # Lifecycle node executable

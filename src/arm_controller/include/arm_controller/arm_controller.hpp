@@ -21,14 +21,6 @@ class ArmController{
         */
         bool initialize(); 
         /**
-        * @brief Moves the arm end-effector to the specified position
-        * @param x Target position in meters along the x-axis
-        * @param y Target position in meters along the y-axis
-        * @param z Target position in meters along the z-axis
-        * @return true if motion completed successfully, false otherwise
-        */
-        bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
-        /**
         * @brief Stops all arm motion immediately
         */
         void stop();
@@ -38,7 +30,9 @@ class ArmController{
         */
         void onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
         /**
-        * @brief Move to pose safely by rejecting any extra moveToPose
+        * @brief Safely moves to a pose, rejecting the call if waypoints are already queued
+        * @param target_pose The target end-effector pose
+        * @return true if motion completed successfully, false if waypoints are queued or motion fails
         */
         bool safeMoveToPose(const geometry_msgs::msg::Pose & target_pose);
 
@@ -58,7 +52,22 @@ class ArmController{
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
         bool executeWaypoints(); 
-        void clearWaypoints();
+        void clearAllWaypoints();
         void publishWaypointMarkers();
         void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
+        bool isInWorkspace( const geometry_msgs::msg::PointStamped::SharedPtr msg);
+        bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
+
+        static constexpr double WORKSPACE_LIMIT_XY = 0.85;
+        static constexpr double WORKSPACE_LIMIT_Z_MIN = 0.0;
+        static constexpr double WORKSPACE_LIMIT_Z_MAX = 1.2;
+        static constexpr double MARKER_LINE_WIDTH = 0.01;
+        static constexpr double MARKER_SPHERE_SIZE = 0.05;
+        static constexpr double MARKER_LINE_R = 0.0;
+        static constexpr double MARKER_LINE_B = 0.0;
+        static constexpr double MARKER_LINE_G = 1.0;
+        static constexpr double MARKER_SPHERE_G = 0.0;
+        static constexpr double MARKER_SPHERE_B = 0.0;
+        static constexpr double MARKER_ALPHA = 1.0;
+        static constexpr double MARKER_SPHERE_R = 1.0;
 };
