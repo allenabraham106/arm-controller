@@ -15,7 +15,7 @@
 
 class ArmController{
     public: 
-        explicit ArmController(const rclcpp::Node::SharedPtr & node) {};
+        explicit ArmController(const rclcpp::Node::SharedPtr & node);
 
         /**
          * @brief Initializes the MoveIt planning interface and prepares the arm for movement
@@ -23,11 +23,6 @@ class ArmController{
          */
         bool initialize(); 
 
-        /**
-        * @brief Stops all arm motion immediately
-        */
-        void stop();
-        /**
         * @brief Determines if the arm is moving and deals with extra clicks 
         * @param msg The target pose message containing the desired end effector position
         */
