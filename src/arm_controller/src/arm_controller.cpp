@@ -107,7 +107,7 @@ bool ArmController::executeWaypoints(){
     auto joint_names = move_group_->getJointNames();
     for(size_t i = 0; i < joint_names.size(); i++){
         RCLCPP_INFO(node_->get_logger(), "  %s: %.4f rad", 
-            joint_names[i].c_str(), joint_values[i]);
+        joint_names[i].c_str(), joint_values[i]);
     }
     if(fraction < 0.9){
         RCLCPP_WARN(node_->get_logger(), "Only %.0f%% of path planned", fraction * 100.0);
