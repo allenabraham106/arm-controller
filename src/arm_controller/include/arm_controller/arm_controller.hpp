@@ -23,6 +23,7 @@ class ArmController{
          */
         bool initialize(); 
 
+        /**
         * @brief Determines if the arm is moving and deals with extra clicks 
         * @param msg The target pose message containing the desired end effector position
         */
