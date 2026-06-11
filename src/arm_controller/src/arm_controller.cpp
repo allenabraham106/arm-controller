@@ -2,6 +2,10 @@
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 
+ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
+
+}
+
 bool ArmController::initialize(){
     move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
         node_, "panda_arm"
