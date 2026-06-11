@@ -105,32 +105,20 @@ bool ArmController::executeWaypoints(){
         return false;
     }
 
-    RCLCPP_INFO(node_->get_logger(), "Executing %zu waypoints", waypoints_.size());
-    moveit_msgs::msg::RobotTrajectory trajectory;
-    moveit_msgs::msg::MoveItErrorCodes error_code;
-    double fraction = move_group_->computeCartesianPath(
-        waypoints_,
-        0.01,
-        0.0,
-        trajectory,
-        true,
-        &error_code
-    );
+    RCLCPP_INFO(node_->get_logger(), "Executing %zu waypoints with OMPL", waypoints_.size());
 
-    RCLCPP_INFO(node_->get_logger(), "Cartesian Plan Summary");
-    RCLCPP_INFO(node_->get_logger(), "Path Coverage: %.0f%%", fraction * 100.0);
-    RCLCPP_INFO(node_->get_logger(), "Trajectory waypoints: %zu", trajectory.joint_trajectory.points.size());
-    RCLCPP_INFO(node_->get_logger(), "Joints: %zu", trajectory.joint_trajectory.joint_names.size());
-    for(const auto & name : trajectory.joint_trajectory.joint_names){
-        RCLCPP_INFO(node_->get_logger(), "  %s", name.c_str());
+    for (size_t i = 0; i < waypoints_.size(); ++i){
+        move_group_->setPoseTarget(waypoints_[i]);
+        moveit::planning_interface::MoveGroupInterface::Plan plan; 
+        bool success = (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+
+        if(!success){
+            RCLCPP_WARN(node_->get_logger(), "Failed to reach specified point %zu", i);
+            return false;
+        }
+        RCLCPP_INFO(node_->get_logger(), "Executing Waypoint");
+        move_group_->execute(plan);
     }
-
-    if(fraction < 0.9){
-        RCLCPP_WARN(node_->get_logger(), "Only %.0f%% of path planned", fraction * 100.0);
-        return false;
-    }
-
-    move_group_->execute(trajectory);
     clearWaypoints();
     return true;
 }
