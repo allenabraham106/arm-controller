@@ -24,6 +24,10 @@ RUN apt-get update && apt-get install -y \
     ros-humble-ament-pep257 \
     ros-humble-ament-uncrustify \
     ros-humble-ament-xmllint \
+    ros-humble-moveit-configs-utils \
+    ros-humble-moveit-resources-panda-moveit-config \
+    ros-humble-moveit-ros-planning-interface \
+    ros-humble-moveit-core \
     cppcheck \
     uncrustify \
     && rm -rf /var/lib/apt/lists/*

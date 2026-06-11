@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import rclpy 
 from rclpy.node import Node
 from std_msgs.msg import Empty
@@ -56,6 +55,8 @@ class ArmGUI(Node):
         except Exception:
             pass
     
+
+
 class MainWindow(QWidget):
     def __init__(self, node):
         super().__init__()
@@ -79,17 +80,19 @@ class MainWindow(QWidget):
 
         self.setLayout(layout)
 
+
+
 def main():
     rclpy.init()
     node = ArmGUI()
     spin_thread = threading.Thread(target=rclpy.spin, args=(node,), daemon=True)
     spin_thread.start()
-
     app = QApplication(sys.argv)
     window = MainWindow(node)
     window.show()
     app.exec_()
     rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()

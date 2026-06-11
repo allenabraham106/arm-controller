@@ -47,11 +47,18 @@ jobs:
             ros-humble-ament-pep257 \
             ros-humble-ament-uncrustify \
             ros-humble-ament-xmllint \
+            ros-humble-moveit-configs-utils \
+            ros-humble-moveit-resources-panda-moveit-config \
             ros-humble-moveit-ros-planning-interface \
             ros-humble-moveit-core \
             cppcheck \
             uncrustify
 
+      - name: Debug MoveIt headers 
+        run: |
+          find /opt/ros/humble -name "move_group_interface.hpp" 2>/dev/null || true
+          dpkg -l | grep moveit || true
+          dpkg -L ros-humble-moveit-ros-planning-interface || true
       - name: Install package dependencies (rosdep)
         working-directory: ros2_ws
         run: |

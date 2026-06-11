@@ -41,7 +41,17 @@ ament_target_dependencies(arm_lifecycle_node
   rclcpp_lifecycle
 )
 
-install(TARGETS arm_controller_lib arm_lifecycle_node
+# Terminal Controller node executable
+add_executable(terminal_controller src/terminal_controller.cpp)
+target_link_libraries(terminal_controller arm_controller_lib)
+ament_target_dependencies(terminal_controller
+  rclcpp
+  geometry_msgs
+  tf2
+  tf2_geometry_msgs
+)
+
+install(TARGETS arm_controller_lib arm_lifecycle_node terminal_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -49,10 +59,6 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
-install(PROGRAMS
-  scripts/arm_gui.py
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 ament_package()
 

@@ -6,9 +6,7 @@
 
 class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
     public:
-        ArmLifeCycleNode() : rclcpp_lifecycle::LifecycleNode("arm_lifecycle_node"){
-
-        }
+        ArmLifeCycleNode() : rclcpp_lifecycle::LifecycleNode("arm_lifecycle_node") {}
     
     private:
         std::shared_ptr<ArmController> arm_; // smart pointer
