@@ -11,6 +11,8 @@ bool ArmController::initialize(){
         node_, "panda_arm"
     );
 
+    move_group_->setPlanningTime(15.0);
+
     // Subscribes to clicked points from RViz "publish point" tool 
     // Use case: manual point selection in RViz
     clicked_point_sub_ = node_->create_subscription<geometry_msgs::msg::PointStamped>(
@@ -55,6 +57,8 @@ bool ArmController::initialize(){
 
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
+
+    addCollisionbox();
     return true; 
 }
 
@@ -176,7 +180,7 @@ void ArmController::publishWaypointMarkers(){
     marker_pub_->publish(marker_array);
 }
 
- void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
+void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
     int index = msg->data; 
     if(index < 0 || index >= (int)waypoints_.size()){
         RCLCPP_WARN(node_->get_logger(), "Invalid index %d, please select from valid index up to %zu", index, waypoints_.size());
@@ -185,4 +189,31 @@ void ArmController::publishWaypointMarkers(){
     waypoints_.erase(waypoints_.begin() + index);
     RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
     publishWaypointMarkers();
+}
+
+void ArmController::addCollisionbox(){
+    moveit_msgs::msg::CollisionObject block; 
+    block.header.frame_id = "panda_link0";
+    block.id = "obstacle_block";
+
+    shape_msgs::msg::SolidPrimitive primitive;
+    primitive.type = primitive.BOX; 
+    primitive.dimensions = {
+        0.1,
+        0.4,
+        0.4
+    };
+
+    geometry_msgs::msg::Pose block_pose;
+    block_pose.position.x = 0.5;
+    block_pose.position.y = 0.0;
+    block_pose.position.z = 0.1;
+    block_pose.orientation.w = 1.0;
+
+    block.primitives.push_back(primitive);
+    block.primitive_poses.push_back(block_pose);
+    block.operation = block.ADD;
+
+    planning_scene_interface_.applyCollisionObject(block);
+    RCLCPP_INFO(node_->get_logger(), "Added collision block to planning scene");
 }
