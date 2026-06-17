@@ -18,6 +18,7 @@ class ArmGUI(Node):
         self.execute_pub = self.create_publisher(Empty, "/execute_waypoints", 10)
         self.clear_pub = self.create_publisher(Empty, "/clear_waypoints", 10)
         self.pose_pub = self.create_publisher(PoseStamped, "/arm_target_pose", 10)
+        self.waypoint_pub = self.create_publisher(PoseStamped, "/gui_add_waypoint", 10)
         self.is_executing = False
         self.joint_sub = self.create_subscription(
             JointState, 
@@ -71,12 +72,26 @@ class ArmGUI(Node):
         except Exception:
             pass
 
+    def send_waypoint(self, x, y, z, orientation_preset):
+        msg = PoseStamped()
+        msg.header.frame_id = "panda_link0"
+        msg.pose.position.x = x
+        msg.pose.position.y = y
+        msg.pose.position.z = z
+        if orientation_preset == "Default (w=1.0)":
+            msg.pose.orientation.w = 1.0
+        elif orientation_preset == "Reach (y=0.8, w=0.6)":
+            msg.pose.orientation.y = 0.8
+            msg.pose.orientation.w = 0.6
+        self.waypoint_pub.publish(msg)
+        self.get_logger().info(f"Waypoint queued: x={x:.2f}, y={y:.2f}, z={z:.2f}")
+
 class MainWindow(QWidget):
     def __init__(self, node):
         super().__init__()
         self.node = node
         self.setWindowTitle("Arm Controller")
-        self.setFixedSize(350, 400)
+        self.setFixedSize(350, 500)
         layout = QVBoxLayout()
 
         title = QLabel("Arm Controller")
@@ -124,8 +139,20 @@ class MainWindow(QWidget):
 
         clear_btn = QPushButton("Clear Waypoints")
         clear_btn.setStyleSheet("background-color: red; color: white; height: 40px;")
-        clear_btn.clicked.connect(self.node.clear)
+        clear_btn.clicked.connect(lambda: [self.node.clear(), 
+            self.waypoint_count_label.setText("Waypoints queued: 0")])
         layout.addWidget(clear_btn)
+
+        # Waypoint counter
+        self.waypoint_count_label = QLabel("Waypoints Queued: 0")
+        self.waypoint_count_label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(self.waypoint_count_label)
+
+        # Add waypoint
+        add_waypoint_btn = QPushButton("Add Waypoint")
+        add_waypoint_btn.setStyleSheet("background-color: #FF9800; color: white; height: 40px;")
+        add_waypoint_btn.clicked.connect(self.on_add_waypoint)
+        layout.addWidget(add_waypoint_btn)
 
         self.setLayout(layout)
 
@@ -143,6 +170,17 @@ class MainWindow(QWidget):
         self.z_spin.setValue(0.4)
         self.orientation_combo.setCurrentText("Default (w=1.0)")
         self.node.send_pose(0.3, 0.0, 0.4, "Default (w=1.0)")
+
+    def on_add_waypoint(self):
+        self.node.send_waypoint(
+            self.x_spin.value(),
+            self.y_spin.value(),
+            self.z_spin.value(),
+            self.orientation_combo.currentText()
+        )
+        # Update counter
+        current = int(self.waypoint_count_label.text().split(": ")[1])
+        self.waypoint_count_label.setText(f"Waypoints queued: {current + 1}")
 
 def main():
     rclpy.init()

@@ -55,6 +55,13 @@ bool ArmController::initialize(){
         std::bind(&ArmController::onRemoveWaypoint, this, std::placeholders::_1)
     );
 
+    // Subscriber that listens for the addWaypoint from our gui
+    add_waypoint_sub_ = node_->create_subscription<geometry_msgs::msg::PoseStamped>(
+        "/gui_add_waypoint",
+        10, 
+        std::bind(&ArmController::onAddWaypoint, this, std::placeholders::_1)
+    );
+
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
 
@@ -99,6 +106,7 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     }
     RCLCPP_INFO(node_->get_logger(), "GUI target: x=%.2f y=%.2f z=%.2f",
         msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
+    is_moving_ = true;
     moveToPose(msg->pose);
 }
 
@@ -117,12 +125,14 @@ bool ArmController::executeWaypoints(){
 
         if(!success){
             RCLCPP_WARN(node_->get_logger(), "Failed to reach specified point %zu", i);
+            is_moving_ = false;
             return false;
         }
         RCLCPP_INFO(node_->get_logger(), "Executing Waypoint");
         move_group_->execute(plan);
     }
     clearWaypoints();
+    is_moving_ = false;
     return true;
 }
 
@@ -216,4 +226,11 @@ void ArmController::addCollisionbox(){
 
     planning_scene_interface_.applyCollisionObject(block);
     RCLCPP_INFO(node_->get_logger(), "Added collision block to planning scene");
+}
+
+void ArmController::onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg){
+    geometry_msgs::msg::Pose pose = msg->pose;
+    waypoints_.push_back(pose);
+    RCLCPP_INFO(node_->get_logger(), "GUI waypoint %zu added => x: %.2f, y: %.2f, z: %.2f", waypoints_.size(), pose.position.x, pose.position.y, pose.position.z);
+    publishWaypointMarkers();
 }

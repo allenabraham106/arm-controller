@@ -54,6 +54,7 @@ class ArmController{
         rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
         rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr remove_waypoint_sub_;
         moveit::planning_interface::PlanningSceneInterface planning_scene_interface_;
+        rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr add_waypoint_sub_;
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
@@ -62,4 +63,5 @@ class ArmController{
         void publishWaypointMarkers();
         void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
         void addCollisionbox();
+        void onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
 };
