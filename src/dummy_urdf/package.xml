@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dummy_urdf</name>
+  <version>0.0.1</version>
+  <description>6DOF arm URDF</description>
+  <maintainer email="allen@todo.todo">allen</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dummy_urdf_moveit_config</name>
+  <version>0.0.1</version>
+  <description>MoveIt2 config for 6DOF arm</description>
+  <maintainer email="allen@todo.todo">allen</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>dummy_urdf</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
