@@ -14,6 +14,7 @@
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include <moveit_msgs/msg/collision_object.hpp>
 #include <shape_msgs/msg/solid_primitive.hpp>
+#include <std_msgs/msg/float64.hpp>
 
 
 class ArmController{
@@ -56,6 +57,8 @@ class ArmController{
         rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr remove_waypoint_sub_;
         moveit::planning_interface::PlanningSceneInterface planning_scene_interface_;
         rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr add_waypoint_sub_;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr distance_pub_;
+        rclcpp::TimerBase::SharedPtr distance_timer_;
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
@@ -65,6 +68,7 @@ class ArmController{
         void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
         void addCollisionbox();
         void onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
+        void publishDistanceToBox();
         double workspace_x_max_;
         double workspace_y_max_;
         double workspace_z_min_;

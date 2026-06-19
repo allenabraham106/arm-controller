@@ -1,6 +1,7 @@
 #include "arm_controller/arm_controller.hpp"
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <geometry_msgs/msg/pose.hpp>
+#include <cmath>
 
 ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
 
@@ -85,6 +86,15 @@ bool ArmController::initialize(){
         "/gui_add_waypoint",
         10, 
         std::bind(&ArmController::onAddWaypoint, this, std::placeholders::_1)
+    );
+
+    // publisher that publishes distance to the objects infront of us
+    distance_pub_ = node_->create_publisher<std_msgs::msg::Float64>(
+        "/distance_to_obstacle", 10
+    );
+    distance_timer_ = node_->create_wall_timer(
+        std::chrono::milliseconds(500),
+        std::bind(&ArmController::publishDistanceToBox, this)
     );
 
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
@@ -257,4 +267,21 @@ void ArmController::onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedP
     waypoints_.push_back(pose);
     RCLCPP_INFO(node_->get_logger(), "GUI waypoint %zu added => x: %.2f, y: %.2f, z: %.2f", waypoints_.size(), pose.position.x, pose.position.y, pose.position.z);
     publishWaypointMarkers();
+}
+
+void ArmController::publishDistanceToBox(){
+    double box_x = node_->get_parameter("collision_box.x").as_double();
+    double box_y = node_->get_parameter("collision_box.y").as_double();
+    double box_z = node_->get_parameter("collision_box.z").as_double();
+
+    geometry_msgs::msg::PoseStamped ee_pose = move_group_->getCurrentPose();
+
+    double dx = ee_pose.pose.position.x - box_x;
+    double dy = ee_pose.pose.position.y - box_y;
+    double dz = ee_pose.pose.position.z - box_z;
+    double distance = std::sqrt(dx*dx + dy*dy + dz*dz);
+
+    std_msgs::msg::Float64 msg;
+    msg.data = distance;
+    distance_pub_->publish(msg);
 }
