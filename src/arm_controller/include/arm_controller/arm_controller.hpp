@@ -15,6 +15,7 @@
 #include <moveit_msgs/msg/collision_object.hpp>
 #include <shape_msgs/msg/solid_primitive.hpp>
 
+
 class ArmController{
     public: 
         explicit ArmController(const rclcpp::Node::SharedPtr & node);
@@ -64,4 +65,8 @@ class ArmController{
         void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
         void addCollisionbox();
         void onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
+        double workspace_x_max_;
+        double workspace_y_max_;
+        double workspace_z_min_;
+        double workspace_z_max_;
 };

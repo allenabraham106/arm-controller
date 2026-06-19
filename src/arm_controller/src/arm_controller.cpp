@@ -7,11 +7,36 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node)
 }
 
 bool ArmController::initialize(){
-    move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
-        node_, "panda_arm"
-    );
+    // Declare parameters
+    node_->declare_parameter("planning_group", std::string("panda_arm"));
+    node_->declare_parameter("planning_time", 15.0);
+    node_->declare_parameter("workspace.x_max", 0.855);
+    node_->declare_parameter("workspace.y_max", 0.855);
+    node_->declare_parameter("workspace.z_min", 0.0);
+    node_->declare_parameter("workspace.z_max", 1.2);
+    node_->declare_parameter("collision_box.x", 0.5);
+    node_->declare_parameter("collision_box.y", 0.0);
+    node_->declare_parameter("collision_box.z", 0.1);
+    node_->declare_parameter("collision_box.size_x", 0.1);
+    node_->declare_parameter("collision_box.size_y", 0.4);
+    node_->declare_parameter("collision_box.size_z", 0.4);
 
-    move_group_->setPlanningTime(15.0);
+    // Get parameters
+    std::string planning_group = node_->get_parameter("planning_group").as_string();
+    double planning_time = node_->get_parameter("planning_time").as_double();
+    workspace_x_max_ = node_->get_parameter("workspace.x_max").as_double();
+    workspace_y_max_ = node_->get_parameter("workspace.y_max").as_double();
+    workspace_z_min_ = node_->get_parameter("workspace.z_min").as_double();
+    workspace_z_max_ = node_->get_parameter("workspace.z_max").as_double();
+
+    move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
+        node_, planning_group
+    );
+    move_group_->setPlanningTime(planning_time);
+    /* move_group_->setWorkspace(
+        -workspace_x_max_, -workspace_y_max_, workspace_z_min_,
+        workspace_x_max_,  workspace_y_max_, workspace_z_max_
+    ); */
 
     // Subscribes to clicked points from RViz "publish point" tool 
     // Use case: manual point selection in RViz
@@ -81,9 +106,10 @@ void ArmController::stop(){
 }
 
 void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    if(std::abs(msg->point.x) > 0.85 || 
-       std::abs(msg->point.y) > 0.85 ||
-       msg->point.z < 0.0 || msg->point.z > 1.2){
+    if(std::abs(msg->point.x) > workspace_x_max_ || 
+        std::abs(msg->point.y) > workspace_y_max_ ||
+        msg->point.z < workspace_z_min_ || 
+        msg->point.z > workspace_z_max_){
         RCLCPP_WARN(node_->get_logger(), "Point out of workspace bounds, ignoring");
         return;
     }
@@ -207,18 +233,16 @@ void ArmController::addCollisionbox(){
     block.id = "obstacle_block";
 
     shape_msgs::msg::SolidPrimitive primitive;
-    primitive.type = primitive.BOX; 
-    primitive.dimensions = {
-        0.1,
-        0.4,
-        0.4
-    };
+    primitive.type = primitive.BOX;
+    double box_size_x = node_->get_parameter("collision_box.size_x").as_double();
+    double box_size_y = node_->get_parameter("collision_box.size_y").as_double();
+    double box_size_z = node_->get_parameter("collision_box.size_z").as_double();
+    primitive.dimensions = {box_size_x, box_size_y, box_size_z};
 
     geometry_msgs::msg::Pose block_pose;
-    block_pose.position.x = 0.5;
-    block_pose.position.y = 0.0;
-    block_pose.position.z = 0.1;
-    block_pose.orientation.w = 1.0;
+    block_pose.position.x = node_->get_parameter("collision_box.x").as_double();
+    block_pose.position.y = node_->get_parameter("collision_box.y").as_double();
+    block_pose.position.z = node_->get_parameter("collision_box.z").as_double();
 
     block.primitives.push_back(primitive);
     block.primitive_poses.push_back(block_pose);
