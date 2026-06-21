@@ -6,7 +6,7 @@ from std_msgs.msg import Empty
 from geometry_msgs.msg import PoseStamped
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout,
                               QPushButton, QLabel, QDoubleSpinBox, QComboBox,
-                              QListWidget)
+                              QListWidget, QSlider, QCheckBox)
 from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QTimer
 from sensor_msgs.msg import JointState
@@ -14,6 +14,8 @@ import tf2_ros
 import sys
 import threading
 from std_msgs.msg import Empty, Float64
+import math
+from std_msgs.msg import Empty, Float64, Bool
 
 class ArmGUI(Node):
     def __init__(self):
@@ -22,6 +24,9 @@ class ArmGUI(Node):
         self.clear_pub = self.create_publisher(Empty, "/clear_waypoints", 10)
         self.pose_pub = self.create_publisher(PoseStamped, "/arm_target_pose", 10)
         self.waypoint_pub = self.create_publisher(PoseStamped, "/gui_add_waypoint", 10)
+        self.auto_orientation_pub = self.create_publisher(
+            Bool, '/auto_orientation', 10
+        )
         self.is_executing = False
         self.joint_sub = self.create_subscription(
             JointState, 
@@ -52,22 +57,19 @@ class ArmGUI(Node):
         self.is_executing = False
         self.get_logger().info("Clear waypoints triggered")
 
-    def send_pose(self, x, y, z, orientation_preset):
+    def send_pose(self, x, y, z, roll, pitch, yaw):
         msg = PoseStamped()
         msg.header.frame_id = "panda_link0"
         msg.pose.position.x = x
         msg.pose.position.y = y
         msg.pose.position.z = z
-
-        # Known-good orientations from testing
-        if orientation_preset == "Default (w=1.0) - forward":
-            msg.pose.orientation.w = 1.0
-        elif orientation_preset == "Reach (y=0.8, w=0.6) - tilted":
-            msg.pose.orientation.y = 0.8
-            msg.pose.orientation.w = 0.6
-
+        qx, qy, qz, qw = self.euler_to_quaternion(roll, pitch, yaw)
+        msg.pose.orientation.x = qx
+        msg.pose.orientation.y = qy
+        msg.pose.orientation.z = qz
+        msg.pose.orientation.w = qw
         self.pose_pub.publish(msg)
-        self.get_logger().info(f"Sending pose: x={x:.2f} y={y:.2f} z={z:.2f}")
+        self.get_logger().info(f"Sending pose: x={x:.2f} y={y:.2f} z={z:.2f} r={roll:.1f} p={pitch:.1f} y={yaw:.1f}")
 
     def on_joint_states(self, msg):
         if not self.is_executing:
@@ -85,29 +87,50 @@ class ArmGUI(Node):
         except Exception:
             pass
 
-    def send_waypoint(self, x, y, z, orientation_preset):
+    def send_waypoint(self, x, y, z, roll, pitch, yaw):
         msg = PoseStamped()
         msg.header.frame_id = "panda_link0"
         msg.pose.position.x = x
         msg.pose.position.y = y
         msg.pose.position.z = z
-        if orientation_preset == "Default (w=1.0) - forward":
-            msg.pose.orientation.w = 1.0
-        elif orientation_preset == "Reach (y=0.8, w=0.6) - tilted":
-            msg.pose.orientation.y = 0.8
-            msg.pose.orientation.w = 0.6
+        qx, qy, qz, qw = self.euler_to_quaternion(roll, pitch, yaw)
+        msg.pose.orientation.x = qx
+        msg.pose.orientation.y = qy
+        msg.pose.orientation.z = qz
+        msg.pose.orientation.w = qw
         self.waypoint_pub.publish(msg)
-        self.get_logger().info(f"Waypoint queued: x={x:.2f}, y={y:.2f}, z={z:.2f}")
+        self.get_logger().info(f"Waypoint queued: x={x:.2f} y={y:.2f} z={z:.2f}")
 
     def on_distance(self, msg):
         self.current_distance = msg.data
+    
+    def euler_to_quaternion(self, roll_deg, pitch_deg, yaw_deg):
+        r = math.radians(roll_deg)
+        p = math.radians(pitch_deg)
+        y = math.radians(yaw_deg)
+        
+        cr = math.cos(r/2); sr = math.sin(r/2)
+        cp = math.cos(p/2); sp = math.sin(p/2)
+        cy = math.cos(y/2); sy = math.sin(y/2)
+        
+        qw = cr*cp*cy + sr*sp*sy
+        qx = sr*cp*cy - cr*sp*sy
+        qy = cr*sp*cy + sr*cp*sy
+        qz = cr*cp*sy - sr*sp*cy
+        return qx, qy, qz, qw
+
+    def set_auto_orientation(self, enabled):
+        msg = Bool()
+        msg.data = enabled
+        self.auto_orientation_pub.publish(msg)
+        self.get_logger().info(f"Auto orientation: {enabled}")
 
 class MainWindow(QWidget):
     def __init__(self, node):
         super().__init__()
         self.node = node
         self.setWindowTitle("Arm Controller")
-        self.setFixedSize(350, 680)
+        self.setFixedSize(350, 820)
         layout = QVBoxLayout()
 
         title = QLabel("Arm Controller")
@@ -127,13 +150,23 @@ class MainWindow(QWidget):
             row.addWidget(spin)
             layout.addLayout(row)
 
-        # Orientation preset
-        row = QHBoxLayout()
-        row.addWidget(QLabel("Orientation:"))
-        self.orientation_combo = QComboBox()
-        self.orientation_combo.addItems(["Default (w=1.0) - forward", "Reach (y=0.8, w=0.6) - tilted"])
-        row.addWidget(self.orientation_combo)
-        layout.addLayout(row)
+        # Orientation sliders (roll, pitch, yaw in degrees)
+        orient_title = QLabel("Orientation (degrees):")
+        orient_title.setAlignment(Qt.AlignCenter)
+        layout.addWidget(orient_title)
+
+        for label, attr in [("Roll", "roll_spin"), ("Pitch", "pitch_spin"), ("Yaw", "yaw_spin")]:
+            row = QHBoxLayout()
+            row.addWidget(QLabel(f"{label}:"))
+            spin = QDoubleSpinBox()
+            spin.setRange(-180.0, 180.0)
+            spin.setSingleStep(5.0)
+            spin.setValue(0.0)
+            spin.setDecimals(1)
+            spin.setSuffix("°")
+            setattr(self, attr, spin)
+            row.addWidget(spin)
+            layout.addLayout(row)
 
         # Send pose button
         send_btn = QPushButton("Send Pose")
@@ -200,6 +233,13 @@ class MainWindow(QWidget):
         self.update_timer.timeout.connect(self.update_distance_label)
         self.update_timer.start(500)
 
+        self.auto_orient_check = QCheckBox("Auto Orientation (let OMPL decide)")
+        self.auto_orient_check.setStyleSheet("color: black;")
+        self.auto_orient_check.stateChanged.connect(
+            lambda state: self.node.set_auto_orientation(state == 2)
+        )
+        layout.addWidget(self.auto_orient_check)
+
         self.setLayout(layout)
 
     def on_send_pose(self):
@@ -207,26 +247,32 @@ class MainWindow(QWidget):
             self.x_spin.value(),
             self.y_spin.value(),
             self.z_spin.value(),
-            self.orientation_combo.currentText()
+            self.roll_spin.value(),
+            self.pitch_spin.value(),
+            self.yaw_spin.value()
         )
 
     def on_home(self):
         self.x_spin.setValue(0.3)
         self.y_spin.setValue(0.0)
         self.z_spin.setValue(0.4)
-        self.orientation_combo.setCurrentText("Default (w=1.0) - forward")
-        self.node.send_pose(0.3, 0.0, 0.4, "Default (w=1.0) - forward")
+        self.roll_spin.setValue(0.0)
+        self.pitch_spin.setValue(0.0)
+        self.yaw_spin.setValue(0.0)
+        self.node.send_pose(0.3, 0.0, 0.4, 0.0, 0.0, 0.0)
 
     def on_add_waypoint(self):
         x = self.x_spin.value()
         y = self.y_spin.value()
         z = self.z_spin.value()
-        orientation = self.orientation_combo.currentText()
-        self.node.send_waypoint(x, y, z, orientation)
+        r = self.roll_spin.value()
+        p = self.pitch_spin.value()
+        yaw = self.yaw_spin.value()
+        self.node.send_waypoint(x, y, z, r, p, yaw)
         self.waypoint_list.addItem(
             f"WP{self.waypoint_list.count() + 1}: "
-            f"pos=({x:.2f}, {y:.2f}, {z:.2f})m  "
-            f"orient={orientation}"
+            f"pos=({x:.2f}, {y:.2f}, {z:.2f})m "
+            f"rpy=({r:.0f}°, {p:.0f}°, {yaw:.0f}°)"
         )
     
     def update_distance_label(self):

@@ -97,6 +97,17 @@ bool ArmController::initialize(){
         std::bind(&ArmController::publishDistanceToBox, this)
     );
 
+    // Subscriber that listens to whent he gui for our orientation is toggled on or off
+    auto_orientation_sub_ = node_->create_subscription<std_msgs::msg::Bool>(
+        "/auto_orientation",
+        10,
+        [this](const std_msgs::msg::Bool::SharedPtr msg){
+            auto_orientation_ = msg->data;
+            RCLCPP_INFO(node_->get_logger(), "Auto orientation: %s", 
+                auto_orientation_ ? "ON" : "OFF");
+        }
+    );
+
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
 
@@ -155,7 +166,15 @@ bool ArmController::executeWaypoints(){
     RCLCPP_INFO(node_->get_logger(), "Executing %zu waypoints with OMPL", waypoints_.size());
 
     for (size_t i = 0; i < waypoints_.size(); ++i){
-        move_group_->setPoseTarget(waypoints_[i]);
+        if(auto_orientation_){
+            move_group_->setPositionTarget(
+                waypoints_[i].position.x,
+                waypoints_[i].position.y,
+                waypoints_[i].position.z
+            );
+        } else {
+            move_group_->setPoseTarget(waypoints_[i]);
+        }
         moveit::planning_interface::MoveGroupInterface::Plan plan; 
         bool success = (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
 

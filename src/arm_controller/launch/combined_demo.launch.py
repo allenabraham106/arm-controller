@@ -31,13 +31,11 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        parameters=[
-            moveit_config.robot_description,
-            moveit_config.robot_description_semantic,
-            moveit_config.planning_pipelines,
-            moveit_config.robot_description_kinematics,
-            moveit_config.joint_limits,
-        ],
+        arguments=["-d", os.path.join(
+            get_package_share_directory("arm_controller"),
+            "config", "arm_controller.rviz"
+        )],
+        parameters=[...],
     )
 
     static_tf_node = Node(

@@ -15,6 +15,7 @@
 #include <moveit_msgs/msg/collision_object.hpp>
 #include <shape_msgs/msg/solid_primitive.hpp>
 #include <std_msgs/msg/float64.hpp>
+#include <std_msgs/msg/bool.hpp>
 
 
 class ArmController{
@@ -59,6 +60,8 @@ class ArmController{
         rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr add_waypoint_sub_;
         rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr distance_pub_;
         rclcpp::TimerBase::SharedPtr distance_timer_;
+        std::atomic<bool> auto_orientation_{false};
+        rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr auto_orientation_sub_;
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);

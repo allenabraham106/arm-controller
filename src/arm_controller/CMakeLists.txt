@@ -27,6 +27,8 @@ ament_target_dependencies(arm_controller_lib
   geometry_msgs
   visualization_msgs
   std_msgs
+  moveit_msgs
+  shape_msgs
 )
 
 # Lifecycle node executable
