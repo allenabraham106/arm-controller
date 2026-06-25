@@ -1,28 +1,67 @@
 #include "arm_controller/arm_controller.hpp"
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <geometry_msgs/msg/pose.hpp>
+#include <stdexcept>
 
 ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node){
+    node_->declare_parameter("move_group_name", "panda_arm");
+    node_->declare_parameter("clicked_point_topic", "/clicked_point");
+    node_->declare_parameter("target_pose_topic", "/arm_target_pose");
+    node_->declare_parameter("execute_waypoints_topic", "/execute_waypoints");
+    node_->declare_parameter("clear_waypoints_topic", "/clear_waypoints");
+    node_->declare_parameter("waypoint_markers_topic", "/waypoint_markers");
+    node_->declare_parameter("remove_waypoint_topic", "/remove_waypoint");
+    node_->declare_parameter("workspace_limit_xy", 0.85);
+    node_->declare_parameter("workspace_limit_z_min", 0.0);
+    node_->declare_parameter("workspace_limit_z_max", 1.2);
+    node_->declare_parameter("marker_line_width", 0.01);
+    node_->declare_parameter("marker_sphere_size", 0.05);
+    node_->declare_parameter("marker_line_r", 0.0);
+    node_->declare_parameter("marker_line_g", 1.0);
+    node_->declare_parameter("marker_line_b", 0.0);
+    node_->declare_parameter("marker_sphere_r", 1.0);
+    node_->declare_parameter("marker_sphere_g", 0.0);
+    node_->declare_parameter("marker_sphere_b", 0.0);
+    node_->declare_parameter("marker_alpha", 1.0);
 
-}
+    std::string clicked_point_topic = node_->get_parameter("clicked_point_topic").as_string();
+    std::string target_pose_topic = node_->get_parameter("target_pose_topic").as_string();
+    std::string execute_waypoints_topic = node_->get_parameter("execute_waypoints_topic").as_string();
+    std::string clear_waypoints_topic = node_->get_parameter("clear_waypoints_topic").as_string();
+    std::string waypoint_markers_topic = node_->get_parameter("waypoint_markers_topic").as_string();
+    std::string remove_waypoint_topic = node_->get_parameter("remove_waypoint_topic").as_string();
+    move_group_name_ = node_->get_parameter("move_group_name").as_string();
+    workspace_limit_xy_ = node_->get_parameter("workspace_limit_xy").as_double();
+    workspace_limit_z_min_ = node_->get_parameter("workspace_limit_z_min").as_double();
+    workspace_limit_z_max_ = node_->get_parameter("workspace_limit_z_max").as_double();
+    marker_line_width_ = node_->get_parameter("marker_line_width").as_double();
+    marker_sphere_size_ = node_->get_parameter("marker_sphere_size").as_double();
+    marker_line_r_ = node_->get_parameter("marker_line_r").as_double();
+    marker_line_g_ = node_->get_parameter("marker_line_g").as_double();
+    marker_line_b_  = node_->get_parameter("marker_line_b").as_double();
+    marker_sphere_r_ = node_->get_parameter("marker_sphere_r").as_double();
+    marker_sphere_g_ = node_->get_parameter("marker_sphere_g").as_double();
+    marker_sphere_b_ = node_->get_parameter("marker_sphere_b").as_double();
+    marker_alpha_ = node_->get_parameter("marker_alpha").as_double();
 
-bool ArmController::initialize(){
     move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
-        node_, "panda_arm"
+        node_, move_group_name_
+    );
+
+    move_group_->setWorkspace(
+        -workspace_limit_xy_, -workspace_limit_xy_, workspace_limit_z_min_,
+        workspace_limit_xy_, workspace_limit_xy_, workspace_limit_z_max_
     );
 
     // Subscribes to clicked points from RViz "publish point" tool 
     clicked_point_sub_ = node_->create_subscription<geometry_msgs::msg::PointStamped>(
-        "/clicked_point", 
-        10, 
+        clicked_point_topic, 10,
         std::bind(&ArmController::onClickedPoint, this, std::placeholders::_1)
     );
 
     // Subscribers custom pose controller interface
-    // TODO: Test this interface
     target_pose_sub_ = node_->create_subscription<geometry_msgs::msg::PoseStamped>(
-        "/arm_target_pose", 
-        10, 
+        target_pose_topic, 10,
         std::bind(&ArmController::onTargetPose, this, std::placeholders::_1)
     );
     
@@ -30,36 +69,32 @@ bool ArmController::initialize(){
 
     // Subscriber that listen for the execute waypoint signal 
     execute_waypoints_sub_ = node_->create_subscription<std_msgs::msg::Empty>(
-        "/execute_waypoints",
-        10,
+        execute_waypoints_topic, 10,
         std::bind(&ArmController::onExecuteWaypoints, this, std::placeholders::_1)
     );
 
     // Subscriber that listens for the clear waypoint signal 
     clear_waypoints_sub_ = node_->create_subscription<std_msgs::msg::Empty>(
-        "/clear_waypoints",
-        10, 
+        clear_waypoints_topic, 10,
         std::bind(&ArmController::onClearWaypoints, this, std::placeholders::_1)
     );
 
     // Publsiher that is mapping out our waypoints
     marker_pub_ = node_->create_publisher<visualization_msgs::msg::MarkerArray>(
-        "/waypoint_markers", 10
+        waypoint_markers_topic, 10
     );
 
     // Subscriber that listens for points to remove
     remove_waypoint_sub_ = node_->create_subscription<std_msgs::msg::Int32>(
-        "/remove_waypoint",
-        10, 
+        remove_waypoint_topic, 10,
         std::bind(&ArmController::onRemoveWaypoint, this, std::placeholders::_1)
     );
 
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
-    return true; 
 }
 
-bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){
+bool ArmController::executeMove(const geometry_msgs::msg::Pose & target_pose){
     // TODO: Potential Defect why clear the vector? 
     waypoints_.clear();
     waypoints_.push_back(target_pose);
@@ -72,10 +107,6 @@ void ArmController::stop(){
 }
 
 void ArmController::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    if(!isInWorkspace(msg)){
-        RCLCPP_WARN(node_->get_logger(), "Published point is out of the workspace");
-        return;
-    }
     geometry_msgs::msg::Pose pose; 
     pose.position.x = msg->point.x;
     pose.position.y = msg->point.y; 
@@ -95,7 +126,7 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     }
     RCLCPP_INFO(node_->get_logger(), "GUI target: x=%.2f y=%.2f z=%.2f",
         msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
-    safeMoveToPose(msg->pose);
+    moveToPose(msg->pose);
 }
 
 // using humble cartesian planning (will not build successfully if on jazzy or newer)
@@ -130,7 +161,7 @@ bool ArmController::executeWaypoints(){
     auto current_state = move_group_->getCurrentState();
     std::vector<double> joint_values;
     current_state->copyJointGroupPositions(
-    current_state->getJointModelGroup("panda_arm"), joint_values);
+    current_state->getJointModelGroup(move_group_name_), joint_values);
     auto joint_names = move_group_->getJointNames();
     for(size_t i = 0; i < joint_names.size(); i++){
         RCLCPP_INFO(node_->get_logger(), "  %s: %.4f rad", 
@@ -173,11 +204,11 @@ void ArmController::publishWaypointMarkers(){
     line.id = 0; 
     line.type = visualization_msgs::msg::Marker::LINE_STRIP;
     line.action = visualization_msgs::msg::Marker::ADD;
-    line.scale.x = MARKER_LINE_WIDTH;
-    line.color.r = MARKER_LINE_R;
-    line.color.g = MARKER_LINE_G;
-    line.color.b = MARKER_LINE_B;
-    line.color.a = MARKER_ALPHA;
+    line.scale.x = marker_line_width_;
+    line.color.r = marker_line_r_;
+    line.color.g = marker_line_g_;
+    line.color.b = marker_line_b_;
+    line.color.a = marker_alpha_;
     for(size_t i = 0; i < waypoints_.size(); ++i){
         line.points.push_back(waypoints_[i].position);
         visualization_msgs::msg::Marker sphere;
@@ -188,13 +219,13 @@ void ArmController::publishWaypointMarkers(){
         sphere.type = visualization_msgs::msg::Marker::SPHERE;
         sphere.action = visualization_msgs::msg::Marker::ADD;
         sphere.pose = waypoints_[i];
-        sphere.scale.x = MARKER_SPHERE_SIZE;
-        sphere.scale.y = MARKER_SPHERE_SIZE;
-        sphere.scale.z = MARKER_SPHERE_SIZE;
-        sphere.color.r = MARKER_SPHERE_R;
-        sphere.color.g = MARKER_SPHERE_G;
-        sphere.color.b = MARKER_SPHERE_B;
-        sphere.color.a = MARKER_ALPHA;
+        sphere.scale.x = marker_sphere_size_;
+        sphere.scale.y = marker_sphere_size_;
+        sphere.scale.z = marker_sphere_size_;
+        sphere.color.r = marker_sphere_r_;
+        sphere.color.g = marker_sphere_g_;
+        sphere.color.b = marker_sphere_b_;
+        sphere.color.a = marker_alpha_;
         marker_array.markers.push_back(sphere);
     }
     marker_array.markers.push_back(line);
@@ -203,26 +234,19 @@ void ArmController::publishWaypointMarkers(){
 
 void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
     int index = msg->data; 
-    if(index < 0 || index >= (int)waypoints_.size()){
-        RCLCPP_WARN(node_->get_logger(), "Invalid index %d, please select from valid index up to %zu", index, waypoints_.size());
-        return;
+    if(index >= 0 && index < (int)waypoints_.size()){
+        waypoints_.erase(waypoints_.begin() + index);
+        RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
+        publishWaypointMarkers();
+    } else {
+        throw std::out_of_range("Waypoint index out of range: " + std::to_string(index));
     }
-    waypoints_.erase(waypoints_.begin() + index);
-    RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
-    publishWaypointMarkers();
 }
 
-bool ArmController::safeMoveToPose(const geometry_msgs::msg::Pose & target_pose){
+bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){
     if(!waypoints_.empty()){
         RCLCPP_ERROR(node_->get_logger(), "Cannot call moveToPose with %zu waypoints queued. Call clearAllWaypoints() first", waypoints_.size());
         return false;
     }
-    return moveToPose(target_pose);
-}
-
-bool ArmController::isInWorkspace(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    return  std::abs(msg->point.x) <= WORKSPACE_LIMIT_XY &&
-            std::abs(msg->point.y) <= WORKSPACE_LIMIT_XY &&
-            msg->point.z >= WORKSPACE_LIMIT_Z_MIN &&
-            msg->point.z <= WORKSPACE_LIMIT_Z_MAX;
+    return executeMove(target_pose);
 }

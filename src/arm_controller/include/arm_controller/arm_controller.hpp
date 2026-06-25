@@ -18,12 +18,6 @@ class ArmController{
         explicit ArmController(const rclcpp::Node::SharedPtr & node);
 
         /**
-         * @brief Initializes the MoveIt planning interface and prepares the arm for movement
-         * @return true if initialization succeeded, false otherwise
-         */
-        bool initialize(); 
-
-        /**
         * @brief Determines if the arm is moving and deals with extra clicks 
         * @param msg The target pose message containing the desired end effector position
         */
@@ -33,7 +27,7 @@ class ArmController{
         * @param target_pose The target end-effector pose
         * @return true if motion completed successfully, false if waypoints are queued or motion fails
         */
-        bool safeMoveToPose(const geometry_msgs::msg::Pose & target_pose);
+        bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
 
         /**
          * @brief Stops all arm motion immediately
@@ -50,10 +44,11 @@ class ArmController{
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr clear_waypoints_sub_;
         rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
         rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr remove_waypoint_sub_;
-        
+
         // sets the declaration of the arm moving state to either true or false without being corrupted
         std::atomic<bool> is_moving_{false};
         std::vector<geometry_msgs::msg::Pose> waypoints_;
+        std::string move_group_name_;
 
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
@@ -62,19 +57,18 @@ class ArmController{
         void clearAllWaypoints();
         void publishWaypointMarkers();
         void onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg);
-        bool isInWorkspace( const geometry_msgs::msg::PointStamped::SharedPtr msg);
-        bool moveToPose(const geometry_msgs::msg::Pose & target_pose);
+        bool executeMove(const geometry_msgs::msg::Pose & target_pose);
 
-        static constexpr double WORKSPACE_LIMIT_XY = 0.85;
-        static constexpr double WORKSPACE_LIMIT_Z_MIN = 0.0;
-        static constexpr double WORKSPACE_LIMIT_Z_MAX = 1.2;
-        static constexpr double MARKER_LINE_WIDTH = 0.01;
-        static constexpr double MARKER_SPHERE_SIZE = 0.05;
-        static constexpr double MARKER_LINE_R = 0.0;
-        static constexpr double MARKER_LINE_B = 0.0;
-        static constexpr double MARKER_LINE_G = 1.0;
-        static constexpr double MARKER_SPHERE_G = 0.0;
-        static constexpr double MARKER_SPHERE_B = 0.0;
-        static constexpr double MARKER_ALPHA = 1.0;
-        static constexpr double MARKER_SPHERE_R = 1.0;
+        double workspace_limit_xy_;
+        double workspace_limit_z_min_;
+        double workspace_limit_z_max_;
+        double marker_line_width_;
+        double marker_sphere_size_;
+        double marker_line_r_;
+        double marker_line_g_;
+        double marker_line_b_;
+        double marker_sphere_r_;
+        double marker_sphere_g_;
+        double marker_sphere_b_;
+        double marker_alpha_;
 };
