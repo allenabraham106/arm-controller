@@ -183,3 +183,26 @@ docker-compose down
 # Remove everything including volumes
 docker-compose down -v
 ```
+
+## Planning Demos
+
+Two standalone demo nodes in `demo/` were built to compare MoveIt2's Cartesian and OMPL planners with a collision obstacle in the scene.
+
+### cartesian_demo
+
+Adds a 0.1 x 0.3 x 0.3m box obstacle to the MoveIt planning scene at (0.2, 0.2, 0.25) and attempts to plan a Cartesian path through two waypoints that pass near the obstacle. The Cartesian planner moves the end-effector in straight lines between waypoints using IK at each 0.01m step, checking for collisions at every step. When blocked by the obstacle, `computeCartesianPath` stops and returns a `fraction < 1.0` indicating how much of the path was achievable. The arm does not reroute, it stops at the obstacle.
+
+### ompl_demo
+
+Uses the same goal pose as the Cartesian demo but plans with OMPL via `move_group.plan()`. OMPL samples the joint space randomly, builds a collision-free path, and routes around obstacles automatically. Unlike the Cartesian planner, OMPL finds a path to the goal even when the straight-line path is blocked.
+
+### Key Finding
+
+| | Cartesian | OMPL |
+|---|---|---|
+| Path shape | Straight lines in task space | Any path in joint space |
+| Obstacle handling | Stops, returns fraction < 1.0 | Routes around automatically |
+| Predictability | High | Low — path shape varies |
+| Use case | Precise straight-line motion | Getting to a goal around obstacles |
+
+The hybrid approach planned for the main arm controller will use Cartesian planning by default and fall back to OMPL when `fraction < 0.9`.

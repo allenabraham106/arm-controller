@@ -3,3 +3,5 @@
 /log
 
 .env
+src/arm_controller/install/
+src/arm_controller/build/

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libarm_controller_lib.a CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o
-/usr/bin/ranlib libarm_controller_lib.a

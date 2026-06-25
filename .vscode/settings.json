@@ -1,3 +1,4 @@
 {
+    // Suppresses CMake warnings for packages without CMakeLists.txt in the VS Code workspace
     "cmake.ignoreCMakeListsMissing": true
 }
