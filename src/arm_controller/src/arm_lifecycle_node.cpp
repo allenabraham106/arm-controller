@@ -18,11 +18,6 @@ class ArmLifeCycleNode : public rclcpp_lifecycle::LifecycleNode{
             RCLCPP_INFO(get_logger(), "Configuring...");
             node_ptr_ = std::make_shared<rclcpp::Node>("arm_inner");
             arm_=std::make_shared<ArmController>(node_ptr_);
-            // checks if the arm is initialized and what to do if it so not
-            if(!arm_->initialize()){
-                RCLCPP_ERROR(get_logger(), "ArmController Failed to Initialize");
-                return CallbackReturn::FAILURE;
-            }
             spin_thread_ = std::thread([this](){
                 rclcpp::spin(node_ptr_);
             });
