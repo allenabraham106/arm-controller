@@ -243,14 +243,14 @@ void ArmController::onWaypointCommand(const arm_controller::msg::WaypointCommand
     int index = msg->index;
     arm_controller::msg::WaypointStatus status;
     if(msg->type == arm_controller::msg::WaypointCommand::REMOVE){
-        if(index >= 0 && index < (int)waypoints_.size()){
+        if(is_moving_){
+            status.result = arm_controller::msg::WaypointStatus::CURRENTLY_EXECUTING;
+        } else if(index >= 0 && index < (int)waypoints_.size()){
             waypoints_.erase(waypoints_.begin() + index);
             publishWaypointMarkers();
-            status.success = true;
-            status.message = "Waypoint " + std::to_string(index) + " removed successfully";
+            status.result = arm_controller::msg::WaypointStatus::SUCCESS;
         } else {
-            status.success = false;
-            status.message = "Waypoint index " + std::to_string(index) + " out of range";
+            status.result = arm_controller::msg::WaypointStatus::OUT_OF_RANGE;
         }
     }
     waypoint_status_pub_->publish(status);

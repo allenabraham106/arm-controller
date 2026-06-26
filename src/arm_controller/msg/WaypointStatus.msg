@@ -1,2 +1,4 @@
-bool success
-string message
+int8 SUCCESS=0
+int8 OUT_OF_RANGE=1
+int8 CURRENTLY_EXECUTING=2
+int8 result
