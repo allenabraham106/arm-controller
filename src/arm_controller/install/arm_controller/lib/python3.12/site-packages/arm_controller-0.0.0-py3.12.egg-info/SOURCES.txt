@@ -1,8 +1,0 @@
-setup.py
-arm_controller/__init__.py
-arm_controller.egg-info/PKG-INFO
-arm_controller.egg-info/SOURCES.txt
-arm_controller.egg-info/dependency_links.txt
-arm_controller.egg-info/top_level.txt
-arm_controller/msg/__init__.py
-arm_controller/msg/_waypoint_command.py
