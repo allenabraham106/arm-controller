@@ -14,6 +14,15 @@ find_package(visualization_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+# WaypointCommand messages
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/WaypointCommand.msg"
+  DEPENDENCIES std_msgs
+)
+
+ament_export_dependencies(rosidl_default_runtime)
 
 # ArmController library
 add_library(arm_controller_lib
@@ -32,6 +41,9 @@ ament_target_dependencies(arm_controller_lib
   tf2
   tf2_geometry_msgs
 )
+rosidl_get_typesupport_target(cpp_typesupport_target
+  ${PROJECT_NAME} rosidl_typesupport_cpp)
+target_link_libraries(arm_controller_lib "${cpp_typesupport_target}")
 
 # Lifecycle node executable
 add_executable(arm_lifecycle_node src/arm_lifecycle_node.cpp)
@@ -59,9 +71,8 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
-
-ament_package()
-
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
+
+ament_package()

@@ -85,9 +85,9 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node)
     );
 
     // Subscriber that listens for points to remove
-    remove_waypoint_sub_ = node_->create_subscription<std_msgs::msg::Int32>(
+    waypoint_command_sub_ = node_->create_subscription<arm_controller::msg::WaypointCommand>(
         remove_waypoint_topic, 10,
-        std::bind(&ArmController::onRemoveWaypoint, this, std::placeholders::_1)
+        std::bind(&ArmController::onWaypointCommand, this, std::placeholders::_1)
     );
 
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
@@ -232,14 +232,16 @@ void ArmController::publishWaypointMarkers(){
     marker_pub_->publish(marker_array);
 }
 
-void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr msg){
-    int index = msg->data; 
-    if(index >= 0 && index < (int)waypoints_.size()){
-        waypoints_.erase(waypoints_.begin() + index);
-        RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
-        publishWaypointMarkers();
-    } else {
-        throw std::out_of_range("Waypoint index out of range: " + std::to_string(index));
+void ArmController::onWaypointCommand(const arm_controller::msg::WaypointCommand::SharedPtr msg){
+    int index = msg->index;
+    if(msg->type == arm_controller::msg::WaypointCommand::REMOVE){
+        if(index >= 0 && index < (int)waypoints_.size()){
+            waypoints_.erase(waypoints_.begin() + index);
+            RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
+            publishWaypointMarkers();
+        } else {
+            throw std::out_of_range("Waypoint index out of range: " + std::to_string(index));
+        }
     }
 }
 

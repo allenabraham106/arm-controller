@@ -1,0 +1,35 @@
+[0.007s] Invoking command in '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller -- -j4 -l4
+[0.061s] [  2%] Built target arm_controller__rosidl_generator_type_description
+[0.061s] [  4%] Built target arm_controller__rs
+[0.067s] [  4%] Built target ament_cmake_python_copy_arm_controller
+[0.073s] [  7%] Built target arm_controller__cpp
+[0.076s] [  9%] [32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o[0m
+[0.077s] [ 21%] Built target arm_controller__rosidl_generator_c
+[0.091s] [ 29%] Built target arm_controller__rosidl_typesupport_fastrtps_cpp
+[0.101s] [ 36%] Built target arm_controller__rosidl_typesupport_fastrtps_c
+[0.105s] [ 43%] Built target arm_controller__rosidl_typesupport_introspection_c
+[0.122s] [ 51%] Built target arm_controller__rosidl_typesupport_c
+[0.123s] [ 58%] Built target arm_controller__rosidl_typesupport_introspection_cpp
+[0.140s] [ 65%] Built target arm_controller__rosidl_typesupport_cpp
+[0.152s] [ 65%] Built target arm_controller
+[0.161s] [ 68%] Built target arm_controller__py
+[0.174s] [ 73%] Built target arm_controller__rosidl_generator_py
+[0.186s] [ 78%] Built target arm_controller_s__rosidl_typesupport_introspection_c
+[0.188s] [ 82%] Built target arm_controller_s__rosidl_typesupport_fastrtps_c
+[0.197s] [ 87%] Built target arm_controller_s__rosidl_typesupport_c
+[0.211s] running egg_info
+[0.223s] writing arm_controller.egg-info/PKG-INFO
+[0.223s] writing dependency_links to arm_controller.egg-info/dependency_links.txt
+[0.224s] writing top-level names to arm_controller.egg-info/top_level.txt
+[0.254s] reading manifest file 'arm_controller.egg-info/SOURCES.txt'
+[0.254s] writing manifest file 'arm_controller.egg-info/SOURCES.txt'
+[0.271s] [ 87%] Built target ament_cmake_python_build_arm_controller_egg
+[0.539s] In file included from [01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:1[m[K:
+[0.539s] [01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:12:10:[m[K [01;31m[Kfatal error: [m[Karm_controller/msg/waypoint_command.hpp: No such file or directory
+[0.539s]    12 | #include [01;31m[K"arm_controller/msg/waypoint_command.hpp"[m[K
+[0.539s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.539s] compilation terminated.
+[0.543s] gmake[2]: *** [CMakeFiles/arm_controller_lib.dir/build.make:76: CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o] Error 1
+[0.543s] gmake[1]: *** [CMakeFiles/Makefile2:646: CMakeFiles/arm_controller_lib.dir/all] Error 2
+[0.543s] gmake: *** [Makefile:146: all] Error 2
+[0.544s] Invoked command in '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller -- -j4 -l4

@@ -1,0 +1,44 @@
+In file included from [01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:5[m[K,
+                 from [01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:1[m[K:
+[01m[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:51:77:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: .h header is obsolete. Please use the .hpp header instead.[m[K’
+   51 | #pragma message(".h header is obsolete. Please use the .hpp header instead."[01;36m[K)[m[K
+      |                                                                             [01;36m[K^[m[K
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:[m[K In member function ‘[01m[Kbool ArmController::[01;32m[KexecuteWaypoints[m[K()[m[K’:
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:143:56:[m[K [01;35m[Kwarning: [m[K‘[01m[Kdouble moveit::planning_interface::MoveGroupInterface::[01;32m[KcomputeCartesianPath[m[K(const std::vector<geometry_msgs::msg::Pose_<std::allocator<void> > >&, double, double, moveit_msgs::msg::RobotTrajectory&, bool, moveit_msgs::msg::MoveItErrorCodes*)[m[K’ is deprecated: Drop jump_threshold [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+  143 |     double fraction = [01;35m[Kmove_group_->computeCartesianPath([m[K
+      |                       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+  144 | [01;35m[K        waypoints_,[m[K
+      |         [01;35m[K~~~~~~~~~~~[m[K                                     
+  145 | [01;35m[K        0.01,[m[K
+      |         [01;35m[K~~~~~[m[K                                           
+  146 | [01;35m[K        0.0,[m[K
+      |         [01;35m[K~~~~[m[K                                            
+  147 | [01;35m[K        trajectory,[m[K
+      |         [01;35m[K~~~~~~~~~~~[m[K                                     
+  148 | [01;35m[K        true,[m[K
+      |         [01;35m[K~~~~~[m[K                                           
+  149 | [01;35m[K        &error_code[m[K
+      |         [01;35m[K~~~~~~~~~~~[m[K                                     
+  150 | [01;35m[K    )[m[K;
+      |     [01;35m[K~[m[K                                                   
+In file included from [01m[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:52[m[K:
+[01m[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.hpp:765:3:[m[K [01;36m[Knote: [m[Kdeclared here
+  765 |   [01;36m[KcomputeCartesianPath[m[K(const std::vector<geometry_msgs::msg::Pose>& waypoints, double eef_step,
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:[m[K At global scope:
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:59:[m[K [01;31m[Kerror: [m[K‘[01m[KInt32[m[K’ in namespace ‘[01m[Kstd_msgs::msg[m[K’ does not name a type
+  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::[01;31m[KInt32[m[K::SharedPtr msg){
+      |                                                           [01;31m[K^~~~~[m[K
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:76:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kmsg[m[K’
+  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr [01;31m[Kmsg[m[K){
+      |                                                                            [01;31m[K^~~[m[K
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:75:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kmsg[m[K’
+  235 | void ArmController::onRemoveWaypoint[34m[K([m[Kconst std_msgs::msg::Int32::SharedPtr[01;31m[K [m[K[32m[Kmsg[m[K){
+      |                                     [34m[K~[m[K                                     [01;31m[K^[m[K[32m[K~~~[m[K
+      |                                                                           [32m[K)[m[K
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:76:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kmsg[m[K’
+  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr [01;31m[Kmsg[m[K){
+      |                                                                            [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/arm_controller_lib.dir/build.make:76: CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:648: CMakeFiles/arm_controller_lib.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

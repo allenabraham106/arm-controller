@@ -1,0 +1,383 @@
+[0.000000] (-) TimerEvent: {}
+[0.000487] (arm_controller) JobQueued: {'identifier': 'arm_controller', 'dependencies': OrderedDict()}
+[0.000526] (arm_controller) JobStarted: {'identifier': 'arm_controller'}
+[0.005653] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'cmake'}
+[0.006526] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'build'}
+[0.006560] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', '--', '-j4', '-l4'], 'cwd': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'allenabraham106', 'SSH_CLIENT': '192.168.64.1 54295 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/helpers/browser.sh', 'HOME': '/home/allenabraham106', 'OLDPWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller', 'TERM_PROGRAM_VERSION': '1.124.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-766c1b94-9376-4da3-ae76-5c648f51875c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'allenabraham106', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '195', 'PATH': '/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-7e9898155e.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'COPILOT_DEBUG_NONCE': 'd70790d8b0f02a1dbfde2ea7f3580d55', 'SSH_CONNECTION': '192.168.64.1 54295 192.168.64.4 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.062405] (arm_controller) StdoutLine: {'line': b'[  2%] Built target arm_controller__rosidl_generator_type_description\n'}
+[0.062538] (arm_controller) StdoutLine: {'line': b'[  4%] Built target arm_controller__rs\n'}
+[0.066948] (arm_controller) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_arm_controller\n'}
+[0.072007] (arm_controller) StdoutLine: {'line': b'[  7%] Built target arm_controller__cpp\n'}
+[0.075262] (arm_controller) StdoutLine: {'line': b'[ 19%] Built target arm_controller__rosidl_generator_c\n'}
+[0.088318] (arm_controller) StdoutLine: {'line': b'[ 34%] Built target arm_controller__rosidl_typesupport_fastrtps_c\n'}
+[0.088446] (arm_controller) StdoutLine: {'line': b'[ 34%] Built target arm_controller__rosidl_typesupport_fastrtps_cpp\n'}
+[0.088669] (arm_controller) StdoutLine: {'line': b'[ 41%] Built target arm_controller__rosidl_typesupport_introspection_c\n'}
+[0.099121] (arm_controller) StdoutLine: {'line': b'[ 48%] Built target arm_controller__rosidl_typesupport_c\n'}
+[0.099917] (-) TimerEvent: {}
+[0.103640] (arm_controller) StdoutLine: {'line': b'[ 56%] Built target arm_controller__rosidl_typesupport_cpp\n'}
+[0.104002] (arm_controller) StdoutLine: {'line': b'[ 63%] Built target arm_controller__rosidl_typesupport_introspection_cpp\n'}
+[0.117332] (arm_controller) StdoutLine: {'line': b'[ 63%] Built target arm_controller\n'}
+[0.127815] (arm_controller) StdoutLine: {'line': b'[ 65%] Built target arm_controller__py\n'}
+[0.128285] (arm_controller) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o\x1b[0m\n'}
+[0.142915] (arm_controller) StdoutLine: {'line': b'[ 73%] Built target arm_controller__rosidl_generator_py\n'}
+[0.153401] (arm_controller) StdoutLine: {'line': b'[ 78%] Built target arm_controller_s__rosidl_typesupport_introspection_c\n'}
+[0.156316] (arm_controller) StdoutLine: {'line': b'[ 82%] Built target arm_controller_s__rosidl_typesupport_fastrtps_c\n'}
+[0.162785] (arm_controller) StdoutLine: {'line': b'[ 87%] Built target arm_controller_s__rosidl_typesupport_c\n'}
+[0.199266] (arm_controller) StdoutLine: {'line': b'running egg_info\n'}
+[0.199947] (-) TimerEvent: {}
+[0.210298] (arm_controller) StdoutLine: {'line': b'writing arm_controller.egg-info/PKG-INFO\n'}
+[0.210546] (arm_controller) StdoutLine: {'line': b'writing dependency_links to arm_controller.egg-info/dependency_links.txt\n'}
+[0.210647] (arm_controller) StdoutLine: {'line': b'writing top-level names to arm_controller.egg-info/top_level.txt\n'}
+[0.243555] (arm_controller) StdoutLine: {'line': b"reading manifest file 'arm_controller.egg-info/SOURCES.txt'\n"}
+[0.243809] (arm_controller) StdoutLine: {'line': b"writing manifest file 'arm_controller.egg-info/SOURCES.txt'\n"}
+[0.259042] (arm_controller) StdoutLine: {'line': b'[ 87%] Built target ament_cmake_python_build_arm_controller_egg\n'}
+[0.300148] (-) TimerEvent: {}
+[0.400403] (-) TimerEvent: {}
+[0.500675] (-) TimerEvent: {}
+[0.601115] (-) TimerEvent: {}
+[0.701383] (-) TimerEvent: {}
+[0.801610] (-) TimerEvent: {}
+[0.901862] (-) TimerEvent: {}
+[1.002281] (-) TimerEvent: {}
+[1.102536] (-) TimerEvent: {}
+[1.202769] (-) TimerEvent: {}
+[1.303045] (-) TimerEvent: {}
+[1.403316] (-) TimerEvent: {}
+[1.503534] (-) TimerEvent: {}
+[1.566464] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:5\x1b[m\x1b[K,\n'}
+[1.566658] (arm_controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:1\x1b[m\x1b[K:\n'}
+[1.566707] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:51:77:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: .h header is obsolete. Please use the .hpp header instead.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.566737] (arm_controller) StderrLine: {'line': b'   51 | #pragma message(".h header is obsolete. Please use the .hpp header instead."\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[1.566822] (arm_controller) StderrLine: {'line': b'      |                                                                             \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[1.603659] (-) TimerEvent: {}
+[1.703915] (-) TimerEvent: {}
+[1.804868] (-) TimerEvent: {}
+[1.906246] (-) TimerEvent: {}
+[2.006464] (-) TimerEvent: {}
+[2.107650] (-) TimerEvent: {}
+[2.207877] (-) TimerEvent: {}
+[2.308108] (-) TimerEvent: {}
+[2.408386] (-) TimerEvent: {}
+[2.508637] (-) TimerEvent: {}
+[2.608897] (-) TimerEvent: {}
+[2.710112] (-) TimerEvent: {}
+[2.765198] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool ArmController::\x1b[01;32m\x1b[KexecuteWaypoints\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.765348] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:143:56:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdouble moveit::planning_interface::MoveGroupInterface::\x1b[01;32m\x1b[KcomputeCartesianPath\x1b[m\x1b[K(const std::vector<geometry_msgs::msg::Pose_<std::allocator<void> > >&, double, double, moveit_msgs::msg::RobotTrajectory&, bool, moveit_msgs::msg::MoveItErrorCodes*)\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Drop jump_threshold [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.765390] (arm_controller) StderrLine: {'line': b'  143 |     double fraction = \x1b[01;35m\x1b[Kmove_group_->computeCartesianPath(\x1b[m\x1b[K\n'}
+[2.765422] (arm_controller) StderrLine: {'line': b'      |                       \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[2.765456] (arm_controller) StderrLine: {'line': b'  144 | \x1b[01;35m\x1b[K        waypoints_,\x1b[m\x1b[K\n'}
+[2.765487] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.765516] (arm_controller) StderrLine: {'line': b'  145 | \x1b[01;35m\x1b[K        0.01,\x1b[m\x1b[K\n'}
+[2.765544] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~\x1b[m\x1b[K                                           \n'}
+[2.765584] (arm_controller) StderrLine: {'line': b'  146 | \x1b[01;35m\x1b[K        0.0,\x1b[m\x1b[K\n'}
+[2.765624] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~\x1b[m\x1b[K                                            \n'}
+[2.765647] (arm_controller) StderrLine: {'line': b'  147 | \x1b[01;35m\x1b[K        trajectory,\x1b[m\x1b[K\n'}
+[2.765675] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.765698] (arm_controller) StderrLine: {'line': b'  148 | \x1b[01;35m\x1b[K        true,\x1b[m\x1b[K\n'}
+[2.765725] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~\x1b[m\x1b[K                                           \n'}
+[2.765748] (arm_controller) StderrLine: {'line': b'  149 | \x1b[01;35m\x1b[K        &error_code\x1b[m\x1b[K\n'}
+[2.765778] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.765800] (arm_controller) StderrLine: {'line': b'  150 | \x1b[01;35m\x1b[K    )\x1b[m\x1b[K;\n'}
+[2.765822] (arm_controller) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K~\x1b[m\x1b[K                                                   \n'}
+[2.765852] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:52\x1b[m\x1b[K:\n'}
+[2.765887] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.hpp:765:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.765910] (arm_controller) StderrLine: {'line': b'  765 |   \x1b[01;36m\x1b[KcomputeCartesianPath\x1b[m\x1b[K(const std::vector<geometry_msgs::msg::Pose>& waypoints, double eef_step,\n'}
+[2.765939] (arm_controller) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.810824] (-) TimerEvent: {}
+[2.911157] (-) TimerEvent: {}
+[3.011373] (-) TimerEvent: {}
+[3.111604] (-) TimerEvent: {}
+[3.212031] (-) TimerEvent: {}
+[3.312290] (-) TimerEvent: {}
+[3.412499] (-) TimerEvent: {}
+[3.512794] (-) TimerEvent: {}
+[3.613034] (-) TimerEvent: {}
+[3.713314] (-) TimerEvent: {}
+[3.814252] (-) TimerEvent: {}
+[3.914561] (-) TimerEvent: {}
+[4.014778] (-) TimerEvent: {}
+[4.115465] (-) TimerEvent: {}
+[4.215681] (-) TimerEvent: {}
+[4.315969] (-) TimerEvent: {}
+[4.416922] (-) TimerEvent: {}
+[4.517287] (-) TimerEvent: {}
+[4.620368] (-) TimerEvent: {}
+[4.745318] (-) TimerEvent: {}
+[4.845752] (-) TimerEvent: {}
+[4.946171] (-) TimerEvent: {}
+[5.046555] (-) TimerEvent: {}
+[5.146824] (-) TimerEvent: {}
+[5.247208] (-) TimerEvent: {}
+[5.347841] (-) TimerEvent: {}
+[5.448651] (-) TimerEvent: {}
+[5.548980] (-) TimerEvent: {}
+[5.649247] (-) TimerEvent: {}
+[5.749534] (-) TimerEvent: {}
+[5.849780] (-) TimerEvent: {}
+[5.950021] (-) TimerEvent: {}
+[6.050410] (-) TimerEvent: {}
+[6.150664] (-) TimerEvent: {}
+[6.251090] (-) TimerEvent: {}
+[6.351370] (-) TimerEvent: {}
+[6.453815] (-) TimerEvent: {}
+[6.554796] (-) TimerEvent: {}
+[6.656110] (-) TimerEvent: {}
+[6.756398] (-) TimerEvent: {}
+[6.857334] (-) TimerEvent: {}
+[6.961524] (-) TimerEvent: {}
+[7.061974] (-) TimerEvent: {}
+[7.162240] (-) TimerEvent: {}
+[7.262470] (-) TimerEvent: {}
+[7.376689] (-) TimerEvent: {}
+[7.477892] (-) TimerEvent: {}
+[7.578550] (-) TimerEvent: {}
+[7.678805] (-) TimerEvent: {}
+[7.779056] (-) TimerEvent: {}
+[7.879257] (-) TimerEvent: {}
+[7.979518] (-) TimerEvent: {}
+[8.079759] (-) TimerEvent: {}
+[8.179997] (-) TimerEvent: {}
+[8.280260] (-) TimerEvent: {}
+[8.381927] (-) TimerEvent: {}
+[8.483096] (-) TimerEvent: {}
+[8.583417] (-) TimerEvent: {}
+[8.683651] (-) TimerEvent: {}
+[8.783836] (-) TimerEvent: {}
+[8.884324] (-) TimerEvent: {}
+[8.984629] (-) TimerEvent: {}
+[9.084857] (-) TimerEvent: {}
+[9.185089] (-) TimerEvent: {}
+[9.285383] (-) TimerEvent: {}
+[9.385738] (-) TimerEvent: {}
+[9.486150] (-) TimerEvent: {}
+[9.586707] (-) TimerEvent: {}
+[9.687172] (-) TimerEvent: {}
+[9.787438] (-) TimerEvent: {}
+[9.887729] (-) TimerEvent: {}
+[9.987989] (-) TimerEvent: {}
+[10.088909] (-) TimerEvent: {}
+[10.189074] (-) TimerEvent: {}
+[10.289561] (-) TimerEvent: {}
+[10.389809] (-) TimerEvent: {}
+[10.490054] (-) TimerEvent: {}
+[10.590289] (-) TimerEvent: {}
+[10.691120] (-) TimerEvent: {}
+[10.791425] (-) TimerEvent: {}
+[10.891631] (-) TimerEvent: {}
+[10.991827] (-) TimerEvent: {}
+[11.092701] (-) TimerEvent: {}
+[11.192929] (-) TimerEvent: {}
+[11.293152] (-) TimerEvent: {}
+[11.393394] (-) TimerEvent: {}
+[11.493696] (-) TimerEvent: {}
+[11.542700] (arm_controller) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX shared library libarm_controller_lib.so\x1b[0m\n'}
+[11.593884] (-) TimerEvent: {}
+[11.694104] (-) TimerEvent: {}
+[11.794356] (-) TimerEvent: {}
+[11.894578] (-) TimerEvent: {}
+[11.994806] (-) TimerEvent: {}
+[12.013349] (arm_controller) StdoutLine: {'line': b'[ 90%] Built target arm_controller_lib\n'}
+[12.033700] (arm_controller) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding CXX object CMakeFiles/terminal_controller.dir/src/terminal_controller.cpp.o\x1b[0m\n'}
+[12.036295] (arm_controller) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding CXX object CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o\x1b[0m\n'}
+[12.094926] (-) TimerEvent: {}
+[12.195136] (-) TimerEvent: {}
+[12.295484] (-) TimerEvent: {}
+[12.395654] (-) TimerEvent: {}
+[12.495887] (-) TimerEvent: {}
+[12.596084] (-) TimerEvent: {}
+[12.696384] (-) TimerEvent: {}
+[12.796621] (-) TimerEvent: {}
+[12.896855] (-) TimerEvent: {}
+[12.998327] (-) TimerEvent: {}
+[13.098626] (-) TimerEvent: {}
+[13.199716] (-) TimerEvent: {}
+[13.299969] (-) TimerEvent: {}
+[13.400213] (-) TimerEvent: {}
+[13.425404] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:5\x1b[m\x1b[K,\n'}
+[13.425635] (arm_controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_lifecycle_node.cpp:5\x1b[m\x1b[K:\n'}
+[13.425697] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:51:77:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: .h header is obsolete. Please use the .hpp header instead.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.425784] (arm_controller) StderrLine: {'line': b'   51 | #pragma message(".h header is obsolete. Please use the .hpp header instead."\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[13.425809] (arm_controller) StderrLine: {'line': b'      |                                                                             \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[13.500330] (-) TimerEvent: {}
+[13.600823] (-) TimerEvent: {}
+[13.701408] (-) TimerEvent: {}
+[13.801783] (-) TimerEvent: {}
+[13.902211] (-) TimerEvent: {}
+[14.002762] (-) TimerEvent: {}
+[14.103039] (-) TimerEvent: {}
+[14.203275] (-) TimerEvent: {}
+[14.303577] (-) TimerEvent: {}
+[14.316997] (arm_controller) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking CXX executable terminal_controller\x1b[0m\n'}
+[14.403673] (-) TimerEvent: {}
+[14.503928] (-) TimerEvent: {}
+[14.604152] (-) TimerEvent: {}
+[14.704395] (-) TimerEvent: {}
+[14.804820] (-) TimerEvent: {}
+[14.905041] (-) TimerEvent: {}
+[15.005272] (-) TimerEvent: {}
+[15.105550] (-) TimerEvent: {}
+[15.205791] (-) TimerEvent: {}
+[15.255432] (arm_controller) StdoutLine: {'line': b'[ 97%] Built target terminal_controller\n'}
+[15.305893] (-) TimerEvent: {}
+[15.406459] (-) TimerEvent: {}
+[15.506703] (-) TimerEvent: {}
+[15.606945] (-) TimerEvent: {}
+[15.707515] (-) TimerEvent: {}
+[15.808059] (-) TimerEvent: {}
+[15.909151] (-) TimerEvent: {}
+[16.009718] (-) TimerEvent: {}
+[16.110898] (-) TimerEvent: {}
+[16.211273] (-) TimerEvent: {}
+[16.239604] (arm_controller) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arm_lifecycle_node\x1b[0m\n'}
+[16.311434] (-) TimerEvent: {}
+[16.411792] (-) TimerEvent: {}
+[16.512933] (-) TimerEvent: {}
+[16.613387] (-) TimerEvent: {}
+[16.624395] (arm_controller) StdoutLine: {'line': b'[100%] Built target arm_lifecycle_node\n'}
+[16.636158] (arm_controller) CommandEnded: {'returncode': 0}
+[16.637899] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'install'}
+[16.645321] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller'], 'cwd': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'allenabraham106', 'SSH_CLIENT': '192.168.64.1 54295 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/helpers/browser.sh', 'HOME': '/home/allenabraham106', 'OLDPWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller', 'TERM_PROGRAM_VERSION': '1.124.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-766c1b94-9376-4da3-ae76-5c648f51875c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'allenabraham106', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '195', 'PATH': '/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-7e9898155e.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'COPILOT_DEBUG_NONCE': 'd70790d8b0f02a1dbfde2ea7f3580d55', 'SSH_CONNECTION': '192.168.64.1 54295 192.168.64.4 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[16.650189] (arm_controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.650415] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/rosidl_interfaces/arm_controller\n'}
+[16.650518] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.json\n'}
+[16.650571] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.650665] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.650692] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_generator_c__visibility_control.h\n'}
+[16.650758] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_command.h\n'}
+[16.650803] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.651225] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.c\n'}
+[16.651262] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__description.c\n'}
+[16.651292] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__struct.h\n'}
+[16.651333] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__functions.h\n'}
+[16.651357] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.h\n'}
+[16.651655] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__functions.c\n'}
+[16.651691] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/library_path.sh\n'}
+[16.651733] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/library_path.dsv\n'}
+[16.651800] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_c.so\n'}
+[16.651827] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.651905] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.651936] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[16.651966] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.651991] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_fastrtps_c.h\n'}
+[16.652016] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_c.so\n'}
+[16.652039] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.652062] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.652086] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_command.hpp\n'}
+[16.652110] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.652141] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__builder.hpp\n'}
+[16.652166] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__struct.hpp\n'}
+[16.652208] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__traits.hpp\n'}
+[16.652239] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.hpp\n'}
+[16.652329] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[16.652373] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.652402] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.652434] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.652483] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/dds_fastrtps\n'}
+[16.652522] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[16.652556] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[16.652579] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_cpp.so\n'}
+[16.652605] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.652636] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.652666] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[16.652689] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.652712] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.c\n'}
+[16.652739] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h\n'}
+[16.652786] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_c.so\n'}
+[16.652874] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_c.so\n'}
+[16.652919] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller\n'}
+[16.652968] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg\n'}
+[16.653007] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail\n'}
+[16.653047] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.cpp\n'}
+[16.653084] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[16.653111] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_cpp.so\n'}
+[16.653172] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_cpp.so\n'}
+[16.653197] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/pythonpath.sh\n'}
+[16.653219] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/pythonpath.dsv\n'}
+[16.653242] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info\n'}
+[16.653327] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[16.653370] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[16.653404] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[16.653437] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[16.653465] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller\n'}
+[16.653523] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[16.653550] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so\n'}
+[16.653572] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c\n'}
+[16.653595] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/__init__.py\n'}
+[16.653617] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_c.so\n'}
+[16.653647] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so\n'}
+[16.653691] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg\n'}
+[16.653726] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/__init__.py\n'}
+[16.653758] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_command_s.c\n'}
+[16.653787] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_command.py\n'}
+[16.653811] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[16.674203] (arm_controller) StdoutLine: {'line': b"Listing '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller'...\n"}
+[16.674344] (arm_controller) StdoutLine: {'line': b"Compiling '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/__init__.py'...\n"}
+[16.674379] (arm_controller) StdoutLine: {'line': b"Listing '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg'...\n"}
+[16.677473] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so\n'}
+[16.677634] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so\n'}
+[16.677738] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_c.so\n'}
+[16.677893] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_py.so\n'}
+[16.677971] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/rust_packages/arm_controller\n'}
+[16.678019] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust\n'}
+[16.678141] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src\n'}
+[16.678269] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/lib.rs\n'}
+[16.678351] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg.rs\n'}
+[16.678403] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg\n'}
+[16.678449] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg/rmw.rs\n'}
+[16.678495] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/build.rs\n'}
+[16.678547] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/Cargo.toml\n'}
+[16.678628] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.idl\n'}
+[16.678689] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.msg\n'}
+[16.678778] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/libarm_controller_lib.so\n'}
+[16.689001] (arm_controller) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/libarm_controller_lib.so" to ""\n'}
+[16.689227] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node\n'}
+[16.689517] (arm_controller) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node" to ""\n'}
+[16.689604] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/terminal_controller\n'}
+[16.691085] (arm_controller) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/terminal_controller" to ""\n'}
+[16.691163] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include\n'}
+[16.691231] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller\n'}
+[16.691291] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller.hpp\n'}
+[16.692709] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch\n'}
+[16.692863] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch/arm_lifecycle.launch.py\n'}
+[16.692890] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller\n'}
+[16.692917] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller\n'}
+[16.692947] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh\n'}
+[16.692970] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv\n'}
+[16.692997] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.sh\n'}
+[16.693021] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.dsv\n'}
+[16.693045] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.bash\n'}
+[16.693086] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.sh\n'}
+[16.693112] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.zsh\n'}
+[16.693256] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.dsv\n'}
+[16.693291] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.dsv\n'}
+[16.693345] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/packages/arm_controller\n'}
+[16.693381] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cExport.cmake\n'}
+[16.693409] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cExport-noconfig.cmake\n'}
+[16.693434] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[16.693460] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[16.693484] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cppExport.cmake\n'}
+[16.693508] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[16.693531] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[16.693555] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cExport.cmake\n'}
+[16.693666] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[16.693702] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cExport.cmake\n'}
+[16.693736] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[16.693760] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[16.693789] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[16.693812] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cppExport.cmake\n'}
+[16.693840] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[16.693864] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_pyExport.cmake\n'}
+[16.693892] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_pyExport-noconfig.cmake\n'}
+[16.693915] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake-extras.cmake\n'}
+[16.693945] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[16.693968] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[16.694000] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[16.694026] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[16.694048] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[16.694069] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[16.694091] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake\n'}
+[16.694114] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake\n'}
+[16.694138] (arm_controller) StdoutLine: {'line': b'-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.xml\n'}
+[16.695660] (arm_controller) CommandEnded: {'returncode': 0}
+[16.709023] (arm_controller) JobEnded: {'identifier': 'arm_controller', 'rc': 0}
+[16.709457] (-) EventReactorShutdown: {}

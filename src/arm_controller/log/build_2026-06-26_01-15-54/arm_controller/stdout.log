@@ -1,0 +1,55 @@
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_lifecycle: 28.1.18 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+-- Found moveit_ros_planning_interface: 2.12.4 (/opt/ros/jazzy/share/moveit_ros_planning_interface/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: date_time filesystem program_options system thread 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+-- Found parameter_traits: 0.7.1 (/opt/ros/jazzy/share/parameter_traits/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: filesystem 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread chrono 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread system filesystem regex date_time program_options 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread 
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller
+[  4%] Built target arm_controller__rs
+[  4%] Built target arm_controller__rosidl_generator_type_description
+[  4%] Built target ament_cmake_python_copy_arm_controller
+[  7%] Built target arm_controller__cpp
+[ 19%] Built target arm_controller__rosidl_generator_c
+[ 26%] Built target arm_controller__rosidl_typesupport_fastrtps_c
+[ 34%] Built target arm_controller__rosidl_typesupport_introspection_c
+[ 41%] Built target arm_controller__rosidl_typesupport_fastrtps_cpp
+[ 48%] Built target arm_controller__rosidl_typesupport_c
+[ 56%] Built target arm_controller__rosidl_typesupport_introspection_cpp
+[ 63%] Built target arm_controller__rosidl_typesupport_cpp
+[ 63%] Built target arm_controller
+[ 65%] Built target arm_controller__py
+[ 68%] [32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o[0m
+[ 73%] Built target arm_controller__rosidl_generator_py
+[ 78%] Built target arm_controller_s__rosidl_typesupport_introspection_c
+[ 82%] Built target arm_controller_s__rosidl_typesupport_fastrtps_c
+[ 87%] Built target arm_controller_s__rosidl_typesupport_c
+running egg_info
+writing arm_controller.egg-info/PKG-INFO
+writing dependency_links to arm_controller.egg-info/dependency_links.txt
+writing top-level names to arm_controller.egg-info/top_level.txt
+reading manifest file 'arm_controller.egg-info/SOURCES.txt'
+writing manifest file 'arm_controller.egg-info/SOURCES.txt'
+[ 87%] Built target ament_cmake_python_build_arm_controller_egg

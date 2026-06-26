@@ -1,0 +1,147 @@
+[0.000000] (-) TimerEvent: {}
+[0.000352] (arm_controller) JobQueued: {'identifier': 'arm_controller', 'dependencies': OrderedDict()}
+[0.000399] (arm_controller) JobStarted: {'identifier': 'arm_controller'}
+[0.004777] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'cmake'}
+[0.005674] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'build'}
+[0.005733] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', '--', '-j4', '-l4'], 'cwd': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'allenabraham106', 'SSH_CLIENT': '192.168.64.1 54295 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/helpers/browser.sh', 'HOME': '/home/allenabraham106', 'OLDPWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller', 'TERM_PROGRAM_VERSION': '1.124.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-766c1b94-9376-4da3-ae76-5c648f51875c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'allenabraham106', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '195', 'PATH': '/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/allenabraham106/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/allenabraham106/.vscode-server/cli/servers/Stable-1b50d58d73426c9171299ec4037d01365d995b78/server/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-7e9898155e.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller', 'COPILOT_DEBUG_NONCE': 'd70790d8b0f02a1dbfde2ea7f3580d55', 'SSH_CONNECTION': '192.168.64.1 54295 192.168.64.4 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/allenabraham106/ros2_ws/install/ros2_fundementals_examples:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.053720] (arm_controller) StdoutLine: {'line': b'[  2%] Built target arm_controller__rosidl_generator_type_description\n'}
+[0.054901] (arm_controller) StdoutLine: {'line': b'[  4%] Built target arm_controller__rs\n'}
+[0.058973] (arm_controller) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_arm_controller\n'}
+[0.065228] (arm_controller) StdoutLine: {'line': b'[  7%] Built target arm_controller__cpp\n'}
+[0.065321] (arm_controller) StdoutLine: {'line': b'[ 19%] Built target arm_controller__rosidl_generator_c\n'}
+[0.076979] (arm_controller) StdoutLine: {'line': b'[ 29%] Built target arm_controller__rosidl_typesupport_fastrtps_cpp\n'}
+[0.078506] (arm_controller) StdoutLine: {'line': b'[ 39%] Built target arm_controller__rosidl_typesupport_fastrtps_c\n'}
+[0.078581] (arm_controller) StdoutLine: {'line': b'[ 41%] Built target arm_controller__rosidl_typesupport_introspection_c\n'}
+[0.090088] (arm_controller) StdoutLine: {'line': b'[ 48%] Built target arm_controller__rosidl_typesupport_c\n'}
+[0.090583] (arm_controller) StdoutLine: {'line': b'[ 58%] Built target arm_controller__rosidl_typesupport_introspection_cpp\n'}
+[0.090645] (arm_controller) StdoutLine: {'line': b'[ 63%] Built target arm_controller__rosidl_typesupport_cpp\n'}
+[0.099653] (arm_controller) StdoutLine: {'line': b'[ 63%] Built target arm_controller\n'}
+[0.099875] (-) TimerEvent: {}
+[0.109569] (arm_controller) StdoutLine: {'line': b'[ 65%] Built target arm_controller__py\n'}
+[0.118198] (arm_controller) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o\x1b[0m\n'}
+[0.125480] (arm_controller) StdoutLine: {'line': b'[ 73%] Built target arm_controller__rosidl_generator_py\n'}
+[0.137414] (arm_controller) StdoutLine: {'line': b'[ 78%] Built target arm_controller_s__rosidl_typesupport_fastrtps_c\n'}
+[0.138890] (arm_controller) StdoutLine: {'line': b'[ 82%] Built target arm_controller_s__rosidl_typesupport_introspection_c\n'}
+[0.147349] (arm_controller) StdoutLine: {'line': b'[ 87%] Built target arm_controller_s__rosidl_typesupport_c\n'}
+[0.179279] (arm_controller) StdoutLine: {'line': b'running egg_info\n'}
+[0.189648] (arm_controller) StdoutLine: {'line': b'writing arm_controller.egg-info/PKG-INFO\n'}
+[0.189871] (arm_controller) StdoutLine: {'line': b'writing dependency_links to arm_controller.egg-info/dependency_links.txt\n'}
+[0.190004] (arm_controller) StdoutLine: {'line': b'writing top-level names to arm_controller.egg-info/top_level.txt\n'}
+[0.199966] (-) TimerEvent: {}
+[0.220105] (arm_controller) StdoutLine: {'line': b"reading manifest file 'arm_controller.egg-info/SOURCES.txt'\n"}
+[0.220536] (arm_controller) StdoutLine: {'line': b"writing manifest file 'arm_controller.egg-info/SOURCES.txt'\n"}
+[0.236276] (arm_controller) StdoutLine: {'line': b'[ 87%] Built target ament_cmake_python_build_arm_controller_egg\n'}
+[0.300153] (-) TimerEvent: {}
+[0.400380] (-) TimerEvent: {}
+[0.500591] (-) TimerEvent: {}
+[0.600826] (-) TimerEvent: {}
+[0.701224] (-) TimerEvent: {}
+[0.801612] (-) TimerEvent: {}
+[0.901865] (-) TimerEvent: {}
+[1.002096] (-) TimerEvent: {}
+[1.102314] (-) TimerEvent: {}
+[1.202536] (-) TimerEvent: {}
+[1.302791] (-) TimerEvent: {}
+[1.403036] (-) TimerEvent: {}
+[1.504273] (-) TimerEvent: {}
+[1.512818] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:5\x1b[m\x1b[K,\n'}
+[1.512998] (arm_controller) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:1\x1b[m\x1b[K:\n'}
+[1.513041] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:51:77:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K#pragma message: .h header is obsolete. Please use the .hpp header instead.\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.513097] (arm_controller) StderrLine: {'line': b'   51 | #pragma message(".h header is obsolete. Please use the .hpp header instead."\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[1.513122] (arm_controller) StderrLine: {'line': b'      |                                                                             \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[1.604460] (-) TimerEvent: {}
+[1.704769] (-) TimerEvent: {}
+[1.805051] (-) TimerEvent: {}
+[1.905746] (-) TimerEvent: {}
+[2.006716] (-) TimerEvent: {}
+[2.107145] (-) TimerEvent: {}
+[2.207602] (-) TimerEvent: {}
+[2.308620] (-) TimerEvent: {}
+[2.408873] (-) TimerEvent: {}
+[2.509153] (-) TimerEvent: {}
+[2.609401] (-) TimerEvent: {}
+[2.710009] (-) TimerEvent: {}
+[2.810277] (-) TimerEvent: {}
+[2.910525] (-) TimerEvent: {}
+[2.916798] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool ArmController::\x1b[01;32m\x1b[KexecuteWaypoints\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.917117] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:143:56:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdouble moveit::planning_interface::MoveGroupInterface::\x1b[01;32m\x1b[KcomputeCartesianPath\x1b[m\x1b[K(const std::vector<geometry_msgs::msg::Pose_<std::allocator<void> > >&, double, double, moveit_msgs::msg::RobotTrajectory&, bool, moveit_msgs::msg::MoveItErrorCodes*)\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Drop jump_threshold [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.917173] (arm_controller) StderrLine: {'line': b'  143 |     double fraction = \x1b[01;35m\x1b[Kmove_group_->computeCartesianPath(\x1b[m\x1b[K\n'}
+[2.917251] (arm_controller) StderrLine: {'line': b'      |                       \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[2.917299] (arm_controller) StderrLine: {'line': b'  144 | \x1b[01;35m\x1b[K        waypoints_,\x1b[m\x1b[K\n'}
+[2.917327] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.917360] (arm_controller) StderrLine: {'line': b'  145 | \x1b[01;35m\x1b[K        0.01,\x1b[m\x1b[K\n'}
+[2.917392] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~\x1b[m\x1b[K                                           \n'}
+[2.917435] (arm_controller) StderrLine: {'line': b'  146 | \x1b[01;35m\x1b[K        0.0,\x1b[m\x1b[K\n'}
+[2.917473] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~\x1b[m\x1b[K                                            \n'}
+[2.917496] (arm_controller) StderrLine: {'line': b'  147 | \x1b[01;35m\x1b[K        trajectory,\x1b[m\x1b[K\n'}
+[2.917533] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.917561] (arm_controller) StderrLine: {'line': b'  148 | \x1b[01;35m\x1b[K        true,\x1b[m\x1b[K\n'}
+[2.917718] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~\x1b[m\x1b[K                                           \n'}
+[2.917949] (arm_controller) StderrLine: {'line': b'  149 | \x1b[01;35m\x1b[K        &error_code\x1b[m\x1b[K\n'}
+[2.917983] (arm_controller) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~\x1b[m\x1b[K                                     \n'}
+[2.918021] (arm_controller) StderrLine: {'line': b'  150 | \x1b[01;35m\x1b[K    )\x1b[m\x1b[K;\n'}
+[2.918044] (arm_controller) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K~\x1b[m\x1b[K                                                   \n'}
+[2.918115] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.h:52\x1b[m\x1b[K:\n'}
+[2.918160] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface.hpp:765:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.918192] (arm_controller) StderrLine: {'line': b'  765 |   \x1b[01;36m\x1b[KcomputeCartesianPath\x1b[m\x1b[K(const std::vector<geometry_msgs::msg::Pose>& waypoints, double eef_step,\n'}
+[2.918216] (arm_controller) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.921244] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:\x1b[m\x1b[K At global scope:\n'}
+[2.921340] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:59:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KInt32\x1b[m\x1b[K\xe2\x80\x99 in namespace \xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.921377] (arm_controller) StderrLine: {'line': b'  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::\x1b[01;31m\x1b[KInt32\x1b[m\x1b[K::SharedPtr msg){\n'}
+[2.921411] (arm_controller) StderrLine: {'line': b'      |                                                           \x1b[01;31m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[2.921443] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:76:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id before \xe2\x80\x98\x1b[01m\x1b[Kmsg\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.921485] (arm_controller) StderrLine: {'line': b'  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr \x1b[01;31m\x1b[Kmsg\x1b[m\x1b[K){\n'}
+[2.921509] (arm_controller) StderrLine: {'line': b'      |                                                                            \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.921557] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kmsg\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.921594] (arm_controller) StderrLine: {'line': b'  235 | void ArmController::onRemoveWaypoint\x1b[34m\x1b[K(\x1b[m\x1b[Kconst std_msgs::msg::Int32::SharedPtr\x1b[01;31m\x1b[K \x1b[m\x1b[K\x1b[32m\x1b[Kmsg\x1b[m\x1b[K){\n'}
+[2.921618] (arm_controller) StderrLine: {'line': b'      |                                     \x1b[34m\x1b[K~\x1b[m\x1b[K                                     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\x1b[32m\x1b[K~~~\x1b[m\x1b[K\n'}
+[2.921651] (arm_controller) StderrLine: {'line': b'      |                                                                           \x1b[32m\x1b[K)\x1b[m\x1b[K\n'}
+[2.921673] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:235:76:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected initializer before \xe2\x80\x98\x1b[01m\x1b[Kmsg\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.921695] (arm_controller) StderrLine: {'line': b'  235 | void ArmController::onRemoveWaypoint(const std_msgs::msg::Int32::SharedPtr \x1b[01;31m\x1b[Kmsg\x1b[m\x1b[K){\n'}
+[2.921717] (arm_controller) StderrLine: {'line': b'      |                                                                            \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.010689] (-) TimerEvent: {}
+[3.111030] (-) TimerEvent: {}
+[3.211358] (-) TimerEvent: {}
+[3.311653] (-) TimerEvent: {}
+[3.415555] (-) TimerEvent: {}
+[3.516166] (-) TimerEvent: {}
+[3.616634] (-) TimerEvent: {}
+[3.716943] (-) TimerEvent: {}
+[3.831393] (-) TimerEvent: {}
+[3.931979] (-) TimerEvent: {}
+[4.033218] (-) TimerEvent: {}
+[4.133506] (-) TimerEvent: {}
+[4.245056] (-) TimerEvent: {}
+[4.345924] (-) TimerEvent: {}
+[4.446407] (-) TimerEvent: {}
+[4.546784] (-) TimerEvent: {}
+[4.647321] (-) TimerEvent: {}
+[4.748633] (-) TimerEvent: {}
+[4.848920] (-) TimerEvent: {}
+[4.949337] (-) TimerEvent: {}
+[5.049794] (-) TimerEvent: {}
+[5.150545] (-) TimerEvent: {}
+[5.250884] (-) TimerEvent: {}
+[5.351133] (-) TimerEvent: {}
+[5.451735] (-) TimerEvent: {}
+[5.552767] (-) TimerEvent: {}
+[5.653046] (-) TimerEvent: {}
+[5.754245] (-) TimerEvent: {}
+[5.854536] (-) TimerEvent: {}
+[5.955577] (-) TimerEvent: {}
+[6.055848] (-) TimerEvent: {}
+[6.156088] (-) TimerEvent: {}
+[6.256467] (-) TimerEvent: {}
+[6.358115] (-) TimerEvent: {}
+[6.458410] (-) TimerEvent: {}
+[6.558946] (-) TimerEvent: {}
+[6.660042] (-) TimerEvent: {}
+[6.760382] (-) TimerEvent: {}
+[6.860627] (-) TimerEvent: {}
+[6.952366] (arm_controller) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/arm_controller_lib.dir/build.make:76: CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o] Error 1\n'}
+[6.953228] (arm_controller) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:648: CMakeFiles/arm_controller_lib.dir/all] Error 2\n'}
+[6.953538] (arm_controller) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[6.959120] (arm_controller) CommandEnded: {'returncode': 2}
+[6.961258] (-) TimerEvent: {}
+[6.971995] (arm_controller) JobEnded: {'identifier': 'arm_controller', 'rc': 2}
+[6.982533] (-) EventReactorShutdown: {}

@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from arm_controller/msg/WaypointCommand.msg
+// generated code does not contain a copyright notice
+
+
+module arm_controller {
+  module msg {
+    module WaypointCommand_Constants {
+      const int8 ADD = 0;
+      const int8 REMOVE = 1;
+    };
+    struct WaypointCommand {
+      int8 type;
+
+      int32 index;
+    };
+  };
+};

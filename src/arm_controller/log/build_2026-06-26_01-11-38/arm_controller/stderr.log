@@ -1,0 +1,8 @@
+In file included from [01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_controller.cpp:1[m[K:
+[01m[K/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp:12:10:[m[K [01;31m[Kfatal error: [m[Karm_controller/msg/waypoint_command.hpp: No such file or directory
+   12 | #include [01;31m[K"arm_controller/msg/waypoint_command.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/arm_controller_lib.dir/build.make:76: CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:646: CMakeFiles/arm_controller_lib.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
