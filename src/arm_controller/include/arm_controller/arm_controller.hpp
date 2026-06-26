@@ -16,6 +16,7 @@
 #include <shape_msgs/msg/solid_primitive.hpp>
 #include <std_msgs/msg/float64.hpp>
 #include <std_msgs/msg/bool.hpp>
+#include <moveit_msgs/msg/display_trajectory.hpp>
 
 
 class ArmController{
@@ -62,6 +63,10 @@ class ArmController{
         rclcpp::TimerBase::SharedPtr distance_timer_;
         std::atomic<bool> auto_orientation_{false};
         rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr auto_orientation_sub_;
+        rclcpp::Subscription<moveit_msgs::msg::DisplayTrajectory>::SharedPtr preview_sub_;
+        rclcpp::Publisher<moveit_msgs::msg::DisplayTrajectory>::SharedPtr preview_pub_;
+        rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr preview_waypoints_sub_;
+        rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr update_waypoint_sub_;
         void onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClearWaypoints(const std_msgs::msg::Empty::SharedPtr msg);
         void onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg);
@@ -72,6 +77,8 @@ class ArmController{
         void addCollisionbox();
         void onAddWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
         void publishDistanceToBox();
+        void onUpdateWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg);
+        void onPreviewWaypoints();
         double workspace_x_max_;
         double workspace_y_max_;
         double workspace_z_min_;

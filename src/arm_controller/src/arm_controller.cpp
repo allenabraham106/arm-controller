@@ -108,6 +108,27 @@ bool ArmController::initialize(){
         }
     );
 
+    // Subscriber for updating a specific waypoint from GUI
+    update_waypoint_sub_ = node_->create_subscription<geometry_msgs::msg::PoseStamped>(
+        "/gui_update_waypoint",
+        10,
+        std::bind(&ArmController::onUpdateWaypoint, this, std::placeholders::_1)
+    );
+
+    // Subscriber for triggering path preview
+    preview_waypoints_sub_ = node_->create_subscription<std_msgs::msg::Empty>(
+        "/preview_waypoints",
+        10,
+        [this](const std_msgs::msg::Empty::SharedPtr){
+            onPreviewWaypoints();
+        }
+    );
+
+    // Publisher for displaying planned path in RViz
+    preview_pub_ = node_->create_publisher<moveit_msgs::msg::DisplayTrajectory>(
+        "/move_group/display_planned_path", 10
+    );
+
     RCLCPP_INFO(node_->get_logger(), "Listening for clicked points...");
     RCLCPP_INFO(node_->get_logger(), "ArmController Initialized");
 
@@ -303,4 +324,49 @@ void ArmController::publishDistanceToBox(){
     std_msgs::msg::Float64 msg;
     msg.data = distance;
     distance_pub_->publish(msg);
+}
+
+void ArmController::onUpdateWaypoint(const geometry_msgs::msg::PoseStamped::SharedPtr msg){
+    int index = std::stoi(msg->header.frame_id);
+    if(index < 0 || index >= (int)waypoints_.size()){
+        RCLCPP_WARN(node_->get_logger(), "Update waypoint: invalid index %d", index);
+        return;
+    }
+    waypoints_[index] = msg->pose;
+    RCLCPP_INFO(node_->get_logger(), "Updated waypoint %d", index);
+    publishWaypointMarkers();
+}
+
+void ArmController::onPreviewWaypoints(){
+    if(waypoints_.empty()){
+        RCLCPP_WARN(node_->get_logger(), "No waypoints to preview");
+        return;
+    }
+    RCLCPP_INFO(node_->get_logger(), "Previewing %zu waypoints", waypoints_.size());
+
+    moveit_msgs::msg::DisplayTrajectory display_trajectory;
+    display_trajectory.model_id = move_group_->getName();
+
+    for(size_t i = 0; i < waypoints_.size(); ++i){
+        if(auto_orientation_){
+            move_group_->setPositionTarget(
+                waypoints_[i].position.x,
+                waypoints_[i].position.y,
+                waypoints_[i].position.z
+            );
+        } else {
+            move_group_->setPoseTarget(waypoints_[i]);
+        }
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        bool success = (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+        if(success){
+            display_trajectory.trajectory.push_back(plan.trajectory);
+            move_group_->setStartState(*move_group_->getCurrentState());
+        } else {
+            RCLCPP_WARN(node_->get_logger(), "Preview: failed to plan waypoint %zu", i);
+        }
+    }
+    move_group_->setStartStateToCurrentState();
+    preview_pub_->publish(display_trajectory);
+    RCLCPP_INFO(node_->get_logger(), "Preview published");
 }

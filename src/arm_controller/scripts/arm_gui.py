@@ -46,6 +46,10 @@ class ArmGUI(Node):
         self.declare_parameter('collision_box.size_x', 0.1)
         self.declare_parameter('collision_box.size_y', 0.4)
         self.declare_parameter('collision_box.size_z', 0.4)
+        self.update_waypoint_pub = self.create_publisher(PoseStamped, '/gui_update_waypoint', 10)
+        self.preview_pub = self.create_publisher(Empty, '/preview_waypoints', 10)
+        self.selected_waypoint_index = -1
+        self.waypoint_data = []
     
     def execute(self):
         self.execute_pub.publish(Empty())
@@ -124,13 +128,30 @@ class ArmGUI(Node):
         msg.data = enabled
         self.auto_orientation_pub.publish(msg)
         self.get_logger().info(f"Auto orientation: {enabled}")
+    
+    def update_waypoint(self, index, x, y, z, roll, pitch, yaw):
+        msg = PoseStamped()
+        msg.header.frame_id = str(index)  # encode index in frame_id
+        qx, qy, qz, qw = self.euler_to_quaternion(roll, pitch, yaw)
+        msg.pose.position.x = x
+        msg.pose.position.y = y
+        msg.pose.position.z = z
+        msg.pose.orientation.x = qx
+        msg.pose.orientation.y = qy
+        msg.pose.orientation.z = qz
+        msg.pose.orientation.w = qw
+        self.update_waypoint_pub.publish(msg)
+
+    def preview_waypoints(self):
+        self.preview_pub.publish(Empty())
+        self.get_logger().info("Preview requested")
 
 class MainWindow(QWidget):
     def __init__(self, node):
         super().__init__()
         self.node = node
         self.setWindowTitle("Arm Controller")
-        self.setFixedSize(350, 820)
+        self.setFixedSize(350, 850)
         layout = QVBoxLayout()
 
         title = QLabel("Arm Controller")
@@ -188,8 +209,7 @@ class MainWindow(QWidget):
 
         clear_btn = QPushButton("Clear Waypoints")
         clear_btn.setStyleSheet("background-color: red; color: white; height: 40px;")
-        clear_btn.clicked.connect(lambda: [self.node.clear(), 
-            self.waypoint_list.clear()])
+        clear_btn.clicked.connect(self.on_clear)
         layout.addWidget(clear_btn)
 
         # Add waypoint button
@@ -242,6 +262,32 @@ class MainWindow(QWidget):
 
         self.setLayout(layout)
 
+        # Waypoint list
+        self.waypoint_list = QListWidget()
+        self.waypoint_list.setFixedHeight(120)
+        self.waypoint_list.setStyleSheet("background-color: #2a2a2a; color: white;")
+        self.waypoint_list.itemClicked.connect(self.on_waypoint_selected)
+        layout.addWidget(self.waypoint_list)
+
+        # Update/Delete buttons
+        wp_btn_row = QHBoxLayout()
+        update_wp_btn = QPushButton("Update Selected")
+        update_wp_btn.setStyleSheet("background-color: #607D8B; color: white; height: 35px;")
+        update_wp_btn.clicked.connect(self.on_update_waypoint)
+        wp_btn_row.addWidget(update_wp_btn)
+
+        delete_wp_btn = QPushButton("Delete Selected")
+        delete_wp_btn.setStyleSheet("background-color: #c62828; color: white; height: 35px;")
+        delete_wp_btn.clicked.connect(self.on_delete_waypoint)
+        wp_btn_row.addWidget(delete_wp_btn)
+        layout.addLayout(wp_btn_row)
+
+        # Preview button
+        preview_btn = QPushButton("Preview Full Path")
+        preview_btn.setStyleSheet("background-color: #00BCD4; color: white; height: 40px;")
+        preview_btn.clicked.connect(self.node.preview_waypoints)
+        layout.addWidget(preview_btn)
+
     def on_send_pose(self):
         self.node.send_pose(
             self.x_spin.value(),
@@ -268,6 +314,7 @@ class MainWindow(QWidget):
         r = self.roll_spin.value()
         p = self.pitch_spin.value()
         yaw = self.yaw_spin.value()
+        self.node.waypoint_data.append((x, y, z, r, p, yaw))
         self.node.send_waypoint(x, y, z, r, p, yaw)
         self.waypoint_list.addItem(
             f"WP{self.waypoint_list.count() + 1}: "
@@ -282,6 +329,59 @@ class MainWindow(QWidget):
             f"color: {color}; font-size: 12px; font-weight: bold;"
         )
         self.distance_label.setText(f"Distance to EE: {d:.3f}m")
+    
+    def on_waypoint_selected(self, item):
+        index = self.waypoint_list.row(item)
+        self.node.selected_waypoint_index = index
+        if index < len(self.node.waypoint_data):
+            x, y, z, r, p, yaw = self.node.waypoint_data[index]
+            self.x_spin.setValue(x)
+            self.y_spin.setValue(y)
+            self.z_spin.setValue(z)
+            self.roll_spin.setValue(r)
+            self.pitch_spin.setValue(p)
+            self.yaw_spin.setValue(yaw)
+
+    def on_update_waypoint(self):
+        index = self.node.selected_waypoint_index
+        if index < 0 or index >= len(self.node.waypoint_data):
+            return
+        x = self.x_spin.value()
+        y = self.y_spin.value()
+        z = self.z_spin.value()
+        r = self.roll_spin.value()
+        p = self.pitch_spin.value()
+        yaw = self.yaw_spin.value()
+        self.node.waypoint_data[index] = (x, y, z, r, p, yaw)
+        self.node.update_waypoint(index, x, y, z, r, p, yaw)
+        self.waypoint_list.item(index).setText(
+            f"WP{index + 1}: pos=({x:.2f}, {y:.2f}, {z:.2f})m "
+            f"rpy=({r:.0f}°, {p:.0f}°, {yaw:.0f}°)"
+        )
+
+    def on_delete_waypoint(self):
+        index = self.node.selected_waypoint_index
+        if index < 0 or index >= len(self.node.waypoint_data):
+            return
+        self.waypoint_list.takeItem(index)
+        self.node.waypoint_data.pop(index)
+        self.node.selected_waypoint_index = -1
+        # re-number remaining items
+        for i in range(self.waypoint_list.count()):
+            item = self.waypoint_list.item(i)
+            text = item.text()
+            item.setText(f"WP{i + 1}:" + text.split(":", 1)[1])
+        # publish remove to C++
+        from std_msgs.msg import Int32
+        msg = Int32()
+        msg.data = index
+        self.node.create_publisher(Int32, '/remove_waypoint', 10).publish(msg)
+    
+    def on_clear(self):
+        self.node.clear()
+        self.waypoint_list.clear()
+        self.node.waypoint_data.clear()
+        self.node.selected_waypoint_index = -1
 
 def main():
     rclpy.init()
