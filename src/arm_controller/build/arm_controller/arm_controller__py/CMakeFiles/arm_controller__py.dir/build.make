@@ -70,8 +70,10 @@ arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_contro
 arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_introspection_c.c
 arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c
 arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_command.py
+arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_status.py
 arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/msg/__init__.py
 arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c
+arm_controller__py/CMakeFiles/arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c
 
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/__init__.py
@@ -87,6 +89,7 @@ rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastr
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -131,11 +134,17 @@ rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c: 
 rosidl_generator_py/arm_controller/msg/_waypoint_command.py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/arm_controller/msg/_waypoint_command.py
 
+rosidl_generator_py/arm_controller/msg/_waypoint_status.py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/arm_controller/msg/_waypoint_status.py
+
 rosidl_generator_py/arm_controller/msg/__init__.py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/arm_controller/msg/__init__.py
 
 rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c
+
+rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c
 
 arm_controller__py: arm_controller__py/CMakeFiles/arm_controller__py
 arm_controller__py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c
@@ -144,6 +153,8 @@ arm_controller__py: rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosi
 arm_controller__py: rosidl_generator_py/arm_controller/msg/__init__.py
 arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_command.py
 arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c
+arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_status.py
+arm_controller__py: rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c
 arm_controller__py: arm_controller__py/CMakeFiles/arm_controller__py.dir/build.make
 .PHONY : arm_controller__py
 

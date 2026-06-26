@@ -231,4 +231,7 @@ CMakeFiles/arm_controller_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.h \
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/rosidl_generator_c__visibility_control.h \
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__struct.h \
- /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.h
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.h \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.h \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__struct.h \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.h

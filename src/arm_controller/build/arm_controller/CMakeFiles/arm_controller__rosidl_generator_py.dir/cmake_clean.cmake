@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o"
   "CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o.d"
+  "CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o"
+  "CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o.d"
   "libarm_controller__rosidl_generator_py.pdb"
   "libarm_controller__rosidl_generator_py.so"
 )

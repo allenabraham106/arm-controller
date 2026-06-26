@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/arm_controller/msg/__init__.py"
   "../rosidl_generator_py/arm_controller/msg/_waypoint_command.py"
   "../rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c"
+  "../rosidl_generator_py/arm_controller/msg/_waypoint_status.py"
+  "../rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c"
   "CMakeFiles/arm_controller__py"
 )
 

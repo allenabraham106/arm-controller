@@ -68,3 +68,56 @@ impl rosidl_runtime_rs::Message for WaypointCommand {
 }
 
 
+// Corresponds to arm_controller__msg__WaypointStatus
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct WaypointStatus {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub success: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub message: std::string::String,
+
+}
+
+
+
+impl Default for WaypointStatus {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::msg::rmw::WaypointStatus::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for WaypointStatus {
+  type RmwMsg = super::msg::rmw::WaypointStatus;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        success: msg.success,
+        message: msg.message.as_str().into(),
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      success: msg.success,
+        message: msg.message.as_str().into(),
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      success: msg.success,
+      message: msg.message.to_string(),
+    }
+  }
+}
+
+

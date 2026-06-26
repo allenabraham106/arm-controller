@@ -3,6 +3,12 @@
 
 CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/src/arm_lifecycle_node.cpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__builder.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__struct.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__traits.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/include/arm_controller/arm_controller.hpp
  /opt/ros/jazzy/include/action_msgs/action_msgs/msg/detail/goal_info__builder.hpp
  /opt/ros/jazzy/include/action_msgs/action_msgs/msg/detail/goal_info__functions.h
@@ -685,12 +691,7 @@ CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/empty__type_support.hpp
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/header__struct.hpp
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
- /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/int32__builder.hpp
- /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/int32__struct.hpp
- /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/int32__traits.hpp
- /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/int32__type_support.hpp
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/empty.hpp
- /opt/ros/jazzy/include/std_msgs/std_msgs/msg/int32.hpp
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Matrix3x3.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/MinMax.hpp

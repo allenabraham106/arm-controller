@@ -51,6 +51,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_controller/msg" TYPE FILE FILES "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/arm_controller/arm_controller" TYPE DIRECTORY FILES "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/" REGEX "/[^/]*\\.h$")
 endif()
 
@@ -375,7 +379,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_controller/msg" TYPE FILE FILES "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller/msg/WaypointStatus.idl")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_controller/msg" TYPE FILE FILES "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointCommand.msg")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/arm_controller/msg" TYPE FILE FILES "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointStatus.msg")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

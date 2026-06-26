@@ -67,15 +67,21 @@ include CMakeFiles/arm_controller__rosidl_generator_type_description.dir/compile
 include CMakeFiles/arm_controller__rosidl_generator_type_description.dir/progress.make
 
 CMakeFiles/arm_controller__rosidl_generator_type_description: rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json
+CMakeFiles/arm_controller__rosidl_generator_type_description: rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json
 
 rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json: /opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description
 rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_type_description/__init__.py
 rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating type hashes for ROS interfaces"
 	/usr/bin/python3 /opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description --generator-arguments-file /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description__arguments.json
 
+rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json: rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json
+
 arm_controller__rosidl_generator_type_description: CMakeFiles/arm_controller__rosidl_generator_type_description
 arm_controller__rosidl_generator_type_description: rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json
+arm_controller__rosidl_generator_type_description: rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json
 arm_controller__rosidl_generator_type_description: CMakeFiles/arm_controller__rosidl_generator_type_description.dir/build.make
 .PHONY : arm_controller__rosidl_generator_type_description
 

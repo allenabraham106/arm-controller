@@ -4,9 +4,9 @@
 
 #include <string.h>
 
+#include "arm_controller/msg/detail/waypoint_command__functions.h"
 #include "arm_controller/msg/detail/waypoint_command__struct.h"
 #include "arm_controller/msg/detail/waypoint_command__type_support.h"
-#include "arm_controller/msg/detail/waypoint_command__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
 
 #ifdef __cplusplus

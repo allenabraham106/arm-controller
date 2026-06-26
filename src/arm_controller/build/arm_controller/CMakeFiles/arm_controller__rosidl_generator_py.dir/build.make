@@ -83,14 +83,30 @@ CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_contr
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c -o CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.s
 
+CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o: CMakeFiles/arm_controller__rosidl_generator_py.dir/flags.make
+CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o: rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c
+CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o: CMakeFiles/arm_controller__rosidl_generator_py.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o -MF CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o.d -o CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o -c /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c
+
+CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c > CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.i
+
+CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c -o CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.s
+
 # Object files for target arm_controller__rosidl_generator_py
 arm_controller__rosidl_generator_py_OBJECTS = \
-"CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o"
+"CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o" \
+"CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o"
 
 # External object files for target arm_controller__rosidl_generator_py
 arm_controller__rosidl_generator_py_EXTERNAL_OBJECTS =
 
 libarm_controller__rosidl_generator_py.so: CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o
+libarm_controller__rosidl_generator_py.so: CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o
 libarm_controller__rosidl_generator_py.so: CMakeFiles/arm_controller__rosidl_generator_py.dir/build.make
 libarm_controller__rosidl_generator_py.so: libarm_controller__rosidl_typesupport_c.so
 libarm_controller__rosidl_generator_py.so: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
@@ -121,7 +137,7 @@ libarm_controller__rosidl_generator_py.so: /opt/ros/jazzy/lib/libbuiltin_interfa
 libarm_controller__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libarm_controller__rosidl_generator_py.so: /opt/ros/jazzy/lib/librcutils.so
 libarm_controller__rosidl_generator_py.so: CMakeFiles/arm_controller__rosidl_generator_py.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library libarm_controller__rosidl_generator_py.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libarm_controller__rosidl_generator_py.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arm_controller__rosidl_generator_py.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

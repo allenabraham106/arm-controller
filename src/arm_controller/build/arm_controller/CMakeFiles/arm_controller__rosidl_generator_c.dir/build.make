@@ -89,6 +89,7 @@ rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/r
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/rosidl_generator_c/resource/srv__type_support.c.em
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_c/arm_controller/msg/waypoint_command.h: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_c/arm_controller/msg/waypoint_command.h: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -133,6 +134,18 @@ rosidl_generator_c/arm_controller/msg/detail/waypoint_command__struct.h: rosidl_
 rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.h: rosidl_generator_c/arm_controller/msg/waypoint_command.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.h
 
+rosidl_generator_c/arm_controller/msg/waypoint_status.h: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/waypoint_status.h
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.h: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.h
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__struct.h: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__struct.h
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.h: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.h
+
 rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c: rosidl_generator_c/arm_controller/msg/waypoint_command.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c
 
@@ -141,6 +154,15 @@ rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.c: rosi
 
 rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c: rosidl_generator_c/arm_controller/msg/waypoint_command.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c
+
+rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c
 
 CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/flags.make
 CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c.o: rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c
@@ -184,11 +206,56 @@ CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_control
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.s
 
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/flags.make
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o -MF CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o.d -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o -c /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c > CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.i
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.s
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/flags.make
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o -MF CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o.d -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o -c /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c > CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.i
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.s
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/flags.make
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: CMakeFiles/arm_controller__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o -MF CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o.d -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o -c /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c > CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.i
+
+CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c -o CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.s
+
 # Object files for target arm_controller__rosidl_generator_c
 arm_controller__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c.o" \
 "CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.c.o" \
-"CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.o"
+"CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.o" \
+"CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o" \
+"CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o" \
+"CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o"
 
 # External object files for target arm_controller__rosidl_generator_c
 arm_controller__rosidl_generator_c_EXTERNAL_OBJECTS =
@@ -196,13 +263,16 @@ arm_controller__rosidl_generator_c_EXTERNAL_OBJECTS =
 libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c.o
 libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.c.o
 libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.o
+libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o
+libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o
+libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o
 libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/build.make
 libarm_controller__rosidl_generator_c.so: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
 libarm_controller__rosidl_generator_c.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
 libarm_controller__rosidl_generator_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libarm_controller__rosidl_generator_c.so: /opt/ros/jazzy/lib/librcutils.so
 libarm_controller__rosidl_generator_c.so: CMakeFiles/arm_controller__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C shared library libarm_controller__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C shared library libarm_controller__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arm_controller__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -219,7 +289,14 @@ CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm
 CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_command__struct.h
 CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c
 CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.h
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.h
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__struct.h
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.h
 CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/waypoint_command.h
+CMakeFiles/arm_controller__rosidl_generator_c.dir/depend: rosidl_generator_c/arm_controller/msg/waypoint_status.h
 	cd /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles/arm_controller__rosidl_generator_c.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/arm_controller__rosidl_generator_c.dir/depend
 

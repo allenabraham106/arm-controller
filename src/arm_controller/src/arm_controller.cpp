@@ -23,6 +23,7 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node)
     node_->declare_parameter("marker_sphere_g", 0.0);
     node_->declare_parameter("marker_sphere_b", 0.0);
     node_->declare_parameter("marker_alpha", 1.0);
+    node_->declare_parameter("waypoint_status_topic", "/waypoint_status");
 
     std::string clicked_point_topic = node_->get_parameter("clicked_point_topic").as_string();
     std::string target_pose_topic = node_->get_parameter("target_pose_topic").as_string();
@@ -30,6 +31,7 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node)
     std::string clear_waypoints_topic = node_->get_parameter("clear_waypoints_topic").as_string();
     std::string waypoint_markers_topic = node_->get_parameter("waypoint_markers_topic").as_string();
     std::string remove_waypoint_topic = node_->get_parameter("remove_waypoint_topic").as_string();
+    std::string waypoint_status_topic = node_->get_parameter("waypoint_status_topic").as_string();
     move_group_name_ = node_->get_parameter("move_group_name").as_string();
     workspace_limit_xy_ = node_->get_parameter("workspace_limit_xy").as_double();
     workspace_limit_z_min_ = node_->get_parameter("workspace_limit_z_min").as_double();
@@ -79,9 +81,14 @@ ArmController::ArmController(const rclcpp::Node::SharedPtr & node) : node_(node)
         std::bind(&ArmController::onClearWaypoints, this, std::placeholders::_1)
     );
 
-    // Publsiher that is mapping out our waypoints
+    // Publisher that is mapping out our waypoints
     marker_pub_ = node_->create_publisher<visualization_msgs::msg::MarkerArray>(
         waypoint_markers_topic, 10
+    );
+
+    // Publisher that displays the status of the waypoints
+    waypoint_status_pub_ = node_->create_publisher<arm_controller::msg::WaypointStatus>(
+        waypoint_status_topic, 10
     );
 
     // Subscriber that listens for points to remove
@@ -234,15 +241,19 @@ void ArmController::publishWaypointMarkers(){
 
 void ArmController::onWaypointCommand(const arm_controller::msg::WaypointCommand::SharedPtr msg){
     int index = msg->index;
+    arm_controller::msg::WaypointStatus status;
     if(msg->type == arm_controller::msg::WaypointCommand::REMOVE){
         if(index >= 0 && index < (int)waypoints_.size()){
             waypoints_.erase(waypoints_.begin() + index);
-            RCLCPP_INFO(node_->get_logger(), "Removing waypoint %d, there are %zu waypoints left", index, waypoints_.size());
             publishWaypointMarkers();
+            status.success = true;
+            status.message = "Waypoint " + std::to_string(index) + " removed successfully";
         } else {
-            throw std::out_of_range("Waypoint index out of range: " + std::to_string(index));
+            status.success = false;
+            status.message = "Waypoint index " + std::to_string(index) + " out of range";
         }
     }
+    waypoint_status_pub_->publish(status);
 }
 
 bool ArmController::moveToPose(const geometry_msgs::msg::Pose & target_pose){

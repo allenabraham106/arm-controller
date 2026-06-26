@@ -1,0 +1,294 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-cc19147d59d35c90dc36.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22
+					]
+				},
+				{
+					"build" : "arm_controller__py",
+					"jsonFile" : "directory-arm_controller__py-fc5cb449dd932764530c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "build/arm_controller/arm_controller__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "arm_controller__rs",
+					"jsonFile" : "directory-arm_controller__rs-0eaaa23b9e79e23d2248.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "build/arm_controller/arm_controller__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "arm_controller",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_arm_controller_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_arm_controller_egg-14d1b1bf2d7480702a3e.json",
+					"name" : "ament_cmake_python_build_arm_controller_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_arm_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_arm_controller-170ddb8f5957edbbcf68.json",
+					"name" : "ament_cmake_python_copy_arm_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller-b06c20523f9a029899d5.json",
+					"name" : "arm_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__cpp-4a93fabf2945932d8c27.json",
+					"name" : "arm_controller__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "arm_controller__py::@57c01713723a9f810259",
+					"jsonFile" : "target-arm_controller__py-29260e2e1d2cb14db6f6.json",
+					"name" : "arm_controller__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_generator_c-e25614d40168cdbc188b.json",
+					"name" : "arm_controller__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_generator_py-afbf32ad90a9670dd775.json",
+					"name" : "arm_controller__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_generator_type_description-237e1daded7724a7487f.json",
+					"name" : "arm_controller__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_c-b52e76adc566be3aaf19.json",
+					"name" : "arm_controller__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_cpp-ade0b999d97549c84945.json",
+					"name" : "arm_controller__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_fastrtps_c-08edc8a3ab3ec574a501.json",
+					"name" : "arm_controller__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_fastrtps_cpp-9c923292781499cf787d.json",
+					"name" : "arm_controller__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_introspection_c-0cf3d41b2d4fe4559818.json",
+					"name" : "arm_controller__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller__rosidl_typesupport_introspection_cpp-f5980c9b0497d649afb8.json",
+					"name" : "arm_controller__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "arm_controller__rs::@ff8fbc7532faf4f0e125",
+					"jsonFile" : "target-arm_controller__rs-9cdad23c4449f5e7df8e.json",
+					"name" : "arm_controller__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_lib-03f943c576ae30089181.json",
+					"name" : "arm_controller_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_s__rosidl_typesupport_c-01365296708ad9626ee1.json",
+					"name" : "arm_controller_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_s__rosidl_typesupport_fastrtps_c-3b1e05defd3532223c0b.json",
+					"name" : "arm_controller_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_s__rosidl_typesupport_introspection_c-66b80a91edce77b45d7e.json",
+					"name" : "arm_controller_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_uninstall-da18e5ed3f30ad4eab97.json",
+					"name" : "arm_controller_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_lifecycle_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_lifecycle_node-cd1ceb18152c68f19cf2.json",
+					"name" : "arm_lifecycle_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "terminal_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-terminal_controller-69a9bd952f2c4b8b1037.json",
+					"name" : "terminal_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-0ddce65015bbdb77d448.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller",
+		"source" : "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

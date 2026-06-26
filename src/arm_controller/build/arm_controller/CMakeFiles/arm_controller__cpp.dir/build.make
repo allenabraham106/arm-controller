@@ -71,6 +71,11 @@ CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/w
 CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__struct.hpp
 CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__traits.hpp
 CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp
+CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/waypoint_status.hpp
+CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__builder.hpp
+CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__struct.hpp
+CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__traits.hpp
+CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__type_support.hpp
 CMakeFiles/arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -93,6 +98,7 @@ rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/sha
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/share/rosidl_generator_cpp/resource/srv__type_support.hpp.em
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -140,6 +146,21 @@ rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__traits.hpp: ros
 rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp
 
+rosidl_generator_cpp/arm_controller/msg/waypoint_status.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/waypoint_status.hpp
+
+rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__builder.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__builder.hpp
+
+rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__struct.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__struct.hpp
+
+rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__traits.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__traits.hpp
+
+rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__type_support.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__type_support.hpp
+
 rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
 
@@ -148,8 +169,13 @@ arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_com
 arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__struct.hpp
 arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__traits.hpp
 arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp
+arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__builder.hpp
+arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__struct.hpp
+arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__traits.hpp
+arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__type_support.hpp
 arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
 arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/waypoint_command.hpp
+arm_controller__cpp: rosidl_generator_cpp/arm_controller/msg/waypoint_status.hpp
 arm_controller__cpp: CMakeFiles/arm_controller__cpp.dir/build.make
 .PHONY : arm_controller__cpp
 

@@ -17,6 +17,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/__init__.py" "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_command.py" "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c" "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_status.py" "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c" "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

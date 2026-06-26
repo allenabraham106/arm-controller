@@ -1,0 +1,285 @@
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_lifecycle: 28.1.18 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+-- Found moveit_ros_planning_interface: 2.12.4 (/opt/ros/jazzy/share/moveit_ros_planning_interface/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: date_time filesystem program_options system thread 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+-- Found parameter_traits: 0.7.1 (/opt/ros/jazzy/share/parameter_traits/cmake)
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: filesystem 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread chrono 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread system filesystem regex date_time program_options 
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread 
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (1.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller
+[  3%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[  3%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[  3%] Built target ament_cmake_python_copy_arm_controller
+[  3%] Built target arm_controller__rosidl_generator_type_description
+[  5%] [34m[1mGenerating C code for ROS interfaces[0m
+[  7%] [34m[1mGenerating C++ code for ROS interfaces[0m
+running egg_info
+writing arm_controller.egg-info/PKG-INFO
+writing dependency_links to arm_controller.egg-info/dependency_links.txt
+writing top-level names to arm_controller.egg-info/top_level.txt
+[  7%] Built target arm_controller__rs
+reading manifest file 'arm_controller.egg-info/SOURCES.txt'
+writing manifest file 'arm_controller.egg-info/SOURCES.txt'
+[  7%] Built target ament_cmake_python_build_arm_controller_egg
+[  7%] Built target arm_controller__cpp
+[  9%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__description.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__type_support.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_command__functions.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__description.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__functions.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_c.dir/rosidl_generator_c/arm_controller/msg/detail/waypoint_status__type_support.c.o[0m
+[ 21%] [32m[1mLinking C shared library libarm_controller__rosidl_generator_c.so[0m
+[ 21%] Built target arm_controller__rosidl_generator_c
+[ 25%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 27%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_c.dir/rosidl_typesupport_c/arm_controller/msg/waypoint_command__type_support.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/arm_controller/msg/detail/waypoint_command__type_support_c.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/arm_controller/msg/detail/dds_fastrtps/waypoint_command__type_support.cpp.o[0m
+[ 37%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_c.dir/rosidl_typesupport_c/arm_controller/msg/waypoint_status__type_support.cpp.o[0m
+[ 41%] [32m[1mLinking CXX shared library libarm_controller__rosidl_typesupport_c.so[0m
+[ 43%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o[0m
+[ 45%] [32m[1mLinking C shared library libarm_controller__rosidl_typesupport_introspection_c.so[0m
+[ 45%] Built target arm_controller__rosidl_typesupport_c
+[ 47%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/arm_controller/msg/detail/dds_fastrtps/waypoint_status__type_support.cpp.o[0m
+[ 47%] Built target arm_controller__rosidl_typesupport_introspection_c
+[ 49%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/arm_controller/msg/detail/waypoint_status__type_support_c.cpp.o[0m
+[ 50%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 52%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 54%] [32m[1mLinking CXX shared library libarm_controller__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 54%] Built target arm_controller__rosidl_typesupport_fastrtps_cpp
+[ 56%] [32m[1mLinking CXX shared library libarm_controller__rosidl_typesupport_fastrtps_c.so[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/arm_controller/msg/detail/waypoint_command__type_support.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/arm_controller/msg/detail/waypoint_status__type_support.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/arm_controller/msg/waypoint_command__type_support.cpp.o[0m
+[ 62%] Built target arm_controller__rosidl_typesupport_fastrtps_c
+[ 64%] [32mBuilding CXX object CMakeFiles/arm_controller__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/arm_controller/msg/waypoint_status__type_support.cpp.o[0m
+[ 66%] [32m[1mLinking CXX shared library libarm_controller__rosidl_typesupport_introspection_cpp.so[0m
+[ 68%] [32m[1mLinking CXX shared library libarm_controller__rosidl_typesupport_cpp.so[0m
+[ 68%] Built target arm_controller__rosidl_typesupport_introspection_cpp
+[ 68%] Built target arm_controller__rosidl_typesupport_cpp
+[ 68%] Built target arm_controller
+[ 70%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/arm_controller_lib.dir/src/arm_controller.cpp.o[0m
+[ 72%] Built target arm_controller__py
+[ 76%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_command_s.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/arm_controller__rosidl_generator_py.dir/rosidl_generator_py/arm_controller/msg/_waypoint_status_s.c.o[0m
+[ 78%] [32m[1mLinking C shared library libarm_controller__rosidl_generator_py.so[0m
+[ 78%] Built target arm_controller__rosidl_generator_py
+[ 80%] [32mBuilding C object CMakeFiles/arm_controller_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 82%] [32mBuilding C object CMakeFiles/arm_controller_s__rosidl_typesupport_c.dir/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c.o[0m
+[ 84%] [32mBuilding C object CMakeFiles/arm_controller_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/arm_controller/_arm_controller_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 86%] [32m[1mLinking C shared module rosidl_generator_py/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so[0m
+[ 88%] [32m[1mLinking C shared module rosidl_generator_py/arm_controller/arm_controller_s__rosidl_typesupport_c.so[0m
+[ 90%] [32m[1mLinking C shared module rosidl_generator_py/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so[0m
+[ 90%] Built target arm_controller_s__rosidl_typesupport_c
+[ 90%] Built target arm_controller_s__rosidl_typesupport_fastrtps_c
+[ 90%] Built target arm_controller_s__rosidl_typesupport_introspection_c
+[ 92%] [32m[1mLinking CXX shared library libarm_controller_lib.so[0m
+[ 92%] Built target arm_controller_lib
+[ 94%] [32m[1mLinking CXX executable terminal_controller[0m
+[ 96%] [32mBuilding CXX object CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o[0m
+[ 98%] Built target terminal_controller
+[100%] [32m[1mLinking CXX executable arm_lifecycle_node[0m
+[100%] Built target arm_lifecycle_node
+-- Install configuration: ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/rosidl_interfaces/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.json
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointStatus.json
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_status.h
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_command.h
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__type_support.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__functions.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__description.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__struct.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__description.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__functions.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__functions.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__type_support.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__functions.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__struct.h
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/library_path.sh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/library_path.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_command.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/waypoint_status.hpp
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__builder.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__builder.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__struct.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__traits.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__type_support.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__traits.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__struct.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/dds_fastrtps
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__type_support.c
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_introspection_c.h
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__type_support.cpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_status__type_support.cpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_typesupport_cpp.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/pythonpath.sh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/pythonpath.dsv
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller-0.0.0-py3.12.egg-info/top_level.txt
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_c.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/__init__.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_c.so
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/__init__.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_status_s.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_status.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_command_s.c
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_command.py
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/_arm_controller_s.ep.rosidl_typesupport_introspection_c.c
+Listing '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller'...
+Compiling '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/__init__.py'...
+Listing '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg'...
+Compiling '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/__init__.py'...
+Compiling '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_command.py'...
+Compiling '/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/msg/_waypoint_status.py'...
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/python3.12/site-packages/arm_controller/arm_controller_s__rosidl_typesupport_c.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/libarm_controller__rosidl_generator_py.so" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/rust_packages/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/lib.rs
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg.rs
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/src/msg/rmw.rs
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/build.rs
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/rust/Cargo.toml
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.idl
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointStatus.idl
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointCommand.msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/msg/WaypointStatus.msg
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/libarm_controller_lib.so
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/libarm_controller_lib.so" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/arm_lifecycle_node" to ""
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/terminal_controller
+-- Set non-toolchain portion of runtime path of "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/lib/arm_controller/terminal_controller" to ""
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/include/arm_controller/arm_controller.hpp
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/launch/arm_lifecycle.launch.py
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.sh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/environment/path.dsv
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.bash
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.sh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.zsh
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/local_setup.dsv
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.dsv
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controller__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/export_arm_controller__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake-extras.cmake
+-- Installing: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+-- Up-to-date: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/install/arm_controller/share/arm_controller/package.xml

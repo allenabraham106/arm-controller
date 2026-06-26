@@ -1335,4 +1335,9 @@ CMakeFiles/arm_lifecycle_node.dir/src/arm_lifecycle_node.cpp.o: \
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__builder.hpp \
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__traits.hpp \
  /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_command__type_support.hpp \
- /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/waypoint_status.hpp \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__struct.hpp \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__builder.hpp \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__traits.hpp \
+ /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_cpp/arm_controller/msg/detail/waypoint_status__type_support.hpp

@@ -67,6 +67,7 @@ include CMakeFiles/arm_controller.dir/compiler_depend.make
 include CMakeFiles/arm_controller.dir/progress.make
 
 CMakeFiles/arm_controller: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointCommand.msg
+CMakeFiles/arm_controller: /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointStatus.msg
 CMakeFiles/arm_controller: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 CMakeFiles/arm_controller: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 CMakeFiles/arm_controller: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl

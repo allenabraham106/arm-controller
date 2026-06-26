@@ -3,10 +3,12 @@
   "output_dir": "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_c/arm_controller",
   "template_dir": "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource",
   "idl_tuples": [
-    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointCommand.idl"
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointCommand.idl",
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointStatus.idl"
   ],
   "ros_interface_files": [
-    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointCommand.msg"
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointCommand.msg",
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/msg/WaypointStatus.msg"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
@@ -63,6 +65,7 @@
     "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/srv__type_support.c.em",
     "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
     "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller/msg/WaypointCommand.idl",
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller/msg/WaypointStatus.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Byte.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl",
@@ -97,6 +100,7 @@
     "/opt/ros/jazzy/share/builtin_interfaces/msg/Time.idl"
   ],
   "type_description_tuples": [
-    "msg/WaypointCommand.idl:/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json"
+    "msg/WaypointCommand.idl:/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description/arm_controller/msg/WaypointCommand.json",
+    "msg/WaypointStatus.idl:/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description/arm_controller/msg/WaypointStatus.json"
   ]
 }

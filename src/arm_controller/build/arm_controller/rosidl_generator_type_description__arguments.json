@@ -2,7 +2,8 @@
   "package_name": "arm_controller",
   "output_dir": "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_generator_type_description/arm_controller",
   "idl_tuples": [
-    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointCommand.idl"
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointCommand.idl",
+    "/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_adapter/arm_controller:msg/WaypointStatus.idl"
   ],
   "include_paths": [
     "std_msgs:/opt/ros/jazzy/share/std_msgs",

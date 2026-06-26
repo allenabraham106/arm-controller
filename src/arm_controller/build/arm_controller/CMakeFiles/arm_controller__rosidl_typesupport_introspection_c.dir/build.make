@@ -78,6 +78,7 @@ rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__r
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/rosidl_typesupport_introspection_c/resource/srv__rosidl_typesupport_introspection_c.h.em
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/rosidl_typesupport_introspection_c/resource/srv__type_support.c.em
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -113,8 +114,14 @@ rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__r
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C introspection for ROS interfaces"
 	/usr/bin/python3 /opt/ros/jazzy/lib/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c --generator-arguments-file /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_typesupport_introspection_c__arguments.json
 
+rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_introspection_c.h
+
 rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c
+
+rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c
 
 CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/flags.make
 CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c
@@ -130,14 +137,30 @@ CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesup
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c -o CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.s
 
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/flags.make
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o -MF CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o.d -o CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o -c /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c
+
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c > CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.i
+
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c -o CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.s
+
 # Object files for target arm_controller__rosidl_typesupport_introspection_c
 arm_controller__rosidl_typesupport_introspection_c_OBJECTS = \
-"CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o"
+"CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o" \
+"CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o"
 
 # External object files for target arm_controller__rosidl_typesupport_introspection_c
 arm_controller__rosidl_typesupport_introspection_c_EXTERNAL_OBJECTS =
 
 libarm_controller__rosidl_typesupport_introspection_c.so: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c.o
+libarm_controller__rosidl_typesupport_introspection_c.so: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c.o
 libarm_controller__rosidl_typesupport_introspection_c.so: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/build.make
 libarm_controller__rosidl_typesupport_introspection_c.so: libarm_controller__rosidl_generator_c.so
 libarm_controller__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
@@ -148,7 +171,7 @@ libarm_controller__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/lib
 libarm_controller__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libarm_controller__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/librcutils.so
 libarm_controller__rosidl_typesupport_introspection_c.so: CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libarm_controller__rosidl_typesupport_introspection_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libarm_controller__rosidl_typesupport_introspection_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -161,6 +184,8 @@ CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/clean:
 
 CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__rosidl_typesupport_introspection_c.h
 CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_command__type_support.c
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__rosidl_typesupport_introspection_c.h
+CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/arm_controller/msg/detail/waypoint_status__type_support.c
 	cd /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller /home/allenabraham106/Desktop/Co-op1/arm-controller/src/arm_controller/build/arm_controller/CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/arm_controller__rosidl_typesupport_introspection_c.dir/depend
 

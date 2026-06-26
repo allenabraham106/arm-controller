@@ -85,7 +85,9 @@ rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/templates/srv_idiomatic.rs.em
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/templates/srv_rmw.rs.em
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_rs/arm_controller/rust/src/lib.rs: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: rosidl_adapter/arm_controller/msg/WaypointCommand.idl
+rosidl_generator_rs/arm_controller/rust/src/lib.rs: rosidl_adapter/arm_controller/msg/WaypointStatus.idl
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_rs/arm_controller/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
