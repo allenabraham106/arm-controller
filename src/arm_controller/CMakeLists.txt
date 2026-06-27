@@ -89,6 +89,26 @@ rclcpp_components_register_node(arm_planner_node
   EXECUTABLE arm_planner_node_exe
 )
 
+# ArmMonitorNode composable node
+add_library(arm_monitor_node SHARED
+  src/arm_monitor_node.cpp
+)
+target_include_directories(arm_monitor_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(arm_monitor_node
+  rclcpp
+  rclcpp_components
+  sensor_msgs
+  geometry_msgs
+  std_msgs
+)
+rclcpp_components_register_node(arm_monitor_node
+  PLUGIN "ArmMonitorNode"
+  EXECUTABLE arm_monitor_node_exe
+)
+
 # Lifecycle node executable
 add_executable(arm_lifecycle_node src/arm_lifecycle_node.cpp)
 target_link_libraries(arm_lifecycle_node arm_controller_lib)
