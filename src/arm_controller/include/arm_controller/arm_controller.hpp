@@ -1,3 +1,7 @@
+// DEPRECATED: This monolithic controller is being replaced by composable nodes.
+// WaypointManagerNode, ArmPlannerNode, ArmMonitorNode
+// Will be removed once all nodes are tested and merged.
+
 #pragma once 
 
 #include <rclcpp/rclcpp.hpp>

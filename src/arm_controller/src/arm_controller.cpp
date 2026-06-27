@@ -1,3 +1,7 @@
+// DEPRECATED: This monolithic controller is being replaced by composable nodes.
+// WaypointManagerNode, ArmPlannerNode, ArmMonitorNode
+// Will be removed once all nodes are tested and merged.
+
 #include "arm_controller/arm_controller.hpp"
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <geometry_msgs/msg/pose.hpp>
