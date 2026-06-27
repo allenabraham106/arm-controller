@@ -68,6 +68,27 @@ rclcpp_components_register_node(waypoint_manager_node
   EXECUTABLE waypoint_manager_node_exe
 )
 
+# ArmPlannerNode composable node
+add_library(arm_planner_node SHARED
+  src/arm_planner_node.cpp
+)
+target_include_directories(arm_planner_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(arm_planner_node
+  rclcpp
+  rclcpp_components
+  moveit_ros_planning_interface
+  geometry_msgs
+  std_msgs
+)
+target_link_libraries(arm_planner_node "${cpp_typesupport_target}")
+rclcpp_components_register_node(arm_planner_node
+  PLUGIN "ArmPlannerNode"
+  EXECUTABLE arm_planner_node_exe
+)
+
 # Lifecycle node executable
 add_executable(arm_lifecycle_node src/arm_lifecycle_node.cpp)
 target_link_libraries(arm_lifecycle_node arm_controller_lib)
@@ -89,6 +110,7 @@ ament_target_dependencies(terminal_controller
 install(TARGETS
   arm_controller_lib
   waypoint_manager_node
+  arm_planner_node
   arm_lifecycle_node
   terminal_controller
   DESTINATION lib/${PROJECT_NAME}
