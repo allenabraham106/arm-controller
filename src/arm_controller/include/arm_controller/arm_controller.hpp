@@ -49,6 +49,7 @@ class ArmController{
 
         // sets the declaration of the arm moving state to either true or false without being corrupted
         std::atomic<bool> is_moving_{false};
+
         std::vector<geometry_msgs::msg::Pose> waypoints_;
         std::string move_group_name_;
 
@@ -61,9 +62,6 @@ class ArmController{
         void onWaypointCommand(const arm_controller::msg::WaypointCommand::SharedPtr msg);
         bool executeMove(const geometry_msgs::msg::Pose & target_pose);
 
-        double workspace_limit_xy_;
-        double workspace_limit_z_min_;
-        double workspace_limit_z_max_;
         double marker_line_width_;
         double marker_sphere_size_;
         double marker_line_r_;
@@ -73,4 +71,7 @@ class ArmController{
         double marker_sphere_g_;
         double marker_sphere_b_;
         double marker_alpha_;
+        double workspace_limit_xy_;
+        double workspace_limit_z_min_;
+        double workspace_limit_z_max_;
 };
