@@ -68,27 +68,20 @@ void ArmPlannerNode::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedP
 bool ArmPlannerNode::executePlan(const std::vector<geometry_msgs::msg::Pose> & waypoints){
     is_executing_ = true;
 
-    moveit_msgs::msg::RobotTrajectory trajectory;
-    moveit_msgs::msg::MoveItErrorCodes error_code;
+    for(const auto & target_pose : waypoints){
+        move_group_->setPoseTarget(target_pose);
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        bool success = (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
-    double fraction = move_group_->computeCartesianPath(
-        waypoints,
-        0.01,
-        0.0,
-        trajectory,
-        true,
-        &error_code
-    );
+        if(!success){
+            RCLCPP_ERROR(get_logger(), "OMPL planning failed for waypoint");
+            is_executing_ = false;
+            return false;
+        }
 
-    RCLCPP_INFO(get_logger(), "Path coverage: %.0f%%", fraction * 100.0);
-
-    if(fraction < 0.9){
-        RCLCPP_WARN(get_logger(), "Only %.0f%% of path planned, aborting", fraction * 100.0);
-        is_executing_ = false;
-        return false;
+        move_group_->execute(plan);
     }
 
-    move_group_->execute(trajectory);
     is_executing_ = false;
     return true;
 }
