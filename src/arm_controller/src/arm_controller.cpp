@@ -140,7 +140,6 @@ void ArmController::onTargetPose(const geometry_msgs::msg::PoseStamped::SharedPt
     moveToPose(msg->pose);
 }
 
-// using humble cartesian planning (will not build successfully if on jazzy or newer)
 bool ArmController::executeWaypoints(){
     if(waypoints_.empty()){
         RCLCPP_WARN(node_->get_logger(), "No waypoints to execute");
