@@ -1,0 +1,42 @@
+arm_planner_node:
+  ros__parameters:
+    move_group_name: "panda_arm"
+    waypoints_topic: "/waypoints"
+    target_pose_topic: "/arm_target_pose"
+    workspace_limit_xy: 0.85
+    workspace_limit_z_min: 0.0
+    workspace_limit_z_max: 1.2
+
+waypoint_manager_node:
+  ros__parameters:
+    clicked_point_topic: "/clicked_point"
+    execute_waypoints_topic: "/execute_waypoints"
+    clear_waypoints_topic: "/clear_waypoints"
+    waypoint_command_topic: "/waypoint_command"
+    waypoint_markers_topic: "/waypoint_markers"
+    waypoint_status_topic: "/waypoint_status"
+    waypoints_topic: "/waypoints"
+    marker_line_width: 0.01
+    marker_sphere_size: 0.05
+    marker_line_r: 0.0
+    marker_line_g: 1.0
+    marker_line_b: 0.0
+    marker_sphere_r: 1.0
+    marker_sphere_g: 0.0
+    marker_sphere_b: 0.0
+    marker_alpha: 1.0
+
+arm_monitor_node:
+  ros__parameters:
+    joint_state_topic: "/joint_states"
+    is_executing_topic: "/is_executing"
+    distance_topic: "/distance_to_box"
+    joint_state_out_topic: "/arm_joint_states"
+    near_limit_topic: "/near_joint_limit"
+    monitor_timer_ms: 100
+    box_x: 0.5
+    box_y: 0.0
+    box_z: 0.15
+    joint_limit_warning_threshold: 0.1
+    joint_upper_limits: [2.8973, 1.7628, 2.8973, -0.0698, 2.8973, 3.7525, 2.8973]
+    joint_lower_limits: [-2.8973, -1.7628, -2.8973, -3.0718, -2.8973, -0.0175, -2.8973]
