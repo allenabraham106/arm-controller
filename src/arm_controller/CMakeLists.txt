@@ -7,6 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_components REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(geometry_msgs REQUIRED)
@@ -16,16 +17,16 @@ find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-# WaypointCommand and WaypointStatus messages
+# GUICommand and WaypointStatus messages
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/WaypointCommand.msg"
+  "msg/GUICommand.msg"
   "msg/WaypointStatus.msg"
-  DEPENDENCIES std_msgs
+  DEPENDENCIES std_msgs geometry_msgs
 )
 
 ament_export_dependencies(rosidl_default_runtime)
 
-# ArmController library
+# ArmController library (legacy)
 add_library(arm_controller_lib
   src/arm_controller.cpp
 )
@@ -46,6 +47,68 @@ rosidl_get_typesupport_target(cpp_typesupport_target
   ${PROJECT_NAME} rosidl_typesupport_cpp)
 target_link_libraries(arm_controller_lib "${cpp_typesupport_target}")
 
+# WaypointManagerNode composable node
+add_library(waypoint_manager_node SHARED
+  src/waypoint_manager_node.cpp
+)
+target_include_directories(waypoint_manager_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(waypoint_manager_node
+  rclcpp
+  rclcpp_components
+  geometry_msgs
+  visualization_msgs
+  std_msgs
+)
+target_link_libraries(waypoint_manager_node "${cpp_typesupport_target}")
+rclcpp_components_register_node(waypoint_manager_node
+  PLUGIN "WaypointManagerNode"
+  EXECUTABLE waypoint_manager_node_exe
+)
+
+# ArmPlannerNode composable node
+add_library(arm_planner_node SHARED
+  src/arm_planner_node.cpp
+)
+target_include_directories(arm_planner_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(arm_planner_node
+  rclcpp
+  rclcpp_components
+  moveit_ros_planning_interface
+  geometry_msgs
+  std_msgs
+)
+target_link_libraries(arm_planner_node "${cpp_typesupport_target}")
+rclcpp_components_register_node(arm_planner_node
+  PLUGIN "ArmPlannerNode"
+  EXECUTABLE arm_planner_node_exe
+)
+
+# ArmMonitorNode composable node
+add_library(arm_monitor_node SHARED
+  src/arm_monitor_node.cpp
+)
+target_include_directories(arm_monitor_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(arm_monitor_node
+  rclcpp
+  rclcpp_components
+  sensor_msgs
+  geometry_msgs
+  std_msgs
+)
+rclcpp_components_register_node(arm_monitor_node
+  PLUGIN "ArmMonitorNode"
+  EXECUTABLE arm_monitor_node_exe
+)
+
 # Lifecycle node executable
 add_executable(arm_lifecycle_node src/arm_lifecycle_node.cpp)
 target_link_libraries(arm_lifecycle_node arm_controller_lib)
@@ -64,7 +127,12 @@ ament_target_dependencies(terminal_controller
   tf2_geometry_msgs
 )
 
-install(TARGETS arm_controller_lib arm_lifecycle_node terminal_controller
+install(TARGETS
+  arm_controller_lib
+  waypoint_manager_node
+  arm_planner_node
+  arm_lifecycle_node
+  terminal_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -73,6 +141,10 @@ install(DIRECTORY include/
 )
 
 install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
 )
 
