@@ -17,11 +17,11 @@ find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-# WaypointCommand and WaypointStatus messages
+# GUICommand and WaypointStatus messages
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/WaypointCommand.msg"
+  "msg/GUICommand.msg"
   "msg/WaypointStatus.msg"
-  DEPENDENCIES std_msgs
+  DEPENDENCIES std_msgs geometry_msgs
 )
 
 ament_export_dependencies(rosidl_default_runtime)

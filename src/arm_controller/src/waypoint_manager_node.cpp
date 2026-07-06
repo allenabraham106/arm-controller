@@ -5,12 +5,9 @@ WaypointManagerNode::WaypointManagerNode(const rclcpp::NodeOptions & options)
 : rclcpp::Node("waypoint_manager_node", options)
 {
     // Declare params
-    declare_parameter("clicked_point_topic", "/clicked_point");
-    declare_parameter("execute_waypoints_topic", "/execute_waypoints");
-    declare_parameter("clear_waypoints_topic", "/clear_waypoints");
-    declare_parameter("waypoint_command_topic", "/waypoint_command");
     declare_parameter("waypoint_markers_topic", "/waypoint_markers");
     declare_parameter("waypoint_status_topic", "/waypoint_status");
+    declare_parameter("gui_command_topic", "/gui_command");
     declare_parameter("waypoints_topic", "/waypoints");
     declare_parameter("marker_line_width", 0.01);
     declare_parameter("marker_sphere_size", 0.05);
@@ -23,13 +20,10 @@ WaypointManagerNode::WaypointManagerNode(const rclcpp::NodeOptions & options)
     declare_parameter("marker_alpha", 1.0);
 
     // Get params
-    std::string clicked_point_topic = get_parameter("clicked_point_topic").as_string();
-    std::string execute_waypoints_topic = get_parameter("execute_waypoints_topic").as_string();
-    std::string clear_waypoints_topic = get_parameter("clear_waypoints_topic").as_string();
-    std::string waypoint_command_topic = get_parameter("waypoint_command_topic").as_string();
     std::string waypoint_markers_topic = get_parameter("waypoint_markers_topic").as_string();
     std::string waypoint_status_topic = get_parameter("waypoint_status_topic").as_string();
     std::string waypoints_topic = get_parameter("waypoints_topic").as_string();
+    std::string gui_command_topic = get_parameter("gui_command_topic").as_string();
     marker_line_width_ = get_parameter("marker_line_width").as_double();
     marker_sphere_size_ = get_parameter("marker_sphere_size").as_double();
     marker_line_r_ = get_parameter("marker_line_r").as_double();
@@ -41,21 +35,9 @@ WaypointManagerNode::WaypointManagerNode(const rclcpp::NodeOptions & options)
     marker_alpha_ = get_parameter("marker_alpha").as_double();
 
     // Subscriptions
-    clicked_point_sub_ = create_subscription<geometry_msgs::msg::PointStamped>(
-        clicked_point_topic, 10,
-        std::bind(&WaypointManagerNode::onClickedPoint, this, std::placeholders::_1)
-    );
-    execute_waypoints_sub_ = create_subscription<std_msgs::msg::Empty>(
-        execute_waypoints_topic, 10,
-        std::bind(&WaypointManagerNode::onExecuteWaypoints, this, std::placeholders::_1)
-    );
-    clear_waypoints_sub_ = create_subscription<std_msgs::msg::Empty>(
-        clear_waypoints_topic, 10,
-        std::bind(&WaypointManagerNode::onClearWaypoints, this, std::placeholders::_1)
-    );
-    waypoint_command_sub_ = create_subscription<arm_controller::msg::WaypointCommand>(
-        waypoint_command_topic, 10,
-        std::bind(&WaypointManagerNode::onWaypointCommand, this, std::placeholders::_1)
+    gui_command_sub_ = create_subscription<arm_controller::msg::GUICommand>(
+        gui_command_topic, 10, 
+        std::bind(&WaypointManagerNode::onGUICommand, this, std::placeholders::_1)
     );
 
     // Publishers
@@ -72,31 +54,25 @@ WaypointManagerNode::WaypointManagerNode(const rclcpp::NodeOptions & options)
     RCLCPP_INFO(get_logger(), "WaypointManagerNode initialized");
 }
 
-void WaypointManagerNode::onClickedPoint(const geometry_msgs::msg::PointStamped::SharedPtr msg){
-    geometry_msgs::msg::Pose pose;
-    pose.position.x = msg->point.x;
-    pose.position.y = msg->point.y;
-    pose.position.z = msg->point.z;
-    pose.orientation.w = 1.0;
-    waypoints_.push_back(pose);
-    RCLCPP_INFO(get_logger(), "Waypoint %zu added => x: %.2f, y: %.2f, z: %.2f",
-        waypoints_.size(), msg->point.x, msg->point.y, msg->point.z
-    );
-    publishWaypointMarkers();
-}
-
-void WaypointManagerNode::onExecuteWaypoints(const std_msgs::msg::Empty::SharedPtr){
-    publishWaypoints();
-}
-
-void WaypointManagerNode::onClearWaypoints(const std_msgs::msg::Empty::SharedPtr){
-    clearAllWaypoints();
-}
-
-void WaypointManagerNode::onWaypointCommand(const arm_controller::msg::WaypointCommand::SharedPtr msg){
-    int index = msg->index;
-    arm_controller::msg::WaypointStatus status;
-    if(msg->type == arm_controller::msg::WaypointCommand::REMOVE){
+void WaypointManagerNode::onGUICommand(const arm_controller::msg::GUICommand::SharedPtr msg){
+    if(msg->type == arm_controller::msg::GUICommand::CLICK_WAYPOINT){
+         geometry_msgs::msg::Pose pose;
+        pose.position.x = msg->pose.position.x;
+        pose.position.y = msg->pose.position.y;
+        pose.position.z = msg->pose.position.z;
+        pose.orientation.w = 1.0;
+        waypoints_.push_back(pose);
+        RCLCPP_INFO(get_logger(), "Waypoint %zu added => x: %.2f, y: %.2f, z: %.2f",
+            waypoints_.size(), msg->pose.position.x, msg->pose.position.y, msg->pose.position.z
+        );
+        publishWaypointMarkers();
+    }else if(msg->type == arm_controller::msg::GUICommand::EXECUTE_WAYPOINTS){
+        publishWaypoints();
+    }else if(msg->type == arm_controller::msg::GUICommand::CLEAR_WAYPOINTS){
+        clearAllWaypoints();
+    } else if(msg->type == arm_controller::msg::GUICommand::REMOVE_WAYPOINT){
+        int index = msg->index;
+        arm_controller::msg::WaypointStatus status;
         if(is_executing_){
             status.result = arm_controller::msg::WaypointStatus::CURRENTLY_EXECUTING;
         } else if(index >= 0 && index < (int)waypoints_.size()){
@@ -106,8 +82,8 @@ void WaypointManagerNode::onWaypointCommand(const arm_controller::msg::WaypointC
         } else {
             status.result = arm_controller::msg::WaypointStatus::OUT_OF_RANGE;
         }
+        waypoint_status_pub_->publish(status);
     }
-    waypoint_status_pub_->publish(status);
 }
 
 void WaypointManagerNode::publishWaypointMarkers(){

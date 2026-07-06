@@ -12,7 +12,7 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/empty.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
-#include "arm_controller/msg/waypoint_command.hpp"
+#include "arm_controller/msg/gui_command.hpp"
 #include "arm_controller/msg/waypoint_status.hpp"
 #include <memory>
 #include <atomic>
@@ -48,7 +48,7 @@ class ArmController{
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr execute_waypoints_sub_;
         rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr clear_waypoints_sub_;
         rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
-        rclcpp::Subscription<arm_controller::msg::WaypointCommand>::SharedPtr waypoint_command_sub_;
+        rclcpp::Subscription<arm_controller::msg::GUICommand>::SharedPtr gui_command_sub_;
         rclcpp::Publisher<arm_controller::msg::WaypointStatus>::SharedPtr waypoint_status_pub_;
 
         // sets the declaration of the arm moving state to either true or false without being corrupted
@@ -63,7 +63,7 @@ class ArmController{
         bool executeWaypoints(); 
         void clearAllWaypoints();
         void publishWaypointMarkers();
-        void onWaypointCommand(const arm_controller::msg::WaypointCommand::SharedPtr msg);
+        void onGUICommand(const arm_controller::msg::GUICommand::SharedPtr msg);
         bool executeMove(const geometry_msgs::msg::Pose & target_pose);
 
         double marker_line_width_;
